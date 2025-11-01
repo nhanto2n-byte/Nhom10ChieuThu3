@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý Loại Sản phẩm</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* MENU DROPDOWN */
+    .header__top__left ul li.has-dropdown {
+      position: relative;
+    }
+
+    .header__top__left ul li.has-dropdown > a:focus,
+    .header__top__left ul li.has-dropdown > a:active {
+      outline: none !important;
+      -webkit-tap-highlight-color: transparent;
+      background-color: transparent !important;
+    }
+
+    .header__top__left ul li .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 100;
+      background-color: #333;
+      border: 1px solid #555;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      min-width: 200px;
+      padding: 5px 0;
+      list-style: none;
+    }
+
+    .header__top__left ul li.has-dropdown:hover>.dropdown {
+      display: block;
+    }
+
+    .header__top__left ul li .dropdown li a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      white-space: nowrap;
+    }
+
+    .header__top__left ul li .dropdown li a:hover {
+      background-color: #555;
+      color: #ffcc00;
+    }
+
+    /* GIAO DIỆN CHUNG */
+    body {
+      background: url('img/hero/hero-1.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Montserrat', sans-serif;
+      color: #222;
+    }
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 25px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 30px;
+    }
+
+    .table th {
+      background-color: #f1f3f9;
+    }
+
+    .btn-primary,
+    .btn-warning,
+    .btn-danger,
+    .btn-success,
+    .btn-secondary {
+      border-radius: 8px;
+    }
+
+    /* FORM */
+    .card-form {
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      margin-bottom: 30px;
+      transition: transform 0.3s, opacity 0.3s;
+      display: none;
+    }
+
+    .card-form h5 {
+      background: linear-gradient(90deg, #f6d365, #fda085);
+      padding: 12px 20px;
+      border-radius: 10px;
+      color: white;
+      margin-bottom: 25px;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-form input {
+      border-radius: 10px;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      transition: 0.3s;
+    }
+
+    .card-form input:focus {
+      border-color: #fda085;
+      box-shadow: 0 0 8px rgba(253, 160, 133, 0.4);
+      outline: none;
+    }
+
+    .card-form button {
+      border-radius: 10px;
+      padding: 8px 20px;
+      transition: 0.3s;
+    }
+
+    .card-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="header__top__inner">
+              <div class="header__top__left">
+                <ul>
+                  <li class="has-dropdown">
+                    Xin chào <strong>Admin</strong>
+                    <ul class="dropdown">
+                      <li><a href="./admin_login.html">Log out</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="header__logo">
+                <a href="#"><img src="img/logo.png" alt=""></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <nav class="header__menu mobile-menu">
+        <ul>
+          <li><a href="./admin_home.html">Home</a></li>
+          <li><a href="./admin_import.html">Quản Lý Đơn Hàng</a></li>
+          <li><a href="./admin_member.html">Quản Lý Khách Hàng</a></li>
+          <li class="active"><a href="#">Quản Lý Kho</a>
+            <ul class="dropdown">
+              <li><a href="./admin_category.html">Quản Lý Danh Mục</a></li>
+              <li><a href="./admin_import.html">Quản Lý Nhập Sản Phẩm</a></li>
+              <li><a href="./admin_selling.html">Quản Lý Giá Bán</a></li>
+              <li><a href="./admin_quantity.html">Quản Lý Số Lượng Tồn</a></li>
+              <li><a href="./admin_type.html">Quản Lý Loại Sản Phẩm</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <div class="container py-5">
+    <h2 class="text-center">Quản Lý Loại Sản Phẩm</h2>
+
+    <div class="text-end mb-3">
+      <button id="btnShowAdd" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Thêm loại sản phẩm</button>
+    </div>
+
+    <!-- FORM THÊM -->
+    <div class="card card-form" id="addForm">
+      <h5><i class="fa-solid fa-plus"></i> Thêm loại sản phẩm mới</h5>
+      <form id="formAdd">
+        <div class="mb-3">
+          <label for="addMa" class="form-label">Mã loại</label>
+          <input type="text" id="addMa" class="form-control" placeholder="Nhập mã loại...">
+        </div>
+        <div class="mb-3">
+          <label for="addTen" class="form-label">Tên loại sản phẩm</label>
+          <input type="text" id="addTen" class="form-control" placeholder="Nhập tên loại sản phẩm...">
+        </div>
+        <div class="text-end">
+          <button type="button" id="btnCancelAdd" class="btn btn-secondary"><i class="fa-solid fa-xmark"></i> Hủy</button>
+          <button type="submit" class="btn btn-success"><i class="fa-solid fa-save"></i> Lưu</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- DANH SÁCH -->
+    <div class="card">
+      <h5><i class="fa-solid fa-list"></i> Danh sách loại sản phẩm</h5>
+      <div class="table-responsive mt-3">
+        <table class="table table-bordered text-center align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Mã loại</th>
+              <th>Tên loại sản phẩm</th>
+              <th>Trạng Thái</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LSP001</td>
+              <td>Bánh kem</td>
+              <td>
+                <button class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-pen"></i> Sửa</button>
+                <button onclick="deleteProduct()" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Xóa</button>
+              </td>
+            </tr>
+            <tr>
+              <td>LSP002</td>
+              <td>Bánh Cupcake</td>
+              <td>
+                <button class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-pen"></i> Sửa</button>
+                <button onclick="deleteProduct()" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Xóa</button>
+              </td>
+            </tr>
+            <tr>
+              <td>LSP003</td>
+              <td>Bánh Mì</td>
+              <td>
+                <button class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-pen"></i> Sửa</button>
+                <button onclick="deleteProduct()" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Xóa</button>
+              </td>
+            </tr>
+            <tr>
+              <td>LSP004</td>
+              <td>Bánh Flan</td>
+              <td>
+                <button class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-pen"></i> Sửa</button>
+                <button onclick="deleteProduct()" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Xóa</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FORM SỬA -->
+    <div class="card card-form mt-4" id="editForm">
+      <h5><i class="fa-solid fa-pen"></i> Chỉnh sửa loại sản phẩm</h5>
+      <form id="formEdit">
+        <div class="mb-3">
+          <label for="editMa" class="form-label">Mã loại</label>
+          <input type="text" id="editMa" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="editTen" class="form-label">Tên loại sản phẩm</label>
+          <input type="text" id="editTen" class="form-control">
+        </div>
+        <div class="text-end">
+          <button type="button" id="btnCancel" class="btn btn-secondary"><i class="fa-solid fa-xmark"></i> Hủy</button>
+          <button type="submit" class="btn btn-success"><i class="fa-solid fa-save"></i> Lưu</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+  // ===== TẠO HÀM HIỂN THỊ THÔNG BÁO (TOAST) =====
+  function showToast(message, type = "success") {
+    // Tạo phần tử toast
+    const toast = document.createElement("div");
+    toast.className = `custom-toast ${type}`;
+    toast.innerHTML = `
+      <i class="fa-solid ${type === "success" ? "fa-circle-check" : "fa-circle-exclamation"}"></i>
+      <span>${message}</span>
+    `;
+
+    // Thêm vào body
+    document.body.appendChild(toast);
+
+    // Hiệu ứng xuất hiện
+    setTimeout(() => toast.classList.add("show"), 100);
+
+    // Tự động biến mất sau 3s
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => toast.remove(), 500);
+    }, 3000);
+  }
+
+  // ===== CSS CHO TOAST =====
+  const style = document.createElement("style");
+  style.innerHTML = `
+    .custom-toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(40, 167, 69, 0.95);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.4s ease;
+      z-index: 9999;
+    }
+    .custom-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .custom-toast.error {
+      background: rgba(220, 53, 69, 0.95);
+    }
+    .custom-toast i {
+      font-size: 18px;
+    }
+  `;
+  document.head.appendChild(style);
+
+  // ===== LOGIC CŨ NHƯNG ĐỔI ALERT → TOAST =====
+  document.addEventListener("DOMContentLoaded", () => {
+    const editForm = document.getElementById('editForm');
+    const addForm = document.getElementById('addForm');
+    const editMa = document.getElementById('editMa');
+    const editTen = document.getElementById('editTen');
+
+    document.getElementById('btnShowAdd').addEventListener('click', () => {
+      addForm.style.display = 'block';
+      editForm.style.display = 'none';
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+
+    document.getElementById('btnCancelAdd').addEventListener('click', () => {
+      addForm.style.display = 'none';
+    });
+
+    document.getElementById('formAdd').addEventListener('submit', e => {
+      e.preventDefault();
+      showToast(`Đã lưu: Mã = ${document.getElementById('addMa').value}, Tên = ${document.getElementById('addTen').value}`);
+      addForm.style.display = 'none';
+    });
+
+    document.querySelectorAll('.btn-edit').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const row = btn.closest('tr');
+        editMa.value = row.children[0].textContent.trim();
+        editTen.value = row.children[1].textContent.trim();
+        editForm.style.display = 'block';
+        addForm.style.display = 'none';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      });
+    });
+
+    document.getElementById('btnCancel').addEventListener('click', () => {
+      editForm.style.display = 'none';
+    });
+
+    document.getElementById('formEdit').addEventListener('submit', e => {
+      e.preventDefault();
+      showToast(`Đã cập nhật: Mã = ${editMa.value}, Tên = ${editTen.value}`);
+      editForm.style.display = 'none';
+    });
+  });
+
+  // ===== THAY THẾ XÓA BẰNG TOAST =====
+  function deleteProduct() {
+    showToast("Đã xóa sản phẩm", "error");
+  }
+</script>
+
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
