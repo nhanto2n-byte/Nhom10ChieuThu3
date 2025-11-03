@@ -7,7 +7,7 @@
     <meta name="keywords" content="Cake, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Shop</title>
+    <title>Check Out</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
@@ -82,8 +82,8 @@
 
         /* Hiệu ứng di chuột (hover) cho các mục con */
         .header__top__left ul li .dropdown li a:hover {
-            background-color: #0e0e0e; /* Nền xám nhẹ khi hover */
-            color: #e8bf18; /* Màu nổi bật khi hover */
+            background-color: #555; /* Nền xám nhẹ khi hover */
+            color: #ffcc00; /* Màu nổi bật khi hover */
         }
     </style>
 </head>
@@ -93,16 +93,17 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
+
     <!-- Offcanvas Menu Begin -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__cart">
             <div class="offcanvas__cart__links">
                 <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                <a href="#"><img src="img/icon/heart.png" alt=""></a>
+                <a href="./wisslist.html"><img src="img/icon/heart.png" alt=""></a>
             </div>
             <div class="offcanvas__cart__item">
-                <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                <a href="./shoping-cart.html"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
                 <div class="cart__price">Cart: <span>0đ</span></div>
             </div>
         </div>
@@ -112,7 +113,7 @@
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__option">
             <ul>
-                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
+                <li><a href="./login.html">Sign in</a> <span class="arrow_carrot-down"></span></li>
             </ul>
         </div>
     </div>
@@ -149,7 +150,7 @@
                                 </div>
                                 <div class="header__top__right__cart">
                                     <a href="./shoping-cart.html"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                                    <div class="cart__price">Cart: <span>0đ</span></div>
+                                    <div class="cart__price">Cart: <span>200.000đ</span></div>
                                 </div>
                             </div>
                         </div>
@@ -179,233 +180,161 @@
             </div>
         </div>
     </header>
-     <!-- Breadcrumb Begin -->
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__text">
-                        <h2>DÂU</h2>
+                        <h2>Checkout</h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__links">
-                        <a href="./shop.html">Shop</a>
-                        <span>Dâu</span>
+                        <a href="./index.html">Home</a>
+                          <a href="./shop_history.html">Home</a>
+                        <span>Checkout</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Breadcrumb End -->
-    <!-- Header Section End -->
 
-    <!-- Breadcrumb Begin -->
-    <!-- Breadcrumb Begin -->
-<!-- Breadcrumb Begin -->
-<div class="breadcrumb-option" 
-     style="
-        padding: 50px 0; 
-        background-image: url('#'); 
-        background-size: cover; 
-        background-position: center; 
-        background-repeat: no-repeat;
-        position: relative;
-    ">
-
-    <!-- lớp phủ mờ nhẹ -->
-    <div style="
-        position: absolute;
-        inset: 0;
-        background: rgba(255, 255, 255, 0.35); /* giảm mờ từ 0.7 xuống 0.35 */
-    "></div>
-
-    <div class="container" style="position: relative; z-index: 2;">
-        <div class="row align-items-center">
-
-           
-
-            <!-- Liên kết breadcrumb bên phải -->
-            <div class="col-lg-6 col-md-6 col-sm-12 text-right">
-                <div class="breadcrumb__links">
-            
-
-                </div>
-            </div>
-        </div>
-
-       
-<!-- Breadcrumb End -->
-
-<!-- Hiệu ứng hover -->
-<style>
-button:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-}
-</style>
-    <!-- Shop Section Begin -->
-    <section class="shop spad">
+    <!-- Checkout Section Begin -->
+    <section class="checkout spad">
         <div class="container">
-            <div class="shop__option">
-                <div class="row">
-                    <div class="col-lg-7 col-md-7">
-                        <div class="shop__option__search">
-                            <form action="shoptimkiem.html">
-                              
-                                <input type="text" placeholder="Search">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                   <div class="col-lg-5 col-md-5">
-    <div class="shop__option__right">
-        <select onchange="if (this.value) window.location.href=this.value;">
-            <option value="">Khoảng Giá</option>
-            <option value="giátype.html">Từ: 30k - 50k</option>
-            <option value="giátype.html">Từ: 50k - 70k</option>
-            <option value="giátype.html">Từ: 70k - 100k</option>
-        </select>
-    </div>
-</div>
+            <div class="checkout__form">
+                <form action="#">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <h6 class="checkout__title">Billing Details</h6>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>First Name<span>*</span></p>
+                                        <input type="text" value="Đào Hữu">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Last Name<span>*</span></p>
+                                        <input type="text" value="Tài">
+                                    </div>
+                                </div>
+                            </div>
 
-                </div>
+                            <div class="checkout__input">
+                                <p>Country<span>*</span></p>
+                                <input type="text" value="Việt Nam">
+                            </div>
+
+                            <div class="checkout__input">
+                                <p>Address<span>*</span></p>
+                                <input type="text" placeholder="Street Address" class="checkout__input__add" 
+                                    value="Đường số 19, Phú Mỹ, Quận 7, Thành phố Hồ Chí Minh">
+                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)" 
+                                    value="Chateau Villa">
+                            </div>
+
+                            <div class="checkout__input">
+                                <p>Town/City<span>*</span></p>
+                                <input type="text" value="Thành phố Hồ Chí Minh">
+                            </div>
+
+                            <div class="checkout__input">
+                                <p>Country/State<span>*</span></p>
+                                <input type="text" value="Việt Nam">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Phone<span>*</span></p>
+                                        <input type="text" value="+84-333-588-320">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Email<span>*</span></p>
+                                        <input type="text" value="taidaoxo@gmail.com">
+                                    </div>
+                                </div>
+                            </div>
+                          
+                            <div class="checkout__input__checkbox">
+                                <label for="diff-acc">
+                                    Note about your order, e.g, special note for delivery
+                                    <input type="checkbox" id="diff-acc">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Order notes<span>*</span></p>
+                                <input type="text"
+                                placeholder="Notes about your order, e.g. special notes for delivery.">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="checkout__order">
+                            <h6 class="order__title">Bill</h6>
+                            <div class="checkout__order__products">Sản Phẩm  <span>Giá</span></div>
+                            <ul class="checkout__total__products">
+                                <li><samp>01.</samp> Vanilla salted caramel <span>70.000đ</span></li>
+                                <li><samp>02.</samp> German chocolate <span>15.000đ</span></li>
+                                <li><samp>03.</samp> Sweet autumn <span>50.000đ</span></li>
+                                <li><samp>04.</samp> Cluten free mini dozen <span>50.000đ</span></li>
+                            </ul>
+                            <ul class="checkout__total__all">
+                                 <li>Phí VAT : <span>5.000đ</span></li>
+                                <li> Tổng Mua : <span>195.000đ</span></li>
+                                <li>Tổng Thu : <span>200.000đ</span></li>
+                            </ul>
+
+                            <!-- Hình thức thanh toán (radio) -->
+                            <div class="checkout__input__checkbox">
+                                <label for="cash">
+                                    Cash
+                                    <input type="radio" id="cash" name="payment-method" checked>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="transfer">
+                                    Transfer
+                                    <input type="radio" id="transfer" name="payment-method">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="online">
+                                    Online Payment
+                                    <input type="radio" id="online" name="payment-method">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+
+                            <!-- Hai nút hành động cạnh nhau -->
+                            <!-- Hai nút hành động cạnh nhau -->
+<div class="checkout__buttons">
+    <a href="./shoping-cart.html" class="site-btn back-btn">
+        ← Quay Lại Giỏ Hàng
+    </a>
+    <button type="button" class="site-btn order-btn" onclick="alert('Thanh Toán Thành Công!')">
+    Thanh Toán
+</button>
+</div>
+                        </div>
+
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-1.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="shop-chitiet.html">Dozen Cupcakes</a></h6>
-                            <div class="product__item__price">70.000đ</div>
-                            <div class="cart_add">
-                                <a href="./shoping-cart.html">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-2.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="shop-chitiet.html">Cookies and Cream</a></h6>
-                            <div class="product__item__price">50.000đ</div>
-                            <div class="cart_add">
-                                <a href="./shoping-cart.html">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-3.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="shop-chitiet.html">Gluten Free Mini Dozen</a></h6>
-                            <div class="product__item__price">36.000đ</div>
-                            <div class="cart_add">
-                                <a href="./shoping-cart.html">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-4.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="shop-chitiet.html">Cookie Dough</a></h6>
-                            <div class="product__item__price">55.000đ</div>
-                            <div class="cart_add">
-                                <a href="./shoping-cart.html">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-5.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="shop-chitiet.html">Vanilla Salted Caramel</a></h6>
-                            <div class="product__item__price">20.000đ</div>
-                            <div class="cart_add">
-                                <a href="./shoping-cart.html">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-6.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="shop-chitiet.html">German Chocolate</a></h6>
-                            <div class="product__item__price">30.000đ</div>
-                            <div class="cart_add">
-                                <a href="./shoping-cart.html">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-7.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="shop-chitiet.html">Dulce De Leche</a></h6>
-                            <div class="product__item__price">37.000đ</div>
-                            <div class="cart_add">
-                                <a href="./shoping-cart.html">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-8.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="shop-chitiet.html">Mississippi Mud</a></h6>
-                            <div class="product__item__price">15.000đ</div>
-                            <div class="cart_add">
-                                <a href="./shoping-cart.html">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-           
         </div>
     </section>
-    <!-- Shop Section End -->
+    <!-- Checkout Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
@@ -427,6 +356,8 @@ button:hover {
                             <a href="#"><img src="img/footer-logo.png" alt=""></a>
                         </div>
                         <p>Cảm ơn các bạn rất nhiều.</p>
+                        <div class="footer__social">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -457,4 +388,5 @@ button:hover {
 <script src="js/jquery.nicescroll.min.js"></script>
 <script src="js/main.js"></script>
 </body>
+
 </html>
