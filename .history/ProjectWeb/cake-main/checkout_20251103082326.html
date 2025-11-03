@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Cake Template">
+    <meta name="keywords" content="Cake, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Check Out</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <style>
+        /* Thông báo đặt hàng */
+        .order-message {
+            text-align: center;
+            color: green;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 30px;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <!-- Giữ nguyên header cũ của bạn -->
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="breadcrumb__text">
+                        <h2>Checkout</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="breadcrumb__links">
+                        <a href="./index.html">Home</a>
+                        <span>Checkout</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Checkout Section Begin -->
+    <section class="checkout spad">
+        <div class="container">
+            <div class="checkout__form">
+                <!-- ✅ Form gửi về chính trang -->
+                <form method="POST">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <h6 class="checkout__title">Billing Details</h6>
+                            <!-- (Nội dung billing giữ nguyên của bạn) -->
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="checkout__order">
+                                <h6 class="order__title">Bill</h6>
+                                <div class="checkout__order__products">Sản Phẩm <span>Giá</span></div>
+                                <ul class="checkout__total__products">
+                                    <li><samp>01.</samp> Vanilla salted caramel <span>70.000đ</span></li>
+                                    <li><samp>02.</samp> German chocolate <span>15.000đ</span></li>
+                                    <li><samp>03.</samp> Sweet autumn <span>50.000đ</span></li>
+                                    <li><samp>04.</samp> Cluten free mini dozen <span>50.000đ</span></li>
+                                </ul>
+                                <ul class="checkout__total__all">
+                                    <li>Phí VAT : <span>5.000đ</span></li>
+                                    <li>Tổng Mua : <span>195.000đ</span></li>
+                                    <li>Tổng Thu : <span>200.000đ</span></li>
+                                </ul>
+
+                                <div class="checkout__input__checkbox">
+                                    <label for="cash">
+                                        Cash
+                                        <input type="radio" id="cash" name="payment-method" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                    <label for="transfer">
+                                        Transfer
+                                        <input type="radio" id="transfer" name="payment-method">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                    <label for="online">
+                                        Online Payment
+                                        <input type="radio" id="online" name="payment-method">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+
+                                <div class="checkout__buttons">
+                                    <a href="./shoping-cart.html" class="site-btn back-btn">
+                                        ← BACK TO CART
+                                    </a>
+                                    <button type="submit" class="site-btn order-btn">
+                                        PLACE ORDER
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- ✅ Hiển thị thông báo chỉ khi bấm nút -->
+                <?php
+                if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                    echo '<div class="order-message">🎉 Quý khách đã đặt hàng thành công! Cảm ơn quý khách ❤️</div>';
+                }
+                ?>
+            </div>
+        </div>
+    </section>
+    <!-- Checkout Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>WORKING HOURS</h6>
+                        <ul>
+                            <li>Monday - Friday: 08:00 am – 08:30 pm</li>
+                            <li>Saturday: 10:00 am – 16:30 pm</li>
+                            <li>Sunday: 10:00 am – 16:30 pm</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        </div>
+                        <p>Cảm ơn các bạn rất nhiều.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.barfiller.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

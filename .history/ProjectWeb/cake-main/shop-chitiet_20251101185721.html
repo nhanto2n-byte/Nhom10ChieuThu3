@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Cake Template">
+    <meta name="keywords" content="Cake, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shop Details</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+        <style>
+        /* ==================================== */
+        /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */
+        /* ==================================== */
+
+        /* 1. Thiết lập vị trí tương đối cho mục cha */
+        .header__top__left ul li.has-dropdown {
+            position: relative; 
+        }
+
+        /* KHẮC PHỤC LỖI TÔ ĐEN TRÊN LIÊN KẾT CHA */
+        .header__top__left ul li.has-dropdown > a:focus,
+        .header__top__left ul li.has-dropdown > a:active {
+            /* Dùng !important để ghi đè CSS từ file style.css nếu cần */
+            outline: none !important; 
+            -webkit-tap-highlight-color: transparent; 
+            background-color: transparent !important;
+        }
+
+        /* 2. Thiết lập trạng thái mặc định (ẨN) cho dropdown */
+        .header__top__left ul li .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0; 
+            z-index: 100;
+
+            /* NỀN ĐẬM CHO CHỮ TRẮNG NỔI BẬT */
+            background-color: #333; /* Nền xám/đen đậm */
+            border: 1px solid #555;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            padding: 5px 0;
+            list-style: none; /* Loại bỏ dấu chấm */
+        }
+
+        /* 3. Hiển thị menu khi di chuột vào mục cha */
+        .header__top__left ul li.has-dropdown:hover > .dropdown {
+            display: block;
+        }
+
+        /* 4. Định kiểu cho các mục con trong menu */
+        .header__top__left ul li .dropdown li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            
+            /* MÀU CHỮ TRẮNG */
+            color: white; 
+            
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        /* Hiệu ứng di chuột (hover) cho các mục con */
+        .header__top__left ul li .dropdown li a:hover {
+            background-color: #555; /* Nền xám nhẹ khi hover */
+            color: #ffcc00; /* Màu nổi bật khi hover */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__cart">
+            <div class="offcanvas__cart__links">
+                <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+                <a href="#"><img src="img/icon/heart.png" alt=""></a>
+            </div>
+            <div class="offcanvas__cart__item">
+                <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                <div class="cart__price">Cart: <span>0đ</span></div>
+            </div>
+        </div>
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__option">
+            <ul>
+                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header__top__inner">
+                            <div class="header__top__left">
+                                <ul>
+                                    <li class="has-dropdown">
+                                    <a href="./profile.html">
+                                            Xin chào <strong>Đào Hữu Tài</strong> 
+                                            <span class="arrow_carrot-down"></span> 
+                                    </a>
+                                        <ul class="dropdown">
+                                            <li><a href="./profile.html">My Profile</a></li> 
+                                            <li><a href="./register.html">Log out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header__logo">
+                                <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            </div>
+                            <div class="header__top__right">
+                                <div class="header__top__right__links">
+                                    <a href="./wisslist.html"><img src="img/icon/heart.png" alt=""></a>
+                                </div>
+                                <div class="header__top__right__cart">
+                                    <a href="./shoping-cart.html"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                                    <div class="cart__price">Cart: <span>0đ</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="./index.html">Home</a></li>
+                            <li class="active"><a href="./shop.html">Shop</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    
+                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./wisslist.html">Wishlist</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="breadcrumb__text">
+                        <h2>Chi Tiết Sản</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="breadcrumb__links">
+                        <a href="./index.html">Home</a>
+                        <a href="./shop.html">Shop</a>
+                        <span>Chi Tiết Sản Phầm</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Shop Details Section Begin -->
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="product__details__img">
+                        <div class="product__details__big__img">
+                            <img class="big_img" src="img/shop/details/product-big-1.jpg" alt="">
+                        </div>
+                        <div class="product__details__thumb">
+                            <div class="pt__item active">
+                                <img data-imgbigurl="img/shop/details/product-big-2.jpg"
+                                src="img/shop/details/product-big-2.jpg" alt="">
+                            </div>
+                            <div class="pt__item">
+                                <img data-imgbigurl="img/shop/details/product-big-1.jpg"
+                                src="img/shop/details/product-big-1.jpg" alt="">
+                            </div>
+                            <div class="pt__item">
+                                <img data-imgbigurl="img/shop/details/product-big-4.jpg"
+                                src="img/shop/details/product-big-4.jpg" alt="">
+                            </div>
+                            <div class="pt__item">
+                                <img data-imgbigurl="img/shop/details/product-big-3.jpg"
+                                src="img/shop/details/product-big-3.jpg" alt="">
+                            </div>
+                            <div class="pt__item">
+                                <img data-imgbigurl="img/shop/details/product-big-5.jpg"
+                                src="img/shop/details/product-big-5.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="product__details__text">
+                        <div class="product__label">Cupcake</div>
+                        <h4>SWEET AUTUMN LEAVES</h4>
+                         <h5> SP001 </h5>
+                        <h5>70.000đ</h5>
+                        <p>........</p>
+                        <ul>
+                           
+                            <li>Thành Phần <span>SP001</span></li>
+                            <li>Hương Vị <span>Biscuit cake</span></li>
+                            <li>Kích Thước <span> Cake Shop </span></li>
+                            <li>Bảo Quản  <span> Việt Nam </span></li>
+                    
+                        </ul>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="product__details__tab">
+                <div class="col-lg-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Description</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Additional information</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Previews(1)</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-8">
+                                    <p>Chiếc bánh dâu tây thơm ngon tuyệt hảo này là một món quà ngọt ngào chứa đầy những miếng dâu tây tươi mọng hấp dẫn. Được làm từ những nguyên liệu tươi ngon nhất, chỉ một miếng cắn cũng đủ khiến bạn như lạc vào mùa hè rực rỡ.
+Mỗi phần bánh được đóng gói trong hộp quà sang trọng, đi kèm thiệp chúc mừng mà bạn có thể tùy chỉnh lời nhắn trực tuyến – một món quà hoàn hảo dành tặng người thân yêu!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-8">
+                                    <p>Bánh Dâu Tây được làm thủ công từ những nguyên liệu tươi ngon nhất như dâu tây chín mọng, bột mì hảo hạng, bơ, đường, kem sữa và trứng gà. Bánh có đường kính khoảng 18 cm, phù hợp cho 6–8 phần ăn. Sản phẩm được bảo quản lạnh ở nhiệt độ từ 2–5°C và có hạn sử dụng trong 3 ngày kể từ ngày sản xuất. Mỗi chiếc bánh được đóng gói cẩn thận trong hộp quà sang trọng, đi kèm thiệp chúc mừng mà bạn có thể tùy chỉnh lời nhắn theo ý muốn. Đây là món quà lý tưởng cho các dịp như sinh nhật, lễ tình nhân, tiệc trà hay để gửi tặng người thân yêu.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-3" role="tabpanel">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-8">
+                                    <p>Bánh Dâu Tây tươi ngon, hòa quyện vị ngọt thanh và vị chua nhẹ tự nhiên của dâu tây mọng nước. Lớp vỏ giòn tan, phần nhân mềm mịn mang đến hương vị mùa hè trọn vẹn trong từng miếng bánh.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shop Details Section End -->
+
+    <!-- Related Products Section Begin -->
+    <section class="related-products spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <h2>Related Products</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="related__products__slider owl-carousel">
+                    <div class="col-lg-3">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="img/shop/product-1.jpg">
+                                <div class="product__label">
+                                    <span>Cupcake</span>
+                                </div>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">Dozen Cupcakes</a></h6>
+                                <div class="product__item__price">50.000đ</div>
+                                <div class="cart_add">
+                                    <a href="./shoping-cart.html">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="img/shop/product-2.jpg">
+                                <div class="product__label">
+                                    <span>Cupcake</span>
+                                </div>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">Cookies and Cream</a></h6>
+                                <div class="product__item__price">55.000đ</div>
+                                <div class="cart_add">
+                                    <a href="./shoping-cart.html">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="img/shop/product-3.jpg">
+                                <div class="product__label">
+                                    <span>Cupcake</span>
+                                </div>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">Gluten Free Mini Dozen</a></h6>
+                                <div class="product__item__price">60.000đ</div>
+                                <div class="cart_add">
+                                    <a href="./shoping-cart.html">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="img/shop/product-4.jpg">
+                                <div class="product__label">
+                                    <span>Cupcake</span>
+                                </div>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">Cookie Dough</a></h6>
+                                <div class="product__item__price">30.000đ</div>
+                                <div class="cart_add">
+                                    <a href="./shoping-cart.html">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="img/shop/product-5.jpg">
+                                <div class="product__label">
+                                    <span>Cupcake</span>
+                                </div>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">Vanilla Salted Caramel</a></h6>
+                                <div class="product__item__price">15.000đ</div>
+                                <div class="cart_add">
+                                    <a href="./shoping-cart.html">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="img/shop/product-6.jpg">
+                                <div class="product__label">
+                                    <span>Cupcake</span>
+                                </div>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">German Chocolate</a></h6>
+                                <div class="product__item__price">36.000đ</div>
+                                <div class="cart_add">
+                                    <a href="./shoping-cart.html">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Related Products Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>WORKING HOURS</h6>
+                        <ul>
+                            <li>Monday - Friday: 08:00 am – 08:30 pm</li>
+                            <li>Saturday: 10:00 am – 16:30 pm</li>
+                            <li>Sunday: 10:00 am – 16:30 pm</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        </div>
+                        <p>Cảm ơn các bạn rất nhiều.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Search Begin -->
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch">+</div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
+</div>
+<!-- Search End -->
+
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.barfiller.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý danh mục sản phẩm</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+  <style>
+   body {
+    background: url('img/hero/hero-1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
+  }
+
+  h2 {
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #222;
+  }
+
+  .card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.9); /* 💡 nền trắng mờ để đọc rõ trên ảnh */
+  }
+
+  .table th {
+    background-color: #f1f3f9;
+  }
+
+  input[name="page"] {
+    display: none;
+  }
+
+  #page1Content,
+  #page2Content {
+    display: none;
+    animation: fade 0.4s ease;
+  }
+
+  #page1:checked~.book #page1Content {
+    display: block;
+  }
+
+  #page2:checked~.book #page2Content {
+    display: block;
+  }
+
+  .controls {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .controls label {
+    display: inline-block;
+    background-color: #e9ecef;
+    border-radius: 20px;
+    padding: 6px 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+  }
+
+  #page1:checked~.controls label[for="page1"],
+  #page2:checked~.controls label[for="page2"] {
+    background-color: #0d6efd;
+    color: white;
+  }
+
+  @keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .btn-add {
+    margin-bottom: 20px;
+  }
+  </style>
+  <style>
+        /* ==================================== */
+        /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */
+        /* ==================================== */
+
+        /* 1. Thiết lập vị trí tương đối cho mục cha */
+        .header__top__left ul li.has-dropdown {
+            position: relative; 
+        }
+
+        /* KHẮC PHỤC LỖI TÔ ĐEN TRÊN LIÊN KẾT CHA */
+        .header__top__left ul li.has-dropdown > a:focus,
+        .header__top__left ul li.has-dropdown > a:active {
+            /* Dùng !important để ghi đè CSS từ file style.css nếu cần */
+            outline: none !important; 
+            -webkit-tap-highlight-color: transparent; 
+            background-color: transparent !important;
+        }
+
+        /* 2. Thiết lập trạng thái mặc định (ẨN) cho dropdown */
+        .header__top__left ul li .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0; 
+            z-index: 100;
+
+            /* NỀN ĐẬM CHO CHỮ TRẮNG NỔI BẬT */
+            background-color: #333; /* Nền xám/đen đậm */
+            border: 1px solid #555;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            padding: 5px 0;
+            list-style: none; /* Loại bỏ dấu chấm */
+        }
+
+        /* 3. Hiển thị menu khi di chuột vào mục cha */
+        .header__top__left ul li.has-dropdown:hover > .dropdown {
+            display: block;
+        }
+
+        /* 4. Định kiểu cho các mục con trong menu */
+        .header__top__left ul li .dropdown li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            
+            /* MÀU CHỮ TRẮNG */
+            color: white; 
+            
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        /* Hiệu ứng di chuột (hover) cho các mục con */
+        .header__top__left ul li .dropdown li a:hover {
+            background-color: #555; /* Nền xám nhẹ khi hover */
+            color: #ffcc00; /* Màu nổi bật khi hover */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header__top__inner">
+                            <div class="header__top__left">
+                                <ul>
+                                    <li class="has-dropdown">
+                                    
+                                            Xin chào <strong>Admin</strong> 
+                                            <span class="arrow_carrot-down"></span> 
+                                    </a>
+                                        <ul class="dropdown">
+                                            
+                                            <li><a href="./admin_login.html">Log out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header__logo">
+                                <a href="./#.html"><img src="img/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                          <li><a href="./admin_home.html">Home</a></li>
+                            <li><a href="./admin_product.html">Quản Lý Đơn Hàng</a></li>
+                            <li><a href="./admin_member.html">Quản Lý Khách Hàng</a></li>
+                            <li class="active"><a href="#">Quản Lý Kho</a>
+                                <ul class="dropdown">
+                                    <li><a href="./admin_category.html">Quản Lý Danh Mục Sản Phẩm</a></li>
+                                    <li><a href="./admin_import.html">Quản Lý Nhập Sản Phẩm</a></li>
+                                    <li><a href="./admin_selling.html">Quản Lý Giá Bán</a></li>
+                                    <li><a href="./admin_quantity.html">Quản Lý Số Lượng Tồn</a></li>
+                                    <li><a href="./admin_type.html">Quản Lý Loại Sản Phẩm</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+  <div class="container py-5">
+    <h2 class="text-center"> Quản Lý Danh Mục Sản Phẩm</h2>
+        <div class="card mb-4">
+            <div class="row g-3 align-items-end">
+                <div class="col-lg-6">
+                    <label for="searchInput" class="form-label"><strong>Tìm theo tên sản phẩm:</strong></label>
+                    <input type="text" class="form-control" id="searchInput" placeholder="Nhập tên bánh cupcake...">
+                </div>
+                
+                <div class="col-lg-4">
+                    <label for="categoryFilter" class="form-label"><strong>Hoặc chọn nhanh loại bánh:</strong></label>
+                    <select class="form-select" id="categoryFilter">
+                        <option value="all" selected>Tất cả loại vị</option>
+                        <option value="Cupcake">Socola</option>
+                        <option value="Cookies">Dâu</option>
+                        <option value="Pastries">Caramel</option>
+                        </select>
+                </div>
+
+                <div class="col-lg-2">
+                    <button class="btn btn-primary w-100" id="searchButton"><i class="fa fa-search"></i> Lọc</button>
+                </div>
+            </div>
+        </div>
+    <!-- Nút thêm -->
+    <div class="text-end mb-3">
+      
+ <div class="text-end mb-3">
+      <button class="btn btn-success btn-add" data-bs-toggle="modal" data-bs-target="#addModal">
+        <i class="fa fa-plus"></i> Thêm sản phẩm
+      </button>
+    </div>
+
+    <input type="radio" name="page" id="page1" checked>
+    <input type="radio" name="page" id="page2">
+
+    <div class="book">
+      <div id="page1Content" class="card bg-white">
+        <h5><i class="fa-solid fa-tags"></i> Danh mục sản phẩm (C001 - C010)</h5>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center align-middle">
+  <thead class="table-light">
+  <tr>
+    <th>Mã DM</th>
+    <th>Tên danh mục</th>
+    <th>Hình ảnh</th>
+    <th>Mô tả</th>
+    <th>Loại</th>
+    <th>Trạng thái</th>
+    <th>Thao tác</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>#C001</td>
+    <td>Dozen Cupcakes</td>
+    <td>
+      <img src="img/shop/product-1.jpg" alt="Dozen Cupcakes" 
+           width="70" style="border-radius: 10px; object-fit: cover;">
+    </td>
+    <td>Bộ 12 chiếc cupcake đa dạng hương vị, mềm mịn và ngọt ngào, hoàn hảo cho mọi buổi tiệc hoặc làm quà tặng.</td>
+    <td>Cupcake</td>
+    <td><span class="badge bg-success">Hiển thị</span></td>
+    <td>
+      <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+        <i class="fa fa-edit"></i>
+      </button>
+      <button class="btn btn-secondary btn-sm btn-hide">
+        <i class="fa fa-eye-slash"></i>
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>#C002</td>
+    <td>Gluten Free Mini Dozen</td>
+    <td>
+      <img src="img/shop/product-3.jpg" alt="Gluten Free Mini Dozen" 
+           width="70" style="border-radius: 10px; object-fit: cover;">
+    </td>
+    <td>12 chiếc mini cupcake không gluten, thơm ngon tự nhiên, phù hợp cho người ăn kiêng hoặc nhạy cảm với gluten.</td>
+    <td>Cupcake</td>
+    <td><span class="badge bg-success">Hiển thị</span></td>
+    <td>
+      <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+        <i class="fa fa-edit"></i>
+      </button>
+      <button class="btn btn-secondary btn-sm btn-hide">
+        <i class="fa fa-eye-slash"></i>
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>#C003</td>
+    <td>Cookie Dough</td>
+    <td>
+      <img src="img/shop/product-4.jpg" alt="Cookie Dough" 
+           width="70" style="border-radius: 10px; object-fit: cover;">
+    </td>
+    <td>Cupcake hương cookie dough béo ngậy, phủ kem vani mịn và vụn bánh quy giòn tan.</td>
+    <td>Cupcake</td>
+    <td><span class="badge bg-secondary">Ẩn</span></td>
+    <td>
+      <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+        <i class="fa fa-edit"></i>
+      </button>
+      <button class="btn btn-success btn-sm btn-show">
+        <i class="fa fa-eye"></i>
+      </button>
+    </td>
+  </tr>
+</tbody>
+
+
+          </table>
+        </div>
+      </div>
+
+      <div id="page2Content" class="card bg-white">
+  <h5><i class="fa-solid fa-tags"></i> Danh mục sản phẩm (C011 - C020)</h5>
+  <div class="table-responsive">
+    <table class="table table-bordered text-center align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Mã DM</th>
+          <th>Tên danh mục</th>
+          <th>Hình ảnh</th>
+          <th>Mô tả</th>
+          <th>Loại</th>
+          <th>Trạng thái</th>
+          <th>Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#C011</td>
+          <td>Vanilla Salted Caramel</td>
+          <td>
+            <img src="img/shop/product-5.jpg" alt="Vanilla Salted Caramel" 
+                 style="width:70px; height:70px; object-fit:cover; border-radius:10px;">
+          </td>
+          <td>Bánh vani mềm mịn hòa quyện cùng lớp caramel muối mặn ngọt tinh tế, tạo nên hương vị cân bằng hoàn hảo.</td>
+          <td>Cupcake</td>
+          <td><span class="badge bg-success">Hiển thị</span></td>
+          <td>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+              <i class="fa fa-edit"></i>
+            </button>
+            <button class="btn btn-secondary btn-sm btn-hide">
+              <i class="fa fa-eye-slash"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>#C012</td>
+          <td>German Chocolate</td>
+          <td>
+            <img src="img/shop/product-6.jpg" alt="German Chocolate" 
+                 style="width:70px; height:70px; object-fit:cover; border-radius:10px;">
+          </td>
+          <td>Cupcake chocolate đậm đà kết hợp nhân dừa và hạt óc chó truyền thống, chuẩn vị bánh Đức cổ điển.</td>
+          <td>Cupcake</td>
+          <td><span class="badge bg-secondary">Ẩn</span></td>
+          <td>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+              <i class="fa fa-edit"></i>
+            </button>
+            <button class="btn btn-success btn-sm btn-show">
+              <i class="fa fa-eye"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <label for="page1">Trang 1</label>
+      <label for="page2">Trang 2</label>
+    </div>
+  </div>
+
+ <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title"><i class="fa fa-edit"></i> Sửa sản phẩm</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Mã sản phẩm</label>
+              <input type="text" class="form-control" value="#C001" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tên sản phẩm</label>
+              <input type="text" class="form-control" value="Dozen Cupcakes">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Ảnh sản phẩm</label>
+                
+                <div id="currentImages" class="d-flex flex-wrap gap-2 mb-2">
+                    <div class="image-preview-item position-relative">
+                        <img src="img/shop/product-1.jpg" class="img-fluid rounded" style="width: 100px; height: 100px; object-fit: cover;" alt="Product Image">
+                        <button type="button" class="btn-close-img btn-sm btn btn-danger position-absolute top-0 end-0" aria-label="Remove image"></button>
+                    </div>
+                    <div class="image-preview-item position-relative">
+                        <img src="img/shop/product-3.jpg" class="img-fluid rounded" style="width: 100px; height: 100px; object-fit: cover;" alt="Product Image">
+                        <button type="button" class="btn-close-img btn-sm btn btn-danger position-absolute top-0 end-0" aria-label="Remove image"></button>
+                    </div>
+                </div>
+
+                <label for="multiImageUpload" class="form-label">Tải lên ảnh mới</label>
+                <input class="form-control" type="file" id="multiImageUpload" accept="image/*" multiple>
+                
+                <div id="newImagesPreview" class="d-flex flex-wrap gap-2 mt-2">
+                </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Loại</label>
+              <textarea class="form-control" rows="2">Cupcake</textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Mô tả</label>
+              <textarea class="form-control" rows="4">Bộ 12 chiếc cupcake đa dạng hương vị, mềm mịn và ngọt ngào, hoàn hảo cho mọi buổi tiệc hoặc làm quà tặng.</textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+          <button class="btn btn-warning">Lưu thay đổi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title"><i class="fa fa-edit"></i> Sửa sản phẩm</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Mã sản phẩm</label>
+              <input type="text" class="form-control" value="#C001" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tên sản phẩm</label>
+              <input type="text" class="form-control" value="Dozen Cupcakes">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Hình ảnh hiện tại</label>
+                <img src="img/shop/product-1.jpg" id="imagePreview" class="img-fluid rounded mb-2" alt="Preview" style="max-height: 150px;">
+                <label for="imageUpload" class="form-label">Chọn ảnh mới</label>
+                <input class="form-control" type="file" id="imageUpload" accept="image/*">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Loại</label>
+              <textarea class="form-control" rows="2">Cupcake</textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Mô tả</label>
+              <textarea class="form-control" rows="4">Bộ 12 chiếc cupcake đa dạng hương vị, mềm mịn và ngọt ngào, hoàn hảo cho mọi buổi tiệc hoặc làm quà tặng.</textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+          <button class="btn btn-warning">Lưu thay đổi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title"><i class="fa fa-plus"></i> Thêm sản phẩm</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Mã sản phẩm</label>
+              <input type="text" class="form-control" placeholder="Mã sẽ được tạo tự động hoặc nhập tay">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tên sản phẩm</label>
+              <input type="text" class="form-control" placeholder="Nhập tên sản phẩm">
+            </div>
+
+            <div class="mb-3">
+                <label for="addImageUpload" class="form-label">Tải lên ảnh sản phẩm</label>
+                <input class="form-control" type="file" id="addImageUpload" accept="image/*" multiple>
+                
+                <div id="addImagesPreview" class="d-flex flex-wrap gap-2 mt-2">
+                </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Loại</label>
+              <textarea class="form-control" rows="2" placeholder="Nhập loại sản phẩm (VD: Cupcake)"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Mô tả</label>
+              <textarea class="form-control" rows="4" placeholder="Nhập mô tả chi tiết cho sản phẩm"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+          <button class="btn btn-success">Thêm sản phẩm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+   <script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.barfiller.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/main.js"></script>
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Ẩn/hiện danh mục có thể thay đổi linh hoạt bất kỳ lúc nào
+    document.addEventListener('click', function (e) {
+      const hideBtn = e.target.closest('.btn-hide');
+      const showBtn = e.target.closest('.btn-show');
+
+      // Nếu bấm nút Ẩn
+      if (hideBtn) {
+        const row = hideBtn.closest('tr');
+        const badge = row.querySelector('.badge');
+        badge.classList.remove('bg-success');
+        badge.classList.add('bg-secondary');
+        badge.textContent = 'Ẩn';
+
+        // Thay nút bằng nút Hiển thị
+        hideBtn.classList.remove('btn-hide', 'btn-secondary');
+        hideBtn.classList.add('btn-show', 'btn-success');
+        hideBtn.innerHTML = '<i class="fa fa-eye"></i>';
+      }
+
+      // Nếu bấm nút Hiển thị lại
+      if (showBtn) {
+        const row = showBtn.closest('tr');
+        const badge = row.querySelector('.badge');
+        badge.classList.remove('bg-secondary');
+        badge.classList.add('bg-success');
+        badge.textContent = 'Hiển thị';
+
+        // Thay nút bằng nút Ẩn
+        showBtn.classList.remove('btn-show', 'btn-success');
+        showBtn.classList.add('btn-hide', 'btn-secondary');
+        showBtn.innerHTML = '<i class="fa fa-eye-slash"></i>';
+      }
+    });
+  </script>
+<script>
+  // Ẩn/hiện danh mục có thể thay đổi linh hoạt bất kỳ lúc nào
+  document.addEventListener('click', function (e) {
+    const hideBtn = e.target.closest('.btn-hide');
+    const showBtn = e.target.closest('.btn-show');
+
+    // Nếu bấm nút Ẩn
+    if (hideBtn) {
+      const row = hideBtn.closest('tr');
+      const badge = row.querySelector('.badge');
+      badge.classList.remove('bg-success');
+      badge.classList.add('bg-secondary');
+      badge.textContent = 'Ẩn';
+
+      // Thay nút bằng nút Hiển thị
+      hideBtn.classList.remove('btn-hide', 'btn-secondary');
+      hideBtn.classList.add('btn-show', 'btn-success');
+      hideBtn.innerHTML = '<i class="fa fa-eye"></i>';
+    }
+
+    // Nếu bấm nút Hiển thị lại
+    if (showBtn) {
+      const row = showBtn.closest('tr');
+      const badge = row.querySelector('.badge');
+      badge.classList.remove('bg-secondary');
+      badge.classList.add('bg-success');
+      badge.textContent = 'Hiển thị';
+
+      // Thay nút bằng nút Ẩn
+      showBtn.classList.remove('btn-show', 'btn-success');
+      showBtn.classList.add('btn-hide', 'btn-secondary');
+      showBtn.innerHTML = '<i class="fa fa-eye-slash"></i>';
+    }
+  });
+
+  // 💡 Khi bấm nút "Thêm" trong modal thêm → đóng modal
+  document.querySelector('#addModal .btn-success').addEventListener('click', function () {
+    const modal = bootstrap.Modal.getInstance(document.getElementById('addModal'));
+    modal.hide();
+  });
+
+  // 💡 Khi bấm nút "Lưu thay đổi" trong modal sửa → đóng modal
+  document.querySelector('#editModal .btn-warning').addEventListener('click', function () {
+    const modal = bootstrap.Modal.getInstance(document.getElementById('editModal'));
+    modal.hide();
+  });
+</script>
+<script>
+  // =================================================================
+  // HÀM TÁI SỬ DỤNG ĐỂ XỬ LÝ XEM TRƯỚC NHIỀU ẢNH
+  // =================================================================
+  function setupImagePreviewer(inputId, previewContainerId) {
+    const imageUploadInput = document.getElementById(inputId);
+    const imagesPreviewContainer = document.getElementById(previewContainerId);
+
+    if (imageUploadInput) {
+      imageUploadInput.addEventListener('change', function(event) {
+        const files = event.target.files;
+        imagesPreviewContainer.innerHTML = ''; // Luôn xóa ảnh xem trước cũ
+
+        if (files) {
+          Array.from(files).forEach(file => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              const imageItem = document.createElement('div');
+              imageItem.classList.add('image-preview-item', 'position-relative');
+              imageItem.innerHTML = `
+                <img src="${e.target.result}" class="img-fluid rounded" style="width: 100px; height: 100px; object-fit: cover;" alt="New Image">
+                <button type="button" class="btn-close-img btn-sm btn btn-danger position-absolute top-0 end-0" aria-label="Remove image"></button>
+              `;
+              imagesPreviewContainer.appendChild(imageItem);
+            };
+            reader.readAsDataURL(file);
+          });
+        }
+      });
+    }
+  }
+
+  // Áp dụng hàm cho cả hai modal
+  setupImagePreviewer('addImageUpload', 'addImagesPreview');     // Cho modal Thêm
+  setupImagePreviewer('multiImageUpload', 'newImagesPreview'); // Cho modal Sửa
+
+  // =================================================================
+  // XỬ LÝ NÚT XÓA CHO TẤT CẢ CÁC ẢNH (CŨ VÀ MỚI)
+  // =================================================================
+  document.addEventListener('click', function(event) {
+    // Chỉ xử lý khi click vào nút có class 'btn-close-img'
+    if (event.target.classList.contains('btn-close-img')) {
+      event.target.closest('.image-preview-item').remove();
+    }
+  });
+
+
+  // Ẩn/hiện danh mục (giữ nguyên)
+  document.addEventListener('click', function (e) {
+    // Xử lý nút ẩn/hiện sản phẩm
+    const hideBtn = e.target.closest('.btn-hide');
+    const showBtn = e.target.closest('.btn-show');
+
+    if (hideBtn) {
+      const row = hideBtn.closest('tr');
+      const badge = row.querySelector('.badge');
+      badge.classList.remove('bg-success');
+      badge.classList.add('bg-secondary');
+      badge.textContent = 'Ẩn';
+
+      hideBtn.classList.remove('btn-hide', 'btn-secondary');
+      hideBtn.classList.add('btn-show', 'btn-success');
+      hideBtn.innerHTML = '<i class="fa fa-eye"></i>';
+    }
+
+    if (showBtn) {
+      const row = showBtn.closest('tr');
+      const badge = row.querySelector('.badge');
+      badge.classList.remove('bg-secondary');
+      badge.classList.add('bg-success');
+      badge.textContent = 'Hiển thị';
+
+      showBtn.classList.remove('btn-show', 'btn-success');
+      showBtn.classList.add('btn-hide', 'btn-secondary');
+      showBtn.innerHTML = '<i class="fa fa-eye-slash"></i>';
+    }
+  });
+
+  // Đóng modal khi bấm nút (giữ nguyên)
+  document.querySelector('#addModal .btn-success').addEventListener('click', function () {
+    const modal = bootstrap.Modal.getInstance(document.getElementById('addModal'));
+    modal.hide();
+  });
+
+  document.querySelector('#editModal .btn-warning').addEventListener('click', function () {
+    const modal = bootstrap.Modal.getInstance(document.getElementById('editModal'));
+    modal.hide();
+  });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    // =================================================================
+    // LOGIC TÌM KIẾM KẾT HỢP (THEO TÊN VÀ THEO LOẠI)
+    // =================================================================
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const searchButton = document.getElementById('searchButton');
+    const allProductRows = document.querySelectorAll('#page1Content tbody tr, #page2Content tbody tr');
+
+    function performCombinedSearch() {
+        // Lấy giá trị từ cả hai ô, chuyển về chữ thường để so sánh không phân biệt hoa/thường
+        const textQuery = searchInput.value.trim().toLowerCase();
+        const categoryQuery = categoryFilter.value;
+
+        allProductRows.forEach(row => {
+            const productName = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+            const productCategory = row.querySelector('td:nth-child(5)').textContent.trim();
+
+            // Kiểm tra điều kiện khớp cho tên sản phẩm
+            const nameMatch = productName.includes(textQuery);
+
+            // Kiểm tra điều kiện khớp cho loại sản phẩm
+            const categoryMatch = (categoryQuery === 'all' || productCategory === categoryQuery);
+
+            // Một hàng chỉ hiển thị khi và chỉ khi CẢ HAI điều kiện đều đúng
+            if (nameMatch && categoryMatch) {
+                row.style.display = ''; // Hiện
+            } else {
+                row.style.display = 'none'; // Ẩn
+            }
+        });
+    }
+
+    // Gán sự kiện cho các hành động của người dùng
+    if (searchButton) {
+        searchButton.addEventListener('click', performCombinedSearch);
+    }
+    // Tự động lọc khi người dùng gõ vào ô tìm kiếm
+    if (searchInput) {
+        searchInput.addEventListener('input', performCombinedSearch);
+    }
+    // Tự động lọc khi người dùng chọn một loại bánh khác
+    if (categoryFilter) {
+        categoryFilter.addEventListener('change', performCombinedSearch);
+    }
+
+    // Khởi tạo NiceSelect cho ô chọn loại bánh
+    $('#categoryFilter').niceSelect();
+    
+    // =================================================================
+    // PHẦN CODE CŨ CỦA BẠN (Xử lý ảnh, modal, ẩn/hiện...)
+    // =================================================================
+    
+    function setupImagePreviewer(inputId, previewContainerId) {
+        const imageUploadInput = document.getElementById(inputId);
+        const imagesPreviewContainer = document.getElementById(previewContainerId);
+        if (imageUploadInput) {
+            imageUploadInput.addEventListener('change', function(event) {
+                const files = event.target.files;
+                imagesPreviewContainer.innerHTML = '';
+                if (files) {
+                    Array.from(files).forEach(file => {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            const imageItem = document.createElement('div');
+                            imageItem.classList.add('image-preview-item', 'position-relative');
+                            imageItem.innerHTML = `<img src="${e.target.result}" class="img-fluid rounded" style="width: 100px; height: 100px; object-fit: cover;" alt="New Image"><button type="button" class="btn-close-img btn-sm btn btn-danger position-absolute top-0 end-0" aria-label="Remove image"></button>`;
+                            imagesPreviewContainer.appendChild(imageItem);
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                }
+            });
+        }
+    }
+    setupImagePreviewer('addImageUpload', 'addImagesPreview');
+    setupImagePreviewer('multiImageUpload', 'newImagesPreview');
+
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('btn-close-img')) {
+            event.target.closest('.image-preview-item').remove();
+        }
+        const hideBtn = event.target.closest('.btn-hide');
+        const showBtn = event.target.closest('.btn-show');
+        if (hideBtn) {
+            const row = hideBtn.closest('tr');
+            const badge = row.querySelector('.badge');
+            badge.classList.remove('bg-success');
+            badge.classList.add('bg-secondary');
+            badge.textContent = 'Ẩn';
+            hideBtn.classList.remove('btn-hide', 'btn-secondary');
+            hideBtn.classList.add('btn-show', 'btn-success');
+            hideBtn.innerHTML = '<i class="fa fa-eye"></i>';
+        }
+        if (showBtn) {
+            const row = showBtn.closest('tr');
+            const badge = row.querySelector('.badge');
+            badge.classList.remove('bg-secondary');
+            badge.classList.add('bg-success');
+            badge.textContent = 'Hiển thị';
+            showBtn.classList.remove('btn-show', 'btn-success');
+            showBtn.classList.add('btn-hide', 'btn-secondary');
+            showBtn.innerHTML = '<i class="fa fa-eye-slash"></i>';
+        }
+    });
+
+    document.querySelector('#addModal .btn-success').addEventListener('click', function() {
+        const modal = bootstrap.Modal.getInstance(document.getElementById('addModal'));
+        modal.hide();
+    });
+    document.querySelector('#editModal .btn-warning').addEventListener('click', function() {
+        const modal = bootstrap.Modal.getInstance(document.getElementById('editModal'));
+        modal.hide();
+    });
+});
+</script>
+</body>
+</html>
