@@ -110,30 +110,20 @@
         <h2 class="text-center">Quản Lý Bánh Cupcake</h2>
 
         <div class="text-end mb-3">
-            <button id="btnShowAddFlavor" class="btn btn-info"><i class="fa-solid fa-tags"></i> Thêm Loại Mới</button>
-           
+            <button id="btnShowAddFlavor" class="btn btn-info"><i class="fa-solid fa-tags"></i> Thêm vị mới</button>
+            <button id="btnShowAddCake" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Thêm bánh</button>
+        </div>
 
         <div class="card card-form" id="addFlavorForm">
-            <h5><i class="fa-solid fa-tags"></i> Thêm Sản Phẩm Mới</h5>
+            <h5><i class="fa-solid fa-tags"></i> Thêm vị mới</h5>
             <form id="formAddFlavor">
                 <div class="mb-3">
-                    <label for="addMa" class="form-label">Mã Loại Sản Phẩm </label>
+                    <label for="addMa" class="form-label">Mã vị mới</label>
                     <input type="text" id="addMa" class="form-control" placeholder="Ví dụ: V005">
                 </div>
                 <div class="mb-3">
-                    <label for="addTen" class="form-label">Tên Loại Sản Phẩm Mới</label>
-                    <input type="text" id="addTen" class="form-control" placeholder="Ví dụ: Xoài">
-                </div>
-                
-                 <div class="mb-3">
-                    <label class="form-label">Tải ảnh mới</label>
-                    <input class="form-control" type="file" name="hinhAnhMoi" accept="image/*">
-                      
-                </div>
-                 <div class="mb-3">
-                    <label class="form-label">Mô Tả</label>
-                    <input type="text" id="addTen" class="form-control" placeholder="Ví dụ: Xoài">
-                      
+                    <label for="addTen" class="form-label">Tên vị mới</label>
+                    <input type="text" id="addTen" class="form-control" placeholder="Ví dụ: Vị Chanh Dây">
                 </div>
                 <div class="text-end">
                     <button type="button" id="btnCancelAddFlavor" class="btn btn-secondary"><i class="fa-solid fa-xmark"></i> Hủy</button>
@@ -161,13 +151,13 @@
         </div>
 
         <div class="card">
-            <h5><i class="fa-solid fa-list"></i> Danh sách các loại bánh</h5>
+            <h5><i class="fa-solid fa-list"></i> Danh sách các vị bánh</h5>
             <div class="table-responsive mt-3">
                 <table class="table table-bordered text-center align-middle">
                     <thead class="table-light">
                         <tr>
-                            <th>Mã Loại</th>
-                            <th>Tên Loại</th>
+                            <th>Mã vị</th>
+                            <th>Tên bánh</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
@@ -182,7 +172,7 @@
                         </tr>
                         <tr>
                             <td>V002</td>
-                            <td>Cupcake Socola</td>
+                            <td>Cupcake Socola sữa</td>
                             <td>
                                 <button class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-pen"></i> Sửa</button>
                                 <button class="btn btn-danger btn-sm btn-delete"><i class="fa-solid fa-trash"></i> Xóa</button>
@@ -190,7 +180,7 @@
                         </tr>
                         <tr>
                             <td>V003</td>
-                            <td>Cupcake Dâu </td>
+                            <td>Cupcake Dâu tằm</td>
                             <td>
                                 <button class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-pen"></i> Sửa</button>
                                 <button class="btn btn-danger btn-sm btn-delete"><i class="fa-solid fa-trash"></i> Xóa</button>
@@ -206,11 +196,11 @@
             <h5><i class="fa-solid fa-pen"></i> Chỉnh sửa vị</h5>
             <form id="formEdit">
                 <div class="mb-3">
-                    <label for="editMa" class="form-label">Mã Loại</label>
+                    <label for="editMa" class="form-label">Mã vị</label>
                     <input type="text" id="editMa" class="form-control" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="editTen" class="form-label">Tên Loại</label>
+                    <label for="editTen" class="form-label">Tên bánh</label>
                     <input type="text" id="editTen" class="form-control">
                 </div>
                 <div class="text-end">
