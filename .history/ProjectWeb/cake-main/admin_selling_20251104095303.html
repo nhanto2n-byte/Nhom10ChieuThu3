@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Báo cáo lợi nhuận</title>
+
+  <!-- Bootstrap + Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f8f9fa;
+      padding: 30px;
+    }
+    h2 {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .table-container {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      margin-bottom: 50px;
+    }
+    table th {
+      background-color: #198754;
+      color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>BÁO CÁO LỢI NHUẬN</h2>
+
+  <!-- ========================== % THEO LOẠI ========================== -->
+  <div class="table-container">
+    <h4 class="text-center mb-3">% Lợi nhuận theo Loại sản phẩm</h4>
+
+    <div class="page-header1 fade-in-up">
+      <div class="search-filter-container" 
+           style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; margin: 20px 0;">
+           
+        <!-- Ô tìm kiếm -->
+        <div class="search-box"
+             style="display: flex; align-items: center; background: #fff; border: 1px solid #ccc;
+                    border-radius: 30px; padding: 8px 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+          <i class="fas fa-search" style="color: #888; margin-right: 8px;"></i>
+          <input type="text" id="searchInputLoai" placeholder="Tìm kiếm loại sản phẩm..."
+                 style="border: none; outline: none; font-size: 1rem; width: 220px; border-radius: 30px;">
+        </div>
+
+        <!-- Bộ lọc lợi nhuận -->
+        <div>
+          <select class="form-select form-select-sm"
+                  style="padding: 10px 20px; font-size: 1rem; width: 180px; border-radius: 30px; border: 1px solid #ccc; cursor: pointer;">
+            <option selected style="font-weight: bold; color: #000;">% Lợi nhuận</option>
+            <option>Dưới 10%</option>
+            <option>10% - 30%</option>
+            <option>30% - 50%</option>
+            <option>Trên 50%</option>
+          </select>
+        </div>
+
+        <!-- Nút lọc -->
+        <div>
+          <button type="button" class="btn btn-success"
+                  style="border-radius: 30px; padding: 10px 25px; font-size: 1rem;">
+            <i class="fas fa-filter me-1"></i> Lọc
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bảng dữ liệu -->
+    <table class="table table-bordered text-center align-middle">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên loại sản phẩm</th>
+          <th>Giá vốn trung bình (VNĐ)</th>
+          <th>Giá bán trung bình (VNĐ)</th>
+          <th>% Lợi nhuận</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Bánh kem</td>
+          <td>50.000</td>
+          <td>80.000</td>
+          <td>60%</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Bánh su kem</td>
+          <td>20.000</td>
+          <td>35.000</td>
+          <td>75%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ========================== % THEO SẢN PHẨM ========================== -->
+  <div class="table-container">
+    <h4 class="text-center mb-3">% Lợi nhuận theo Sản phẩm</h4>
+
+    <div class="page-header1 fade-in-up">
+      <div class="search-filter-container" 
+           style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; margin: 20px 0;">
+           
+        <!-- Ô tìm kiếm -->
+        <div class="search-box"
+             style="display: flex; align-items: center; background: #fff; border: 1px solid #ccc;
+                    border-radius: 30px; padding: 8px 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+          <i class="fas fa-search" style="color: #888; margin-right: 8px;"></i>
+          <input type="text" id="searchInputSP" placeholder="Tìm kiếm sản phẩm..."
+                 style="border: none; outline: none; font-size: 1rem; width: 220px; border-radius: 30px;">
+        </div>
+
+        <!-- Bộ lọc giá bán -->
+        <div>
+          <select class="form-select form-select-sm"
+                  style="padding: 10px 20px; font-size: 1rem; width: 180px; border-radius: 30px; border: 1px solid #ccc;">
+            <option selected style="font-weight: bold; color: #000;">Giá bán (VNĐ)</option>
+            <option>0 - 50.000</option>
+            <option>50.000 - 100.000</option>
+            <option>100.000 - 200.000</option>
+            <option>Trên 200.000</option>
+          </select>
+        </div>
+
+        <!-- Bộ lọc giá vốn -->
+        <div>
+          <select class="form-select form-select-sm"
+                  style="padding: 10px 20px; font-size: 1rem; width: 180px; border-radius: 30px; border: 1px solid #ccc;">
+            <option selected style="font-weight: bold; color: #000;">Giá vốn (VNĐ)</option>
+            <option>0 - 30.000</option>
+            <option>30.000 - 80.000</option>
+            <option>80.000 - 150.000</option>
+            <option>Trên 150.000</option>
+          </select>
+        </div>
+
+        <!-- Bộ lọc lợi nhuận -->
+        <div>
+          <select class="form-select form-select-sm"
+                  style="padding: 10px 20px; font-size: 1rem; width: 180px; border-radius: 30px; border: 1px solid #ccc;">
+            <option selected style="font-weight: bold; color: #000;">% Lợi nhuận</option>
+            <option>Dưới 10%</option>
+            <option>10% - 30%</option>
+            <option>30% - 50%</option>
+            <option>Trên 50%</option>
+          </select>
+        </div>
+
+        <!-- Nút lọc -->
+        <div>
+          <button type="button" class="btn btn-success"
+                  style="border-radius: 30px; padding: 10px 25px; font-size: 1rem;">
+            <i class="fas fa-filter me-1"></i> Lọc
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bảng dữ liệu -->
+    <table class="table table-bordered text-center align-middle">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên sản phẩm</th>
+          <th>Giá vốn (VNĐ)</th>
+          <th>Giá bán (VNĐ)</th>
+          <th>% Lợi nhuận</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Bánh kem socola</td>
+          <td>55.000</td>
+          <td>85.000</td>
+          <td>54%</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Bánh su kem trứng</td>
+          <td>22.000</td>
+          <td>35.000</td>
+          <td>59%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

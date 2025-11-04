@@ -336,12 +336,6 @@
         </td>
       </tr>
 
-      <!-- ✅ Thêm 3 sản phẩm mới -->
-    
-    </tbody>
-  </table>
-</div>
-
 
           <!-- Trang 2: % Theo Sản Phẩm (giữ nguyên) -->
           <div id="contentSanPham" class="content-page" style="display: none;">
@@ -588,29 +582,3 @@
 </body>
 
 </html>
-<!-- ✅ THÊM TÍNH NĂNG HIỆN THÔNG BÁO KHI LỌC -->
-<script>
-  document.querySelectorAll(".btn.btn-success").forEach(btn => {
-    if (btn.innerText.includes("Lọc")) {
-      btn.addEventListener("click", () => {
-        // Tạo khung thông báo tạm
-        const alertBox = document.createElement("div");
-        alertBox.textContent = "✅ Lọc dữ liệu thành công!";
-        alertBox.style.position = "fixed";
-        alertBox.style.top = "20px";
-        alertBox.style.right = "20px";
-        alertBox.style.background = "#28a745";
-        alertBox.style.color = "white";
-        alertBox.style.padding = "12px 20px";
-        alertBox.style.borderRadius = "8px";
-        alertBox.style.fontWeight = "600";
-        alertBox.style.zIndex = "9999";
-        alertBox.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.3)";
-        document.body.appendChild(alertBox);
-
-        // Ẩn sau 1.7 giây
-        setTimeout(() => alertBox.remove(), 1700);
-      });
-    }
-  });
-</script>
