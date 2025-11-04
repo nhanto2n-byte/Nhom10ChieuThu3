@@ -384,22 +384,39 @@ document.addEventListener("DOMContentLoaded", function () {
   const table = document.getElementById("productTable");
   const addRowBtn = document.getElementById("addRowBtn");
 
-  // luôn giữ "Thành tiền" là 0 đ
-  function resetTotal(row) {
+  function updateGrandTotal() {
+    let grandTotal = 0;
+    table.querySelectorAll(".totalCell").forEach(cell => {
+      grandTotal += parseFloat(cell.dataset.value || 0);
+    });
+    document.getElementById("grandTotal").textContent = grandTotal.toLocaleString() + " đ";
+  }
+
+  function updateTotal(row) {
+    const quantity = parseFloat(row.querySelector(".quantityInput").value) || 0;
+    const price = parseFloat(row.querySelector(".priceInput").value) || 0;
+    // chỉ tính khi thay đổi số lượng, ko tự đổi khi chỉnh giá
     const totalCell = row.querySelector(".totalCell");
-    totalCell.textContent = "0 đ";
-    totalCell.dataset.value = 0;
+    const total = quantity * price;
+    totalCell.textContent = total.toLocaleString() + " đ";
+    totalCell.dataset.value = total;
     updateGrandTotal();
   }
 
-  function updateGrandTotal() {
-    document.getElementById("grandTotal").textContent = "0 đ";
-  }
-
-  // nếu người dùng thay đổi gì (giá, số lượng, sản phẩm...) => vẫn giữ 0
+  // chỉ tính lại khi thay đổi số lượng (KHÔNG tính lại khi đổi giá)
   table.addEventListener("input", function (e) {
-    const row = e.target.closest("tr");
-    resetTotal(row);
+    if (e.target.classList.contains("quantityInput")) {
+      const row = e.target.closest("tr");
+      updateTotal(row);
+    }
+  });
+
+  // nút xóa
+  table.addEventListener("click", function (e) {
+    if (e.target.closest(".deleteRow")) {
+      e.target.closest("tr").remove();
+      updateGrandTotal();
+    }
   });
 
   // nút thêm dòng mới
@@ -423,15 +440,6 @@ document.addEventListener("DOMContentLoaded", function () {
       </td>
     `;
     table.querySelector("tbody").appendChild(newRow);
-    updateGrandTotal();
-  });
-
-  // xóa dòng => tổng vẫn 0
-  table.addEventListener("click", function (e) {
-    if (e.target.closest(".deleteRow")) {
-      e.target.closest("tr").remove();
-      updateGrandTotal();
-    }
   });
 });
 </script>
