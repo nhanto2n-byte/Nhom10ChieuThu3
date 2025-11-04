@@ -614,7 +614,7 @@
     }
   });
 </script>
-<<script>
+<script>
   // ✅ CHỈ CHO PHÉP CHỈNH SỬA "% LỢI NHUẬN" Ở TRANG 2
   document.addEventListener("DOMContentLoaded", function () {
     function attachButtons() {
@@ -652,24 +652,17 @@
 
     function saveHandler(e) {
       const row = e.currentTarget.closest("tr");
+      const inputs = row.querySelectorAll("input");
       const table = row.closest("table");
       const isSanPham = table.parentElement.id === "contentSanPham";
 
       if (isSanPham) {
         // 🔒 Chỉ khóa lại % lợi nhuận
         const profitInput = row.querySelector("td:nth-child(5) input");
-        if (profitInput) {
-          // ✅ Nếu người dùng để trống, tự động gán 0
-          if (profitInput.value.trim() === "") profitInput.value = "0";
-          profitInput.setAttribute("readonly", true);
-        }
+        if (profitInput) profitInput.setAttribute("readonly", true);
       } else {
         // 🔒 Ở phần theo loại khóa tất cả input
-        const inputs = row.querySelectorAll("input");
-        inputs.forEach(input => {
-          if (input.value.trim() === "") input.value = "0"; // ✅ Không để trống
-          input.setAttribute("readonly", true);
-        });
+        inputs.forEach(i => i.setAttribute("readonly", true));
       }
 
       // ✅ Hiện thông báo lưu
@@ -685,15 +678,6 @@
       }
     }
 
-    // ✅ Đảm bảo tất cả ô % Lợi nhuận luôn có giá trị mặc định (0 nếu trống)
-    function ensureProfitValues() {
-      const profitInputs = document.querySelectorAll('td input[type="number"]');
-      profitInputs.forEach(input => {
-        if (input.value.trim() === "") input.value = "0";
-      });
-    }
-
-    ensureProfitValues();
     attachButtons();
     window.attachButtons = attachButtons;
   });
@@ -712,3 +696,4 @@
     document.getElementById('btnLoai').classList.remove('active');
   });
 </script>
+

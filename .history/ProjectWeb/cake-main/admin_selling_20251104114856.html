@@ -614,91 +614,58 @@
     }
   });
 </script>
-<<script>
-  // ✅ CHỈ CHO PHÉP CHỈNH SỬA "% LỢI NHUẬN" Ở TRANG 2
-  document.addEventListener("DOMContentLoaded", function () {
-    function attachButtons() {
-      const editButtons = document.querySelectorAll(".btn-warning");
-      const saveButtons = document.querySelectorAll(".btn-success");
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  function attachButtons() {
+    const editButtons = document.querySelectorAll(".btn-warning");
+    const saveButtons = document.querySelectorAll(".btn-success");
 
-      editButtons.forEach((btn) => {
-        btn.removeEventListener('click', editHandler);
-        btn.addEventListener("click", editHandler);
-      });
-      saveButtons.forEach((btn) => {
-        btn.removeEventListener('click', saveHandler);
-        btn.addEventListener("click", saveHandler);
-      });
-    }
+    editButtons.forEach((btn) => {
+      btn.removeEventListener('click', editHandler);
+      btn.addEventListener("click", editHandler);
+    });
+    saveButtons.forEach((btn) => {
+      btn.removeEventListener('click', saveHandler);
+      btn.addEventListener("click", saveHandler);
+    });
+  }
 
-    function editHandler(e) {
-      const row = e.currentTarget.closest("tr");
-      const table = row.closest("table");
-      const isSanPham = table.parentElement.id === "contentSanPham";
+  function editHandler(e) {
+    const btn = e.currentTarget;
+    const row = btn.closest("tr");
+    // mở toàn bộ input trong dòng
+    const inputs = row.querySelectorAll("input[type='number']");
+    inputs.forEach(input => {
+      input.removeAttribute("readonly");
+      input.style.backgroundColor = "#fff8e1"; // nhẹ cho dễ thấy đang chỉnh
+    });
+    inputs[0]?.focus();
+  }
 
-      if (isSanPham) {
-        // 🔸 Chỉ mở khóa ô % lợi nhuận (cột thứ 5)
-        const profitInput = row.querySelector("td:nth-child(5) input");
-        if (profitInput) {
-          profitInput.removeAttribute("readonly");
-          profitInput.focus();
-        }
+  function saveHandler(e) {
+    const btn = e.currentTarget;
+    const row = btn.closest("tr");
+    const inputs = row.querySelectorAll("input[type='number']");
+    inputs.forEach(i => {
+      i.setAttribute("readonly", true);
+      i.style.backgroundColor = "";
+    });
+    const confirmSave = confirm("Bạn có chắc chắn muốn lưu thay đổi này không?");
+    if (confirmSave) {
+      const alertBox = document.getElementById('saveAlert');
+      if (alertBox) {
+        alertBox.style.display = 'block';
+        setTimeout(() => { alertBox.style.display = 'none'; }, 1700);
       } else {
-        // 🔸 Ở phần theo loại thì mở tất cả input trong hàng
-        const inputs = row.querySelectorAll("input");
-        inputs.forEach(input => input.removeAttribute("readonly"));
+        alert("✅ Đã lưu thành công!");
       }
     }
+  }
 
-    function saveHandler(e) {
-      const row = e.currentTarget.closest("tr");
-      const table = row.closest("table");
-      const isSanPham = table.parentElement.id === "contentSanPham";
+  attachButtons();
+  window.attachButtons = attachButtons;
 
-      if (isSanPham) {
-        // 🔒 Chỉ khóa lại % lợi nhuận
-        const profitInput = row.querySelector("td:nth-child(5) input");
-        if (profitInput) {
-          // ✅ Nếu người dùng để trống, tự động gán 0
-          if (profitInput.value.trim() === "") profitInput.value = "0";
-          profitInput.setAttribute("readonly", true);
-        }
-      } else {
-        // 🔒 Ở phần theo loại khóa tất cả input
-        const inputs = row.querySelectorAll("input");
-        inputs.forEach(input => {
-          if (input.value.trim() === "") input.value = "0"; // ✅ Không để trống
-          input.setAttribute("readonly", true);
-        });
-      }
-
-      // ✅ Hiện thông báo lưu
-      const confirmSave = confirm("Bạn có chắc chắn muốn lưu thay đổi này không?");
-      if (confirmSave) {
-        const alertBox = document.getElementById('saveAlert');
-        if (alertBox) {
-          alertBox.style.display = 'block';
-          setTimeout(() => { alertBox.style.display = 'none'; }, 1700);
-        } else {
-          alert("✅ Đã lưu thành công!");
-        }
-      }
-    }
-
-    // ✅ Đảm bảo tất cả ô % Lợi nhuận luôn có giá trị mặc định (0 nếu trống)
-    function ensureProfitValues() {
-      const profitInputs = document.querySelectorAll('td input[type="number"]');
-      profitInputs.forEach(input => {
-        if (input.value.trim() === "") input.value = "0";
-      });
-    }
-
-    ensureProfitValues();
-    attachButtons();
-    window.attachButtons = attachButtons;
-  });
-
-  // ✅ TAB CHUYỂN ĐỔI
+  // Tab chuyển đổi
   document.getElementById('btnLoai').addEventListener('click', function () {
     document.getElementById('contentLoai').style.display = 'block';
     document.getElementById('contentSanPham').style.display = 'none';
@@ -711,4 +678,5 @@
     this.classList.add('active');
     document.getElementById('btnLoai').classList.remove('active');
   });
+});
 </script>
