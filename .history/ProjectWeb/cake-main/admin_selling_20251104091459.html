@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý Giá Bán</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+  <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+  <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+  <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+  <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+
+  <style>
+    body {
+      background: url('img/hero/hero-1.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Montserrat', sans-serif;
+      color: #222;
+    }
+
+    h2 {
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #222;
+    }
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 25px;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .table th {
+      background-color: #f1f3f9;
+    }
+
+    .btn-reset {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      transition: all 0.3s;
+    }
+
+    .btn-reset:hover {
+      background-color: #b02a37;
+    }
+
+    .result-box {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ✅ THÔNG BÁO LƯU THÀNH CÔNG */
+    .save-alert {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #28a745;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      z-index: 9999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      animation: slideIn 0.4s ease forwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ THÔNG BÁO -->
+  <div id="saveAlert" class="save-alert">✅ Đã lưu thành công!</div>
+
+  <!-- Header giữ nguyên như cũ -->
+  <header class="header">
+    <div class="header__top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="header__top__inner">
+              <div class="header__top__left">
+                <ul>
+                  <li class="has-dropdown">
+                    Xin chào <strong>Admin</strong>
+                    <span class="arrow_carrot-down"></span>
+                    <ul class="dropdown">
+                      <li><a href="./admin_login.html">Log out</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="header__logo">
+                <a href="#"><img src="img/logo.png" alt=""></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <nav class="header__menu mobile-menu">
+            <ul>
+              <li><a href="./admin_home.html">Home</a></li>
+              <li><a href="./admin_product.html">Quản Lý Đơn Hàng</a></li>
+              <li><a href="./admin_member.html">Quản Lý Khách Hàng</a></li>
+              <li class="active"><a href="#">Quản Lý Kho</a>
+                <ul class="dropdown">
+                  <li><a href="./admin_category.html">Quản Lý Danh Mục Sản Phẩm</a></li>
+                  <li><a href="./admin_import.html">Quản Lý Nhập Sản Phẩm</a></li>
+                  <li><a href="./admin_selling.html">Quản Lý Giá Bán</a></li>
+                  <li><a href="./admin_quantity.html">Quản Lý Số Lượng Tồn</a></li>
+                  <li><a href="./admin_type.html">Quản Lý Loại Sản Phẩm</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container py-5">
+    <h2 class="text-center">Quản Lý Sản Phẩm & Giá</h2>
+
+   
+  <!-- JS -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <script src="js/jquery.barfiller.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/jquery.slicknav.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.nicescroll.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    // 🧮 TÍNH GIÁ BÁN DỰA TRÊN GIÁ VỐN VÀ % LỢI NHUẬN
+    function calculateSalePrice() {
+      let cost = parseFloat(document.getElementById('costPrice').value);
+      let percent = parseFloat(document.getElementById('profitPercent').value);
+
+      if (isNaN(cost)) cost = 100000;
+      if (isNaN(percent)) percent = 20;
+
+      const sale = cost * (1 + percent / 100);
+      document.getElementById('salePrice').value = sale.toFixed(0);
+      document.getElementById('result').innerHTML =
+        `💰 Giá bán đề xuất: <strong>${sale.toLocaleString()} đ</strong><br>(Từ giá vốn ${cost.toLocaleString()} đ, lợi nhuận ${percent}%)`;
+    }
+
+    // 📊 TÍNH % LỢI NHUẬN DỰA TRÊN GIÁ VỐN VÀ GIÁ BÁN
+    function calculateProfitPercent() {
+      let cost = parseFloat(document.getElementById('costPrice').value);
+      let sale = parseFloat(document.getElementById('salePrice').value);
+
+      if (isNaN(cost)) cost = 100000;
+      if (isNaN(sale)) sale = 120000;
+
+      const percent = ((sale - cost) / cost) * 100;
+      document.getElementById('profitPercent').value = percent.toFixed(2);
+      document.getElementById('result').innerHTML =
+        `📈 Lợi nhuận: <strong>${percent.toFixed(2)}%</strong><br>(Từ giá vốn ${cost.toLocaleString()} đ, giá bán ${sale.toLocaleString()} đ)`;
+    }
+
+    // 🔄 RESET FORM
+    function resetForm() {
+      document.getElementById('profitForm').reset();
+      document.getElementById('result').innerHTML = "";
+    }
+
+    // ✅ HIỆU ỨNG LƯU THÀNH CÔNG
+    function showSaveAlert() {
+      const alertBox = document.getElementById('saveAlert');
+      alertBox.style.display = 'block';
+      setTimeout(() => {
+        alertBox.style.display = 'none';
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>

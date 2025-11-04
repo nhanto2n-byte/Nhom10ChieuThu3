@@ -9,13 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- CSS Links (Giữ nguyên) -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Styles (Giữ nguyên) -->
     <style>
         body {
             background: url('img/hero/hero-1.jpg') no-repeat center center fixed;
@@ -52,7 +51,6 @@
 <body>
     <div id="preloder"><div class="loader"></div></div>
 
-    <!-- Header (Giữ nguyên) -->
     <header class="header">
         <div class="header__top">
             <div class="container">
@@ -99,7 +97,6 @@
         </div>
     </header>
 
-    <!-- Nội dung trang (Giữ nguyên) -->
     <div class="container py-5">
         <h2 class="text-center">Quản Lý Danh Mục Sản Phẩm</h2>
 
@@ -124,11 +121,10 @@
             </div>
         </div>
 
-        <!-- Nút Thêm sản phẩm (Giữ nguyên) -->
         <div class="text-end mb-3">
-            <a href="./admin_add_product.html" class="btn btn-success btn-add">
+            <button class="btn btn-success btn-add" data-bs-toggle="modal" data-bs-target="#addModal">
                 <i class="fa-solid fa-plus"></i> Thêm sản phẩm
-            </a>
+            </button>
         </div>
 
         <div class="card bg-white">
@@ -147,43 +143,39 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- === CẬP NHẬT NÚT SỬA THÀNH THẺ <a> === -->
                         <tr>
                             <td>#C001</td>
                             <td>Dozen Cupcakes</td>
-                            <td><img src="img/shop/product-1.jpg" alt="Dozen Cupcakes" width="70" style="border-radius: 10px; object-fit: cover; height: 70px;"></td>
+                            <td><img src="img/shop/product-1.jpg" alt="Dozen Cupcakes" width="70" style="border-radius: 10px; object-fit: cover;"></td>
                             <td>Bộ 12 chiếc cupcake đa dạng hương vị, mềm mịn và ngọt ngào.</td>
                             <td>Hỗn hợp</td>
                             <td><span class="badge bg-success">Hiển thị</span></td>
                             <td>
-                                <!-- Thay đổi ở đây -->
-                                <a href="./admin_edit_product.html?id=C001" class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></a>
+                                <button class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></button>
                                 <button class="btn btn-success btn-sm btn-toggle-visibility"><i class="fa-solid fa-eye"></i></button>
                             </td>
                         </tr>
                         <tr>
                             <td>#C002</td>
                             <td>Gluten Free Mini Dozen</td>
-                            <td><img src="img/shop/product-3.jpg" alt="Gluten Free Mini Dozen" width="70" style="border-radius: 10px; object-fit: cover; height: 70px;"></td>
+                            <td><img src="img/shop/product-3.jpg" alt="Gluten Free Mini Dozen" width="70" style="border-radius: 10px; object-fit: cover;"></td>
                             <td>12 chiếc mini cupcake không gluten, thơm ngon tự nhiên.</td>
                             <td>Dâu</td>
                             <td><span class="badge bg-success">Hiển thị</span></td>
                             <td>
-                                <!-- Thay đổi ở đây -->
-                                <a href="./admin_edit_product.html?id=C002" class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></a>
+                                <button class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></button>
                                 <button class="btn btn-success btn-sm btn-toggle-visibility"><i class="fa-solid fa-eye"></i></button>
                             </td>
                         </tr>
                         <tr>
                             <td>#C003</td>
                             <td>Cookie Dough</td>
-                            <td><img src="img/shop/product-4.jpg" alt="Cookie Dough" width="70" style="border-radius: 10px; object-fit: cover; height: 70px;"></td>
+                            <td><img src="img/shop/product-4.jpg" alt="Cookie Dough" width="70" style="border-radius: 10px; object-fit: cover;"></td>
                             <td>Cupcake hương cookie dough béo ngậy, phủ kem vani mịn.</td>
                             <td>Hỗn hợp</td>
                             <td><span class="badge bg-secondary">Ẩn</span></td>
                             <td>
-                                <!-- Thay đổi ở đây -->
-                                <a href="./admin_edit_product.html?id=C003" class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></a>
+                                <button class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></button>
                                 <button class="btn btn-secondary btn-sm btn-toggle-visibility"><i class="fa-solid fa-eye-slash"></i></button>
                             </td>
                         </tr>
@@ -195,8 +187,7 @@
                             <td>Hỗn hợp</td>
                             <td><span class="badge bg-success">Hiển thị</span></td>
                             <td>
-                                <!-- Thay đổi ở đây -->
-                                <a href="./admin_edit_product.html?id=C011" class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></a>
+                                <button class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></button>
                                 <button class="btn btn-success btn-sm btn-toggle-visibility"><i class="fa-solid fa-eye"></i></button>
                             </td>
                         </tr>
@@ -208,8 +199,7 @@
                             <td>Socola</td>
                             <td><span class="badge bg-secondary">Ẩn</span></td>
                             <td>
-                                <!-- Thay đổi ở đây -->
-                                <a href="./admin_edit_product.html?id=C012" class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></a>
+                                <button class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></button>
                                 <button class="btn btn-secondary btn-sm btn-toggle-visibility"><i class="fa-solid fa-eye-slash"></i></button>
                             </td>
                         </tr>
@@ -219,35 +209,108 @@
         </div>
     </div>
 
-    <!-- === ĐÃ XÓA MODAL SỬA SẢN PHẨM KHỎI ĐÂY === -->
-
-    <!-- Modal Thêm Sản Phẩm (Giữ nguyên, dù không còn dùng) -->
-    <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
-        <!-- ... nội dung modal thêm giữ nguyên ... -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h5 class="modal-title"><i class="fa-solid fa-edit"></i> Sửa sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="mb-3">
+                            <label class="form-label">Mã sản phẩm</label>
+                            <input type="text" class="form-control" name="maDM" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tên sản phẩm</label>
+                            <input type="text" class="form-control" name="tenDM">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Vị bánh</label>
+                            <select class="form-select" name="viBanh">
+                                <option value="Hỗn hợp">Hỗn hợp</option>
+                                <option value="Dâu">Dâu</option>
+                                <option value="Socola">Socola</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mô tả</label>
+                            <textarea class="form-control" name="moTa" rows="4"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" form="editForm" class="btn btn-warning">Lưu thay đổi</button>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <!-- Scripts (Giữ nguyên) -->
+
+    <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title"><i class="fa-solid fa-plus"></i> Thêm sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addForm">
+                        <div class="mb-3">
+                            <label class="form-label">Mã sản phẩm</label>
+                            <input type="text" class="form-control" name="maDM" placeholder="Ví dụ: #C013">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tên sản phẩm</label>
+                            <input type="text" class="form-control" name="tenDM" placeholder="Nhập tên sản phẩm">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tải lên ảnh sản phẩm</label>
+                            <input class="form-control" type="file" name="hinhAnh" accept="image/*">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Vị bánh</label>
+                            <select class="form-select" name="viBanh">
+                                <option value="Hỗn hợp">Hỗn hợp</option>
+                                <option value="Dâu">Dâu</option>
+                                <option value="Socola">Socola</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mô tả</label>
+                            <textarea class="form-control" name="moTa" rows="4" placeholder="Nhập mô tả chi tiết"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" form="addForm" class="btn btn-success">Thêm sản phẩm</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script> 
     <script src="js/main.js"></script>
 
-    <!-- === JAVASCRIPT ĐÃ CẬP NHẬT (XÓA BỎ LOGIC MODAL SỬA) === -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // --- KHỞI TẠO CÁC BIẾN CẦN THIẾT ---
             const searchInput = document.getElementById('searchInput');
             const categoryFilter = document.getElementById('categoryFilter');
             const searchButton = document.getElementById('searchButton');
+            const addForm = document.getElementById('addForm');
+            const editForm = document.getElementById('editForm');
             const tableBody = document.querySelector('tbody');
+            let editingRow = null;
             
-            // === ĐÃ XÓA BIẾN CỦA MODAL SỬA ===
-            // const editForm = document.getElementById('editForm');
-            // let editingRow = null;
-            // const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+            const addModal = new bootstrap.Modal(document.getElementById('addModal'));
+            const editModal = new bootstrap.Modal(document.getElementById('editModal'));
 
-            // --- CHỨC NĂNG: TÌM KIẾM (Giữ nguyên) ---
+            // --- CHỨC NĂNG: TÌM KIẾM (CHỈ LỌC THEO TÊN/VỊ) ---
             function performSearch() {
                 const textQuery = searchInput.value.trim().toLowerCase();
                 const categoryQuery = categoryFilter.value;
@@ -258,6 +321,7 @@
                     const nameMatch = productName.includes(textQuery);
                     const categoryMatch = (categoryQuery === 'all' || productCategory === categoryQuery);
 
+                    // Chỉ lọc theo tên và vị. KHÔNG LỌC THEO TRẠNG THÁI.
                     if (nameMatch && categoryMatch) {
                         row.style.display = '';
                     } else {
@@ -266,18 +330,76 @@
                 });
             }
             
+            // Gắn sự kiện cho Lọc
+            if (searchInput) searchInput.addEventListener('input', performSearch);
+            if (categoryFilter) categoryFilter.addEventListener('change', performSearch);
             if (searchButton) searchButton.addEventListener('click', performSearch);
 
-            // === ĐÃ XÓA LOGIC CỦA FORM SỬA ===
-            // if (editForm) { ... }
 
-            // --- CHỨC NĂNG: CÁC NÚT TRONG BẢNG (Chỉ còn logic nút Mắt) ---
+            // --- CHỨC NĂNG: LƯU FORM "THÊM SẢN PHẨM" ---
+            if (addForm) {
+                addForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(addForm);
+                    const maDM = formData.get('maDM') || `#C${Math.floor(Math.random() * 900) + 100}`;
+                    const tenDM = formData.get('tenDM');
+                    const viBanh = formData.get('viBanh');
+                    const moTa = formData.get('moTa');
+
+                    if (!tenDM || !maDM) { alert('Vui lòng nhập Mã và Tên sản phẩm!'); return; }
+                    
+                    const newRow = tableBody.insertRow();
+                    // Sửa lại icon khi thêm mới cho đúng logic
+                    newRow.innerHTML = `
+                        <td>${maDM}</td>
+                        <td>${tenDM}</td>
+                        <td><img src="img/shop/default.jpg" alt="${tenDM}" width="70" style="border-radius: 10px; object-fit: cover;"></td>
+                        <td>${moTa}</td>
+                        <td>${viBanh}</td>
+                        <td><span class="badge bg-success">Hiển thị</span></td>
+                        <td>
+                            <button class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></button>
+                            <button class="btn btn-success btn-sm btn-toggle-visibility"><i class="fa-solid fa-eye"></i></button>
+                        </td>
+                    `;
+                    addForm.reset();
+                    addModal.hide();
+                    performSearch(); // Cập nhật lại bộ lọc (nếu đang lọc)
+                });
+            }
+
+            // --- CHỨC NĂNG: LƯU FORM "SỬA SẢN PHẨM" ---
+            if (editForm) {
+                editForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    if (editingRow) {
+                        const formData = new FormData(editForm);
+                        editingRow.querySelector('td:nth-child(2)').textContent = formData.get('tenDM');
+                        editingRow.querySelector('td:nth-child(5)').textContent = formData.get('viBanh');
+                        editingRow.querySelector('td:nth-child(4)').textContent = formData.get('moTa');
+                    }
+                    editForm.reset();
+                    editModal.hide();
+                    performSearch(); // Cập nhật lại bộ lọc (nếu đang lọc)
+                });
+            }
+
+            // --- CHỨC NĂNG: CÁC NÚT TRONG BẢNG (SỬA LOGIC CON MẮT) ---
             tableBody.addEventListener('click', function(e) {
-                // Chỉ xử lý nút Mắt, vì nút Sửa giờ là thẻ <a>
-                const targetButton = e.target.closest('button.btn-toggle-visibility');
+                const targetButton = e.target.closest('button');
                 if (!targetButton) return;
                 
                 const row = targetButton.closest('tr');
+
+                // Nút Sửa
+                if (targetButton.classList.contains('btn-edit')) {
+                    editingRow = row;
+                    editForm.querySelector('[name="maDM"]').value = row.querySelector('td:nth-child(1)').textContent;
+                    editForm.querySelector('[name="tenDM"]').value = row.querySelector('td:nth-child(2)').textContent;
+                    editForm.querySelector('[name="viBanh"]').value = row.querySelector('td:nth-child(5)').textContent;
+                    editForm.querySelector('[name="moTa"]').value = row.querySelector('td:nth-child(4)').textContent;
+                    editModal.show();
+                }
                 
                 // Nút Đóng/Mở Mắt (btn-toggle-visibility)
                 if (targetButton.classList.contains('btn-toggle-visibility')) {
@@ -286,23 +408,28 @@
                     const isCurrentlyVisible = badge.textContent === 'Hiển thị';
 
                     if (isCurrentlyVisible) {
+                        // Đang "Hiển thị" -> Bấm để "Ẩn"
                         badge.className = 'badge bg-secondary';
                         badge.textContent = 'Ẩn';
                         targetButton.className = 'btn btn-secondary btn-sm btn-toggle-visibility';
-                        icon.className = 'fa-solid fa-eye-slash';
+                        icon.className = 'fa-solid fa-eye-slash'; // Đổi icon Mắt Đóng
                     } else {
+                        // Đang "Ẩn" -> Bấm để "Hiển thị"
                         badge.className = 'badge bg-success';
                         badge.textContent = 'Hiển thị';
                         targetButton.className = 'btn btn-success btn-sm btn-toggle-visibility';
-                        icon.className = 'fa-solid fa-eye';
+                        icon.className = 'fa-solid fa-eye'; // Đổi icon Mắt Mở
                     }
+                    
+                    // KHÔNG GỌI performSearch() ĐỂ TRÁNH ẨN HÀNG
                 }
             });
             
+            // CHẠY LỌC MỘT LẦN KHI TẢI TRANG
+            // (Chỉ để lọc theo tên/vị, không ẩn theo trạng thái)
             performSearch();
             
         });
     </script>
 </body>
 </html>
-

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tiêu đề trang mới -->
+    <title>Sửa Sản Phẩm</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- CSS Links (Giống hệt trang category) -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Styles (Giống hệt trang category) -->
+    <style>
+        body {
+            background: url('img/hero/hero-1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Montserrat', sans-serif;
+            color: #222;
+        }
+        h2 { font-weight: 700; margin-bottom: 30px; color: #222; }
+        .card {
+            border: none; border-radius: 12px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; padding: 25px; background-color: rgba(255, 255, 255, 0.95);
+        }
+        .table th { background-color: #f1f3f9; }
+        .header__top__left ul li.has-dropdown { position: relative; cursor: pointer; }
+        .header__top__left ul li .dropdown {
+            display: none; position: absolute; top: 100%; left: 0; z-index: 100;
+            background-color: #333; border: 1px solid #555; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            min-width: 200px; padding: 5px 0; list-style: none;
+        }
+        .header__top__left ul li.has-dropdown:hover>.dropdown { display: block; }
+        .header__top__left ul li .dropdown li a {
+            display: block; padding: 10px 15px; text-decoration: none; color: white;
+            font-size: 16px; white-space: nowrap;
+        }
+        .header__top__left ul li .dropdown li a:hover { background-color: #555; color: #ffcc00; }
+        
+        /* CSS cho thông báo */
+        #notification-area {
+            padding: 0 25px; /* Điều chỉnh padding cho phù hợp với card */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloder"><div class="loader"></div></div>
+
+    <!-- Header (Giống hệt trang category) -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header__top__inner">
+                            <div class="header__top__left">
+                                <ul>
+                                    <li class="has-dropdown">
+                                        Xin chào <strong>Admin</strong>
+                                        <span class="arrow_carrot-down"></span>
+                                        <ul class="dropdown">
+                                            <li><a href="./admin_login.html">Log out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header__logo">
+                                <a href="./#.html"><img src="img/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            </div>
+        </div>
+        <div class="container">
+            <nav class="header__menu mobile-menu">
+                <ul>
+                    <li><a href="./admin_home.html">Home</a></li>
+                    <li><a href="./admin_product.html">Quản Lý Đơn Hàng</a></li>
+                    <li><a href="./admin_member.html">Quản Lý Khách Hàng</a></li>
+                    <li class="active"><a href="#">Quản Lý Kho</a>
+                        <ul class="dropdown">
+                            <li><a href="./admin_category.html">Quản Lý Danh Mục Sản Phẩm</a></li>
+                            <li><a href="./admin_import.html">Quản Lý Nhập Sản Phẩm</a></li>
+                            <li><a href="./admin_selling.html">Quản Lý Giá Bán</a></li>
+                            <li><a href="./admin_quantity.html">Quản Lý Số Lượng Tồn</a></li>
+                            <li><a href="./admin_type.html">Quản Lý Loại Sản Phẩm</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- === NỘI DUNG TRANG SỬA === -->
+    <div class="container py-5">
+        <h2 class="text-center">Sửa Sản Phẩm</h2>
+
+        <!-- Form được đặt trong Card -->
+        <div class="card bg-white" style="max-width: 800px; margin: 0 auto; padding: 0;">
+            
+            <!-- Vị trí hiển thị thông báo -->
+            <div id="notification-area"></div>
+
+            <!-- Form lấy từ modal sửa cũ -->
+            <form id="editForm" class="p-4">
+                <div class="mb-3">
+                    <label class="form-label">Mã sản phẩm</label>
+                    <input type="text" class="form-control" name="maDM" readonly>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tên sản phẩm</label>
+                    <input type="text" class="form-control" name="tenDM">
+                </div>
+
+                <div class="mb-3 text-center">
+                    <label class="form-label">Hình ảnh hiện tại</label><br>
+                    <img id="editImagePreview" src="" alt="Hình ảnh sản phẩm" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; border: 1px solid #ddd;">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tải ảnh mới (Bỏ qua nếu không đổi)</label>
+                    <input class="form-control" type="file" name="hinhAnhMoi" accept="image/*">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Vị bánh</label>
+                    <select class="form-select" name="viBanh">
+                        <option value="Hỗn hợp">Hỗn hợp</option>
+                        <option value="Dâu">Dâu</option>
+                        <option value="Socola">Socola</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mô tả</label>
+                    <textarea class="form-control" name="moTa" rows="4"></textarea>
+                </div>
+            </form>
+            
+            <!-- Các nút Hủy và Lưu -->
+            <div class="card-footer d-flex justify-content-end gap-2 p-4" style="background-color: #f8f9fa;">
+                <button class="btn btn-secondary" id="cancelButton"><i class="fa-solid fa-times"></i> Hủy</button>
+                <button type="submit" form="editForm" class="btn btn-warning" id="saveButton"><i class="fa-solid fa-save"></i> Lưu thay đổi</button>
+            </div>
+        </div>
+    </div>
+    <!-- === KẾT THÚC NỘI DUNG TRANG SỬA === -->
+
+
+    <!-- Scripts (Chỉ giữ lại các link cần thiết) -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script> 
+    <script src="js/main.js"></script>
+
+    <!-- === JAVASCRIPT MỚI CHO TRANG NÀY === -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const editForm = document.getElementById('editForm');
+            const cancelButton = document.getElementById('cancelButton');
+            const saveButton = document.getElementById('saveButton');
+            const notificationArea = document.getElementById('notification-area');
+            
+            // URL của trang quản lý chính
+            const mainPageURL = './admin_category.html'; 
+
+            // === TẠO DỮ LIỆU GIẢ (MOCK DATA) ===
+            // Vì đây là trang tĩnh, chúng ta cần giả lập việc tải dữ liệu
+            const mockProductData = {
+                "C001": { 
+                    ten: "Dozen Cupcakes", 
+                    hinh: "img/shop/product-1.jpg", 
+                    moTa: "Bộ 12 chiếc cupcake đa dạng hương vị, mềm mịn và ngọt ngào.", 
+                    vi: "Hỗn hợp" 
+                },
+                "C002": { 
+                    ten: "Gluten Free Mini Dozen", 
+                    hinh: "img/shop/product-3.jpg", 
+                    moTa: "12 chiếc mini cupcake không gluten, thơm ngon tự nhiên.", 
+                    vi: "Dâu" 
+                },
+                "C003": { 
+                    ten: "Cookie Dough", 
+                    hinh: "img/shop/product-4.jpg", 
+                    moTa: "Cupcake hương cookie dough béo ngậy, phủ kem vani mịn.", 
+                    vi: "Hỗn hợp" 
+                },
+                "C011": { 
+                    ten: "Vanilla Salted Caramel", 
+                    hinh: "img/shop/product-5.jpg", 
+                    moTa: "Bánh vani mềm mịn hòa quyện cùng lớp caramel muối mặn ngọt.", 
+                    vi: "Hỗn hợp" 
+                },
+                "C012": { 
+                    ten: "German Chocolate", 
+                    hinh: "img/shop/product-6.jpg", 
+                    moTa: "Cupcake chocolate đậm đà kết hợp nhân dừa và hạt óc chó.", 
+                    vi: "Socola" 
+                }
+            };
+
+            // 1. Tải dữ liệu khi trang được mở
+            function loadProductData() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const productId = urlParams.get('id');
+                
+                if (!productId) {
+                    showError("Không tìm thấy ID sản phẩm.");
+                    return;
+                }
+                
+                const product = mockProductData[productId];
+                
+                if (!product) {
+                    showError(`Không tìm thấy dữ liệu cho sản phẩm có ID: ${productId}`);
+                    return;
+                }
+                
+                // Điền dữ liệu vào form
+                editForm.querySelector('[name="maDM"]').value = productId;
+                editForm.querySelector('[name="tenDM"]').value = product.ten;
+                editForm.querySelector('[name="viBanh"]').value = product.vi;
+                editForm.querySelector('[name="moTa"]').value = product.moTa;
+                editForm.querySelector('#editImagePreview').src = product.hinh;
+            }
+            
+            // 2. Hàm hiển thị lỗi
+            function showError(message) {
+                 notificationArea.innerHTML = `
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Lỗi!</strong> ${message}
+                    </div>
+                `;
+                saveButton.disabled = true; // Vô hiệu hóa nút lưu
+            }
+
+            // 3. Xử lý nút Hủy
+            cancelButton.addEventListener('click', function() {
+                // Đơn giản là quay về trang quản lý
+                window.location.href = mainPageURL;
+            });
+
+            // 4. Xử lý nút Lưu thay đổi (khi submit form)
+            editForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Ngăn form gửi đi
+                
+                const formData = new FormData(editForm);
+                const tenDM = formData.get('tenDM') || "Sản phẩm";
+
+                // Hiển thị thông báo thành công
+                notificationArea.innerHTML = `
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <i class="fa-solid fa-check-circle me-2"></i>
+                        <div>
+                            <strong>Thành công!</strong> Bạn đã cập nhật sản phẩm "${tenDM}" thành công.
+                        </div>
+                    </div>
+                `;
+                
+                // Vô hiệu hóa các nút
+                saveButton.disabled = true;
+                cancelButton.disabled = true;
+
+                // Tự động quay về trang chính sau 2 giây
+                setTimeout(function() {
+                    window.location.href = mainPageURL;
+                }, 2000); // 2 giây
+            });
+            
+            // 5. Chạy hàm tải dữ liệu
+            loadProductData();
+        });
+    </script>
+</body>
+</html>

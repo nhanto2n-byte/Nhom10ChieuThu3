@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý Giá Bán</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+  <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+  <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+  <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+  <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+
+
+  <!-- JS -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <script src="js/jquery.barfiller.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/jquery.slicknav.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.nicescroll.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    // 🧮 TÍNH GIÁ BÁN DỰA TRÊN GIÁ VỐN VÀ % LỢI NHUẬN
+    function calculateSalePrice() {
+      let cost = parseFloat(document.getElementById('costPrice').value);
+      let percent = parseFloat(document.getElementById('profitPercent').value);
+
+      if (isNaN(cost)) cost = 100000;
+      if (isNaN(percent)) percent = 20;
+
+      const sale = cost * (1 + percent / 100);
+      document.getElementById('salePrice').value = sale.toFixed(0);
+      document.getElementById('result').innerHTML =
+        `💰 Giá bán đề xuất: <strong>${sale.toLocaleString()} đ</strong><br>(Từ giá vốn ${cost.toLocaleString()} đ, lợi nhuận ${percent}%)`;
+    }
+
+    // 📊 TÍNH % LỢI NHUẬN DỰA TRÊN GIÁ VỐN VÀ GIÁ BÁN
+    function calculateProfitPercent() {
+      let cost = parseFloat(document.getElementById('costPrice').value);
+      let sale = parseFloat(document.getElementById('salePrice').value);
+
+      if (isNaN(cost)) cost = 100000;
+      if (isNaN(sale)) sale = 120000;
+
+      const percent = ((sale - cost) / cost) * 100;
+      document.getElementById('profitPercent').value = percent.toFixed(2);
+      document.getElementById('result').innerHTML =
+        `📈 Lợi nhuận: <strong>${percent.toFixed(2)}%</strong><br>(Từ giá vốn ${cost.toLocaleString()} đ, giá bán ${sale.toLocaleString()} đ)`;
+    }
+
+    // 🔄 RESET FORM
+    function resetForm() {
+      document.getElementById('profitForm').reset();
+      document.getElementById('result').innerHTML = "";
+    }
+
+    // ✅ HIỆU ỨNG LƯU THÀNH CÔNG
+    function showSaveAlert() {
+      const alertBox = document.getElementById('saveAlert');
+      alertBox.style.display = 'block';
+      setTimeout(() => {
+        alertBox.style.display = 'none';
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
