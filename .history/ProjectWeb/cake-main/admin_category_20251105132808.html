@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Danh Mục Sản Phẩm</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- CSS Links (Giữ nguyên) -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Styles (Giữ nguyên) -->
+    <style>
+        body {
+            background: url('img/hero/hero-1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Montserrat', sans-serif;
+            color: #222;
+        }
+        h2 { font-weight: 700; margin-bottom: 30px; color: #222; }
+        .card {
+            border: none; border-radius: 12px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; padding: 25px; background-color: rgba(255, 255, 255, 0.95);
+        }
+        .table th { background-color: #f1f3f9; }
+        .header__top__left ul li.has-dropdown { position: relative; cursor: pointer; }
+        .header__top__left ul li .dropdown {
+            display: none; position: absolute; top: 100%; left: 0; z-index: 100;
+            background-color: #333; border: 1px solid #555; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            min-width: 200px; padding: 5px 0; list-style: none;
+        }
+        .header__top__left ul li.has-dropdown:hover>.dropdown { display: block; }
+        .header__top__left ul li .dropdown li a {
+            display: block; padding: 10px 15px; text-decoration: none; color: white;
+            font-size: 16px; white-space: nowrap;
+        }
+        .header__top__left ul li .dropdown li a:hover { background-color: #555; color: #ffcc00; }
+        .btn-close-img {
+            width: 1.2rem; height: 1.2rem; padding: 0; line-height: 1.2rem;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloder"><div class="loader"></div></div>
+
+    <!-- Header (Giữ nguyên) -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header__top__inner">
+                            <div class="header__top__left">
+                                <ul>
+                                    <li class="has-dropdown">
+                                        Xin chào <strong>Admin</strong>
+                                        <span class="arrow_carrot-down"></span>
+                                        <ul class="dropdown">
+                                            <li><a href="./admin_login.html">Log out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header__logo">
+                                <a href="./#.html"><img src="img/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            </div>
+        </div>
+        <div class="container">
+            <nav class="header__menu mobile-menu">
+                <ul>
+                    <li><a href="./admin_home.html">Home</a></li>
+                    <li><a href="./admin_product.html">Quản Lý Đơn Hàng</a></li>
+                    <li><a href="./admin_member.html">Quản Lý Khách Hàng</a></li>
+                    <li class="active"><a href="#">Quản Lý Kho</a>
+                        <ul class="dropdown">
+                            <li><a href="./admin_category.html">Quản Lý Danh Mục Sản Phẩm</a></li>
+                            <li><a href="./admin_import.html">Quản Lý Nhập Sản Phẩm</a></li>
+                            <li><a href="./admin_selling.html">Quản Lý Giá Bán</a></li>
+                            <li><a href="./admin_quantity.html">Quản Lý Số Lượng Tồn</a></li>
+                            <li><a href="./admin_type.html">Quản Lý Loại Sản Phẩm</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Nội dung trang (Giữ nguyên) -->
+    <div class="container py-5">
+        <h2 class="text-center">Quản Lý Danh Mục Sản Phẩm</h2>
+
+        <div class="card mb-4">
+            <div class="row g-3 align-items-end">
+                <div class="col-lg-6">
+                    <label for="searchInput" class="form-label"><strong>Tìm theo tên sản phẩm:</strong></label>
+                    <input type="text" class="form-control" id="searchInput" placeholder="Nhập tên bánh cupcake...">
+                </div>
+                <div class="col-lg-4">
+                    <label for="categoryFilter" class="form-label"><strong>Hoặc chọn nhanh vị bánh:</strong></label>
+                    <select class="form-select" id="categoryFilter">
+                        <option value="all" selected>Tất cả loại vị</option>
+                        <option value="Hỗn hợp">Hỗn hợp</option>
+                        <option value="Dâu">Dâu</option>
+                        <option value="Socola">Socola</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <button class="btn btn-primary w-100" id="searchButton"><i class="fa-solid fa-search"></i> Lọc</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nút Thêm sản phẩm (Giữ nguyên) -->
+        <div class="text-end mb-3">
+            <a href="./admin_edit_product.html" class="btn btn-success btn-add">
+                <i class="fa-solid fa-plus"></i> Thêm sản phẩm
+            </a>
+        </div>
+
+        <div class="card bg-white">
+            <h5><i class="fa-solid fa-tags"></i> Danh mục sản phẩm</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered text-center align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Mã sản phẩm</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Hình ảnh</th>
+                            <th>Mô tả</th>
+                            <th>Vị bánh</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- === CẬP NHẬT NÚT SỬA THÀNH THẺ <a> === -->
+                        <tr>
+                            <td>#C001</td>
+                            <td>Dozen Cupcakes</td>
+                            <td><img src="img/shop/product-1.jpg" alt="Dozen Cupcakes" width="70" style="border-radius: 10px; object-fit: cover; height: 70px;"></td>
+                            <td>Bộ 12 chiếc cupcake đa dạng hương vị, mềm mịn và ngọt ngào.</td>
+                            <td>Hỗn hợp</td>
+                            <td><span class="badge bg-success">Hiển thị</span></td>
+                            <td>
+                                <!-- Thay đổi ở đây -->
+                                <a href="./admin_edit_product.html?id=C001" class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></a>
+                                <button class="btn btn-success btn-sm btn-toggle-visibility"><i class="fa-solid fa-eye"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#C002</td>
+                            <td>Gluten Free Mini Dozen</td>
+                            <td><img src="img/shop/product-3.jpg" alt="Gluten Free Mini Dozen" width="70" style="border-radius: 10px; object-fit: cover; height: 70px;"></td>
+                            <td>12 chiếc mini cupcake không gluten, thơm ngon tự nhiên.</td>
+                            <td>Dâu</td>
+                            <td><span class="badge bg-success">Hiển thị</span></td>
+                            <td>
+                                <!-- Thay đổi ở đây -->
+                                <a href="./admin_edit_product.html?id=C002" class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></a>
+                                <button class="btn btn-success btn-sm btn-toggle-visibility"><i class="fa-solid fa-eye"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#C003</td>
+                            <td>Cookie Dough</td>
+                            <td><img src="img/shop/product-4.jpg" alt="Cookie Dough" width="70" style="border-radius: 10px; object-fit: cover; height: 70px;"></td>
+                            <td>Cupcake hương cookie dough béo ngậy, phủ kem vani mịn.</td>
+                            <td>Hỗn hợp</td>
+                            <td><span class="badge bg-secondary">Ẩn</span></td>
+                            <td>
+                                <!-- Thay đổi ở đây -->
+                                <a href="./admin_edit_product.html?id=C003" class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></a>
+                                <button class="btn btn-secondary btn-sm btn-toggle-visibility"><i class="fa-solid fa-eye-slash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#C011</td>
+                            <td>Vanilla Salted Caramel</td>
+                            <td><img src="img/shop/product-5.jpg" alt="Vanilla Salted Caramel" style="width:70px; height:70px; object-fit:cover; border-radius:10px;"></td>
+                            <td>Bánh vani mềm mịn hòa quyện cùng lớp caramel muối mặn ngọt.</td>
+                            <td>Hỗn hợp</td>
+                            <td><span class="badge bg-success">Hiển thị</span></td>
+                            <td>
+                                <!-- Thay đổi ở đây -->
+                                <a href="./admin_edit_product.html?id=C011" class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></a>
+                                <button class="btn btn-success btn-sm btn-toggle-visibility"><i class="fa-solid fa-eye"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#C012</td>
+                            <td>German Chocolate</td>
+                            <td><img src="img/shop/product-6.jpg" alt="German Chocolate" style="width:70px; height:70px; object-fit:cover; border-radius:10px;"></td>
+                            <td>Cupcake chocolate đậm đà kết hợp nhân dừa và hạt óc chó.</td>
+                            <td>Socola</td>
+                            <td><span class="badge bg-secondary">Ẩn</span></td>
+                            <td>
+                                <!-- Thay đổi ở đây -->
+                                <a href="./admin_edit_product.html?id=C012" class="btn btn-warning btn-sm btn-edit"><i class="fa-solid fa-edit"></i></a>
+                                <button class="btn btn-secondary btn-sm btn-toggle-visibility"><i class="fa-solid fa-eye-slash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- === ĐÃ XÓA MODAL SỬA SẢN PHẨM KHỎI ĐÂY === -->
+
+    <!-- Modal Thêm Sản Phẩm (Giữ nguyên, dù không còn dùng) -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
+        <!-- ... nội dung modal thêm giữ nguyên ... -->
+    </div>
+    
+    <!-- Scripts (Giữ nguyên) -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script> 
+    <script src="js/main.js"></script>
+
+    <!-- === JAVASCRIPT ĐÃ CẬP NHẬT (XÓA BỎ LOGIC MODAL SỬA) === -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- KHỞI TẠO CÁC BIẾN CẦN THIẾT ---
+            const searchInput = document.getElementById('searchInput');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const searchButton = document.getElementById('searchButton');
+            const tableBody = document.querySelector('tbody');
+            
+            // === ĐÃ XÓA BIẾN CỦA MODAL SỬA ===
+            // const editForm = document.getElementById('editForm');
+            // let editingRow = null;
+            // const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+
+            // --- CHỨC NĂNG: TÌM KIẾM (Giữ nguyên) ---
+            function performSearch() {
+                const textQuery = searchInput.value.trim().toLowerCase();
+                const categoryQuery = categoryFilter.value;
+
+                document.querySelectorAll('tbody tr').forEach(row => { 
+                    const productName = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                    const productCategory = row.querySelector('td:nth-child(5)').textContent.trim();
+                    const nameMatch = productName.includes(textQuery);
+                    const categoryMatch = (categoryQuery === 'all' || productCategory === categoryQuery);
+
+                    if (nameMatch && categoryMatch) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+            
+            if (searchButton) searchButton.addEventListener('click', performSearch);
+
+            // === ĐÃ XÓA LOGIC CỦA FORM SỬA ===
+            // if (editForm) { ... }
+
+            // --- CHỨC NĂNG: CÁC NÚT TRONG BẢNG (Chỉ còn logic nút Mắt) ---
+            tableBody.addEventListener('click', function(e) {
+                // Chỉ xử lý nút Mắt, vì nút Sửa giờ là thẻ <a>
+                const targetButton = e.target.closest('button.btn-toggle-visibility');
+                if (!targetButton) return;
+                
+                const row = targetButton.closest('tr');
+                
+                // Nút Đóng/Mở Mắt (btn-toggle-visibility)
+                if (targetButton.classList.contains('btn-toggle-visibility')) {
+                    const badge = row.querySelector('.badge');
+                    const icon = targetButton.querySelector('i');
+                    const isCurrentlyVisible = badge.textContent === 'Hiển thị';
+
+                    if (isCurrentlyVisible) {
+                        badge.className = 'badge bg-secondary';
+                        badge.textContent = 'Ẩn';
+                        targetButton.className = 'btn btn-secondary btn-sm btn-toggle-visibility';
+                        icon.className = 'fa-solid fa-eye-slash';
+                    } else {
+                        badge.className = 'badge bg-success';
+                        badge.textContent = 'Hiển thị';
+                        targetButton.className = 'btn btn-success btn-sm btn-toggle-visibility';
+                        icon.className = 'fa-solid fa-eye';
+                    }
+                }
+            });
+            
+            performSearch();
+            
+        });
+    </script>
+</body>
+</html>
+
