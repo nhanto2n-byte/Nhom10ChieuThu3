@@ -7,7 +7,7 @@
     <meta name="keywords" content="Cake, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Shop Details</title>
+    <title>Shoping Cart</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
@@ -27,50 +27,72 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
         <style>
-            .product__details__option {
-  display: flex;
-  align-items: center;
-  gap: 15px;             /* khoảng cách giữa các nút và ô số lượng */
-  margin-top: 30px;      /* khoảng cách với phần mô tả */
+            /* =============================== */
+/* ✨ HIỆU ỨNG CHUYỂN ĐỘNG MƯỢT */
+/* =============================== */
+
+/* Hiệu ứng hiện mượt khi load trang */
+body {
+  animation: fadeIn 0.6s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.pro-qty input {
-  width: 50px;           /* chiều rộng ô nhập */
-  height: 40px;          /* chiều cao ô nhập */
-  text-align: center;    /* căn giữa số */
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
+/* Hover logo nhẹ nhàng */
+.header__logo img {
+  transition: transform 0.3s ease;
+}
+.header__logo img:hover {
+  transform: scale(1.05);
 }
 
-.primary-btn {
-  background-color: #0e0404;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
+/* Hover menu */
+.header__menu ul li a {
+  transition: color 0.3s, transform 0.3s;
+}
+.header__menu ul li a:hover {
+  transform: translateY(-2px);
 }
 
-.primary-btn:hover {
-  background-color: #0f0606;
+
+/* Nút bấm (Add to Cart, Checkout...) mượt mà */
+.primary-btn, .site-btn, button {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.primary-btn:hover, .site-btn:hover, button:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
 }
 
-.heart__btn {
-  font-size: 20px;
-  color: #070101;
-  border: 1px solid #070303;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: 0.3s;
+/* Hiệu ứng cho khung sản phẩm */
+.product__item, .shopping__cart__table, .cart__total {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.product__item:hover, .cart__total:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.heart__btn:hover {
-  background-color: #f31010;
-  color: rgb(239, 17, 17);
+/* Hiệu ứng mượt cho icon trái tim, giỏ hàng, v.v */
+.icon_heart_alt, .icon_bag_alt, .icon_close {
+  transition: transform 0.3s ease;
+}
+.icon_heart_alt:hover, .icon_bag_alt:hover, .icon_close:hover {
+  transform: scale(1.2);
 }
 
+/* Hiệu ứng khi rê chuột vào input số lượng */
+input[type="text"], input[type="number"] {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+input[type="text"]:focus, input[type="number"]:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 5px rgba(0,0,0,0.15);
+}
+
+            
         /* ==================================== */
         /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */
         /* ==================================== */
@@ -144,10 +166,10 @@
         <div class="offcanvas__cart">
             <div class="offcanvas__cart__links">
                 <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                <a href="#"><img src="img/icon/heart.png" alt=""></a>
+                <a href="./wisslist.html"><img src="img/icon/heart.png" alt=""></a>
             </div>
             <div class="offcanvas__cart__item">
-                <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                <a href="./shoping-cart.html"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
                 <div class="cart__price">Cart: <span>0đ</span></div>
             </div>
         </div>
@@ -189,11 +211,12 @@
                             </div>
                             <div class="header__top__right">
                                 <div class="header__top__right__links">
+                                    
                                     <a href="./wisslist.html"><img src="img/icon/heart.png" alt=""></a>
                                 </div>
                                 <div class="header__top__right__cart">
                                     <a href="./shoping-cart.html"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                                    <div class="cart__price">Cart: <span>0đ</span></div>
+                                    <div class="cart__price">Cart: <span>200.000đ</span></div>
                                 </div>
                             </div>
                         </div>
@@ -231,14 +254,14 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__text">
-                        <h2>Chi Tiết Sản Phẩm</h2>
+                        <h2>Shopping cart</h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__links">
                         <a href="./index.html">Home</a>
-                        <a href="./shop.html">Shop</a>
-                        <span>Chi Tiết Sản Phẩm</span>
+                         <a href="./shop_history.html">Lịch Sử</a>
+                        <span>Shopping cart</span>
                     </div>
                 </div>
             </div>
@@ -246,116 +269,156 @@
     </div>
     <!-- Breadcrumb End -->
 
-    <!-- Shop Details Section Begin -->
-    <section class="product-details spad">
+    <!-- Shopping Cart Section Begin -->
+    <section class="shopping-cart spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="product__details__img">
-                        <div class="product__details__big__img">
-                            <img class="big_img" src="img/shop/details/product-big-1.jpg" alt="">
+                <div class="col-lg-8">
+                    <div class="shopping__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="img/shop/cart/cart-1.jpg" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>PALE YELLOW SWEET</h6>
+                                            <h5>70.000đ</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price">70.000đ</td>
+                                    <td class="cart__close">
+  <button onclick = "deleteProduct()"type="button" class="cart__close-btn">
+    <span class="icon_close"></span>
+  </button>
+</td>
+                                </tr>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="img/shop/cart/cart-2.jpg" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>MISSISSIPPI MUD</h6>
+                                            <h5>15.000đ</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price">15.000đ</td>
+                                    <td class="cart__close">
+  <button onclick = "deleteProduct()"type="button" class="cart__close-btn">
+    <span class="icon_close"></span>
+  </button>
+</td>
+                                </tr>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="img/shop/cart/cart-3.jpg" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>COOKIES AND CREAM</h6>
+                                            <h5>50.000đ</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price">50.000đ</td>
+                                    <td class="cart__close">
+  <button onclick = "deleteProduct()"type="button" class="cart__close-btn">
+    <span class="icon_close"></span>
+  </button>
+</td>
+                                </tr>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="img/shop/cart/cart-4.jpg" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>SWEET CELTICS</h6>
+                                            <h5>50.000đ</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price">50.000đ</td>
+                                    <td class="cart__close">
+  <button onclick = "deleteProduct()"type="button" class="cart__close-btn">
+    <span class="icon_close"></span>
+  </button>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="continue__btn">
+                                <a href="./shop.html">Tiếp Tục Mua Hàng</a>
+                            </div>
                         </div>
-                        <div class="product__details__thumb">
-                            <div class="pt__item active">
-                                <img data-imgbigurl="img/shop/details/product-big-2.jpg"
-                                src="img/shop/details/product-big-2.jpg" alt="">
-                            </div>
-                            <div class="pt__item">
-                                <img data-imgbigurl="img/shop/details/product-big-1.jpg"
-                                src="img/shop/details/product-big-1.jpg" alt="">
-                            </div>
-                            <div class="pt__item">
-                                <img data-imgbigurl="img/shop/details/product-big-4.jpg"
-                                src="img/shop/details/product-big-4.jpg" alt="">
-                            </div>
-                            <div class="pt__item">
-                                <img data-imgbigurl="img/shop/details/product-big-3.jpg"
-                                src="img/shop/details/product-big-3.jpg" alt="">
-                            </div>
-                            <div class="pt__item">
-                                <img data-imgbigurl="img/shop/details/product-big-5.jpg"
-                                src="img/shop/details/product-big-5.jpg" alt="">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="continue__btn update__btn">
+                                <a href="./shoping-cart.html"><i class="fa fa-spinner"></i> Cập Nhật Đơn</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-  <div class="product__details__text">
-    <div class="product__label">Cupcake</div>
-    <h4>SWEET AUTUMN LEAVES</h4>
-    <h5>Giá: 70.000đ</h5>
-    <ul>
-      <li>Mã Sản Phẩm: <span>SP001</span></li>
-      <li>Trọng Lượng: <span>200g/chiếc</span></li>
-      <li>Hương Vị: <span>Dâu</span></li>
-      <li>Mô Tả:
-        <span>Bánh dâu tây thơm ngon với lớp kem mịn và dâu tươi mọng, mang hương vị ngọt ngào của mùa hè.
-          Được làm từ nguyên liệu tươi chất lượng, đóng hộp sang trọng kèm thiệp chúc, là món quà hoàn hảo cho người thân yêu.
-        </span>
-      </li>
-    </ul>
-
-    <div class="product__details__option">
-      <div class="quantity">
-        <div class="pro-qty">
-          <input type="text" value="1">
-        </div>
-      </div>
-      <a href="./shoping-cart.html" class="primary-btn">Add to cart</a>
-      <a href="./wisslist.html" class="heart__btn"><span class="icon_heart_alt"></span></a>
-    </div>
-  </div>
-</div>                      
+                <div class="col-lg-4">
+                    <div class="cart__discount">
+                        <h6>Discount codes</h6>
+                        <form action="#">
+                            <input type="text" placeholder="Coupon code">
+                            <button type="submit">Apply</button>
+                        </form>
                     </div>
-                </div>
-            </div>
-            <div class="product__details__tab">
-                <div class="col-lg-12">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Description</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Additional information</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Previews(1)</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-lg-8">
-                                    <p>Chiếc bánh dâu tây thơm ngon tuyệt hảo này là một món quà ngọt ngào chứa đầy những miếng dâu tây tươi mọng hấp dẫn. Được làm từ những nguyên liệu tươi ngon nhất, chỉ một miếng cắn cũng đủ khiến bạn như lạc vào mùa hè rực rỡ.
-Mỗi phần bánh được đóng gói trong hộp quà sang trọng, đi kèm thiệp chúc mừng mà bạn có thể tùy chỉnh lời nhắn trực tuyến – một món quà hoàn hảo dành tặng người thân yêu!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-2" role="tabpanel">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-lg-8">
-                                    <p>Bánh Dâu Tây được làm thủ công từ những nguyên liệu tươi ngon nhất như dâu tây chín mọng, bột mì hảo hạng, bơ, đường, kem sữa và trứng gà. Bánh có đường kính khoảng 18 cm, phù hợp cho 6–8 phần ăn. Sản phẩm được bảo quản lạnh ở nhiệt độ từ 2–5°C và có hạn sử dụng trong 3 ngày kể từ ngày sản xuất. Mỗi chiếc bánh được đóng gói cẩn thận trong hộp quà sang trọng, đi kèm thiệp chúc mừng mà bạn có thể tùy chỉnh lời nhắn theo ý muốn. Đây là món quà lý tưởng cho các dịp như sinh nhật, lễ tình nhân, tiệc trà hay để gửi tặng người thân yêu.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-3" role="tabpanel">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-lg-8">
-                                    <p>Bánh Dâu Tây tươi ngon, hòa quyện vị ngọt thanh và vị chua nhẹ tự nhiên của dâu tây mọng nước. Lớp vỏ giòn tan, phần nhân mềm mịn mang đến hương vị mùa hè trọn vẹn trong từng miếng bánh.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="cart__total">
+                        <h6>Cart total</h6>
+                        <ul>
+                            <li>Voucher <span>95.000đ</span></li>
+                            <li>Tạm Tính <span>295.000đ</span></li>
+                            <li>Tổng trả <span>200.000đ</span></li>
+                        </ul>
+                        <a href="./checkout.html" class="primary-btn">Tiến Hành Thanh Toán</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Shop Details Section End -->
-
-   
+    <!-- Shopping Cart Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
@@ -376,7 +439,7 @@ Mỗi phần bánh được đóng gói trong hộp quà sang trọng, đi kèm 
                         <div class="footer__logo">
                             <a href="#"><img src="img/footer-logo.png" alt=""></a>
                         </div>
-                        <p>Cảm ơn các bạn rất nhiều.</p>
+                        <p>Cảm ơn các bạn nhiều.</p>
                     </div>
                 </div>
             </div>
@@ -406,5 +469,7 @@ Mỗi phần bánh được đóng gói trong hộp quà sang trọng, đi kèm 
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/jquery.nicescroll.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/slider.js"></script>
 </body>
+
 </html>

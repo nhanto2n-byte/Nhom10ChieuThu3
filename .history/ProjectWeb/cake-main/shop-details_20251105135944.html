@@ -27,50 +27,6 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
         <style>
-            .product__details__option {
-  display: flex;
-  align-items: center;
-  gap: 15px;             /* khoảng cách giữa các nút và ô số lượng */
-  margin-top: 30px;      /* khoảng cách với phần mô tả */
-}
-
-.pro-qty input {
-  width: 50px;           /* chiều rộng ô nhập */
-  height: 40px;          /* chiều cao ô nhập */
-  text-align: center;    /* căn giữa số */
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.primary-btn {
-  background-color: #0e0404;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.primary-btn:hover {
-  background-color: #0f0606;
-}
-
-.heart__btn {
-  font-size: 20px;
-  color: #070101;
-  border: 1px solid #070303;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: 0.3s;
-}
-
-.heart__btn:hover {
-  background-color: #f31010;
-  color: rgb(239, 17, 17);
-}
-
         /* ==================================== */
         /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */
         /* ==================================== */
@@ -231,14 +187,14 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__text">
-                        <h2>Chi Tiết Sản Phẩm</h2>
+                        <h2>Product detail</h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__links">
                         <a href="./index.html">Home</a>
                         <a href="./shop.html">Shop</a>
-                        <span>Chi Tiết Sản Phẩm</span>
+                        <span>Chi Tiết Sản Phầm</span>
                     </div>
                 </div>
             </div>
@@ -280,32 +236,25 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-  <div class="product__details__text">
-    <div class="product__label">Cupcake</div>
-    <h4>SWEET AUTUMN LEAVES</h4>
-    <h5>Giá: 70.000đ</h5>
-    <ul>
-      <li>Mã Sản Phẩm: <span>SP001</span></li>
-      <li>Trọng Lượng: <span>200g/chiếc</span></li>
-      <li>Hương Vị: <span>Dâu</span></li>
-      <li>Mô Tả:
-        <span>Bánh dâu tây thơm ngon với lớp kem mịn và dâu tươi mọng, mang hương vị ngọt ngào của mùa hè.
-          Được làm từ nguyên liệu tươi chất lượng, đóng hộp sang trọng kèm thiệp chúc, là món quà hoàn hảo cho người thân yêu.
-        </span>
-      </li>
-    </ul>
-
-    <div class="product__details__option">
-      <div class="quantity">
-        <div class="pro-qty">
-          <input type="text" value="1">
-        </div>
-      </div>
-      <a href="./shoping-cart.html" class="primary-btn">Add to cart</a>
-      <a href="./wisslist.html" class="heart__btn"><span class="icon_heart_alt"></span></a>
-    </div>
-  </div>
-</div>                      
+                    <div class="product__details__text">
+                        <div class="product__label">Cupcake</div>
+                        <h4>SWEET AUTUMN LEAVES</h4>
+                        <h5>70.000đ</h5>
+                        <p>Cuộc sống tươi đẹp bắt đầu từ những điều giản dị. Hãy trân trọng từng khoảnh khắc, nỗ lực mỗi ngày để đạt được ước mơ và hạnh phúc. Sự kiên trì và lòng tin sẽ đưa bạn đến thành công.</p>
+                        <ul>
+                            <li>SKU: <span>17</span></li>
+                            <li>Category: <span>Biscuit cake</span></li>
+                            <li>Tags: <span>#Tối giản, #Tinh tế</span></li>
+                        </ul>
+                        <div class="product__details__option">
+                            <div class="quantity">
+                                <div class="pro-qty">
+                                    <input type="text" value="1">
+                                </div>
+                            </div>
+                            <a href="./shoping-cart.html" class="primary-btn">Add to cart</a>
+                            <a href="./wisslist.html" class="heart__btn"><span class="icon_heart_alt"></span></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -355,7 +304,119 @@ Mỗi phần bánh được đóng gói trong hộp quà sang trọng, đi kèm 
     </section>
     <!-- Shop Details Section End -->
 
-   
+    <!-- Related Products Section Begin -->
+    <section class="related-products spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <h2>Related Products</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="related__products__slider owl-carousel">
+                    <div class="col-lg-3">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="img/shop/product-1.jpg">
+                                <div class="product__label">
+                                    <span>Cupcake</span>
+                                </div>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">Dozen Cupcakes</a></h6>
+                                <div class="product__item__price">50.000đ</div>
+                                <div class="cart_add">
+                                    <a href="./shoping-cart.html">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="img/shop/product-2.jpg">
+                                <div class="product__label">
+                                    <span>Cupcake</span>
+                                </div>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">Cookies and Cream</a></h6>
+                                <div class="product__item__price">55.000đ</div>
+                                <div class="cart_add">
+                                    <a href="./shoping-cart.html">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="img/shop/product-3.jpg">
+                                <div class="product__label">
+                                    <span>Cupcake</span>
+                                </div>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">Gluten Free Mini Dozen</a></h6>
+                                <div class="product__item__price">60.000đ</div>
+                                <div class="cart_add">
+                                    <a href="./shoping-cart.html">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="img/shop/product-4.jpg">
+                                <div class="product__label">
+                                    <span>Cupcake</span>
+                                </div>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">Cookie Dough</a></h6>
+                                <div class="product__item__price">30.000đ</div>
+                                <div class="cart_add">
+                                    <a href="./shoping-cart.html">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="img/shop/product-5.jpg">
+                                <div class="product__label">
+                                    <span>Cupcake</span>
+                                </div>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">Vanilla Salted Caramel</a></h6>
+                                <div class="product__item__price">15.000đ</div>
+                                <div class="cart_add">
+                                    <a href="./shoping-cart.html">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="img/shop/product-6.jpg">
+                                <div class="product__label">
+                                    <span>Cupcake</span>
+                                </div>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="#">German Chocolate</a></h6>
+                                <div class="product__item__price">36.000đ</div>
+                                <div class="cart_add">
+                                    <a href="./shoping-cart.html">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Related Products Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
@@ -407,4 +468,5 @@ Mỗi phần bánh được đóng gói trong hộp quà sang trọng, đi kèm 
 <script src="js/jquery.nicescroll.min.js"></script>
 <script src="js/main.js"></script>
 </body>
+
 </html>

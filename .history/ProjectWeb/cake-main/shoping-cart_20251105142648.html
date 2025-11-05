@@ -27,26 +27,155 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
         <style>
-            .btn {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  cursor: pointer;
+            /* =============================== */
+/* 🎨 TÙY CHỈNH GIAO DIỆN TOÀN TRANG */
+/* =============================== */
+
+/* Toàn bộ trang */
+body {
+  background-color: #fff8f8; /* nền hồng nhạt nhẹ */
+  font-family: 'Montserrat', sans-serif;
+  color: #444;
+}
+
+/* Thanh menu chính */
+.header__menu ul li a {
+  color: #333;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.header__menu ul li.active a,
+.header__menu ul li a:hover {
+  color: #ff6b6b;
+}
+
+/* Hiệu ứng hover trên logo */
+.header__logo img {
+  transition: transform 0.3s ease;
+}
+.header__logo img:hover {
+  transform: scale(1.08);
+}
+
+/* Breadcrumb (Thanh chỉ đường) */
+.breadcrumb-option {
+  background: linear-gradient(to right, #ffe6e6, #fff);
+  padding: 25px 0;
+  border-bottom: 1px solid #f0dcdc;
+}
+.breadcrumb__text h2 {
+  color: #ff6b6b;
+  font-weight: 700;
+}
+.breadcrumb__links a {
+  color: #555;
+  transition: 0.3s;
+}
+.breadcrumb__links a:hover {
+  color: #ff6b6b;
+}
+
+/* Bảng giỏ hàng */
+.shopping__cart__table table {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.shopping__cart__table th {
+  background-color: #ff6b6b;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.shopping__cart__table td {
+  vertical-align: middle;
+}
+
+/* Nút “Tiếp tục mua hàng” và “Cập nhật đơn” */
+.continue__btn a,
+.update__btn a {
+  background-color: #ff6b6b;
+  color: white;
   border-radius: 6px;
-  padding: 10px 18px;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.continue__btn a:hover,
+.update__btn a:hover {
+  background-color: #e25555;
+}
+
+/* Ô nhập mã giảm giá */
+.cart__discount input {
+  border: 1px solid #ffb6b6;
+  border-radius: 5px;
+  padding: 8px;
+}
+.cart__discount button {
+  background-color: #ff6b6b;
+  color: white;
   border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  transition: 0.3s;
+}
+.cart__discount button:hover {
+  background-color: #e25555;
 }
 
-/* Hover hiệu ứng mượt */
-.btn:hover {
+/* Khung tổng tiền */
+.cart__total {
+  background-color: #fff0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* Nút Thanh toán */
+.cart__total .primary-btn {
+  background: #ff6b6b;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.cart__total .primary-btn:hover {
+  background: #e25555;
+}
+
+/* Nút xóa sản phẩm (icon_close) */
+.cart__close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.cart__close-btn:hover .icon_close {
+  color: #ff6b6b;
+  transform: scale(1.2);
+}
+
+/* Footer */
+.footer {
+  background-color: #222;
+  color: #eee;
+}
+.footer__widget h6 {
+  color: #ffb6b6;
+}
+.footer__logo img {
+  filter: brightness(1.2);
+  transition: 0.3s;
+}
+.footer__logo img:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
-/* Khi bấm */
-.btn:active {
-  transform: scale(0.95);
-}
-
-            
         /* ==================================== */
         /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */
         /* ==================================== */
