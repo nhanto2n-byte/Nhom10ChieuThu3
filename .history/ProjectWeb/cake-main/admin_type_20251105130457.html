@@ -351,13 +351,7 @@
                     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 }
 
-                if (target.classList.contains('btn-delete')) {
-                    const rowToDelete = target.closest('tr');
-                    if (confirm('Bạn có chắc chắn muốn xóa vị này không?')) {
-                        
-                        showToast("Đã xóa vị thành công!", "error");
-                    }
-                }
+              
             });
         });
     </script>
