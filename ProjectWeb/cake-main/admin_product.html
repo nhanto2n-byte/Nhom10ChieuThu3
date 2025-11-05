@@ -321,39 +321,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const detailRow = document.createElement('tr');
                 detailRow.classList.add('detail-row');
-                detailRow.innerHTML = `
-                    <td colspan="6" class="bg-light text-start">
-                        <div class="p-3">
-                            <h6><i class="fa-solid fa-receipt"></i> Chi tiết ${orderId}</h6>
-                            <p><strong>Khách hàng:</strong> ${customer}</p>
-                            <table class="table table-sm table-bordered mt-3 align-middle">
-                                <thead class="table-secondary">
-                                    <tr>
-                                        <th>Sản phẩm</th>
-                                        <th>Số lượng</th>
-                                        <th>Giá</th>
-                                        <th>Thành tiền</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><img src="img/shop/product-1.jpg" width="50" height="50" class="me-2 rounded">Dozen Cupcakes</td>
-                                        <td>2</td><td>50,000đ</td><td>100,000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="img/shop/product-2.jpg" width="50" height="50" class="me-2 rounded">Gluten Free Mini Dozen</td>
-                                        <td>1</td><td>80,000đ</td><td>80,000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="img/shop/product-3.jpg" width="50" height="50" class="me-2 rounded">Cookie Dough</td>
-                                        <td>2</td><td>85,000đ</td><td>170,000đ</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <p class="text-end"><strong>Tổng cộng:</strong> 350,000đ</p>
-                        </div>
-                    </td>
-                `;
+                // ... (code tạo detailRow) ...
+
+detailRow.innerHTML = `
+    <td colspan="6" class="bg-light text-start">
+        <div class="p-3">
+            <h6><i class="fa-solid fa-receipt"></i> Chi tiết ${orderId}</h6>
+            <p><strong>Khách hàng:</strong> ${customer}</p>
+            <table class="table table-sm table-bordered mt-3 align-middle">
+                <thead class="table-secondary">
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="img/shop/product-1.jpg" width="50" height="50" class="me-2 rounded">
+                                <span>Dozen Cupcakes</span>
+                            </div>
+                        </td>
+                        <td>2</td><td>50,000đ</td><td>100,000đ</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="img/shop/product-2.jpg" width="50" height="50" class="me-2 rounded">
+                                <span>Gluten Free Mini Dozen</span>
+                            </div>
+                        </td>
+                        <td>1</td><td>80,000đ</td><td>80,000đ</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="img/shop/product-3.jpg" width="50" height="50" class="me-2 rounded">
+                                <span>Cookie Dough</span>
+                            </div>
+                        </td>
+                        <td>2</td><td>85,000đ</td><td>170,000đ</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-end"><strong>Tổng cộng:</strong> 350,000đ</p>
+        </div>
+    </td>
+`;
+
+// ... (code chèn detailRow) ...
                 currentRow.insertAdjacentElement('afterend', detailRow);
             });
         });
