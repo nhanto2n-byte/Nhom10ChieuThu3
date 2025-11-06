@@ -377,9 +377,56 @@ detailRow.innerHTML = `
             });
         });
     }
+    // ===============================================
+    // *** HÀM MỚI: BIẾN ĐỔI TRẠNG THÁI "MỚI ĐẶT" ***
+    // ===============================================
+    function initializeStatusButtons() {
+        // Dùng 'tableBody' mà bạn đã khai báo ở trên
+        tableBody.querySelectorAll('tr').forEach(row => {
+            if (row.classList.contains('detail-row')) return; // Bỏ qua hàng chi tiết
+
+            const statusCell = row.cells[4]; // Cột thứ 5 (Trạng thái)
+            if (!statusCell) return;
+            
+            // Chỉ tìm badge, nếu đã là nút rồi thì bỏ qua
+            const statusBadge = statusCell.querySelector('span.badge');
+            if (!statusBadge) return; 
+
+            const statusText = statusBadge.innerText.trim();
+
+            // 1. Nếu là "Mới đặt"
+            if (statusText === 'Mới đặt') {
+                // Tạo nút "Hủy đơn"
+                const cancelButton = document.createElement('button');
+                cancelButton.className = 'btn btn-danger btn-sm';
+                cancelButton.innerText = 'Hủy đơn';
+
+                // Thêm sự kiện bấm vào nút
+                cancelButton.addEventListener('click', function() {
+                    // Tạo badge "Hủy" mới
+                    const cancelledBadge = document.createElement('span');
+                    cancelledBadge.className = 'badge bg-danger';
+                    cancelledBadge.innerText = 'Hủy';
+
+                    // Thay thế nút bằng badge "Hủy"
+                    statusCell.innerHTML = '';
+                    statusCell.appendChild(cancelledBadge);
+                });
+
+                // Thay thế badge "Mới đặt" bằng nút
+                statusCell.innerHTML = '';
+                statusCell.appendChild(cancelButton);
+            }
+            
+            // 2. Nếu là "Hủy", "Đã xử lý", "Đã giao"
+            // thì code này không làm gì cả, chúng sẽ "giữ nguyên"
+            // đúng như logic bạn muốn.
+        });
+    }
 
     // Gắn sự kiện cho các nút “Xem” khi trang tải lần đầu
     attachDetailEvent();
+    initializeStatusButtons();
 });
 </script>
 
