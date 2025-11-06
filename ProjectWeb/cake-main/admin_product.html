@@ -104,6 +104,18 @@
             background-color: #555;
             color: #ffcc00;
         }
+
+        .status-badge-clickable {
+    cursor: pointer;
+    /* Thêm hiệu ứng mờ đi một chút khi di chuột qua */
+    transition: opacity 0.2s; 
+    
+    /* Ngăn người dùng vô tình bôi đen chữ khi bấm nhanh */
+    user-select: none; 
+}
+.status-badge-clickable:hover {
+    opacity: 0.8;
+}
     </style>
 </head>
 
@@ -227,18 +239,18 @@
                             </tr>
                         </thead>
                         <tbody id="orderTableBody">
-                            <tr><td>#P001</td><td>Tô Thành Nhân</td><td>01/12/2025</td><td>350,000đ</td><td><span class="badge bg-warning text-dark">Mới đặt</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
-                            <tr><td>#P002</td><td>Huỳnh Nhật Quang</td><td>01/07/2025</td><td>180,000đ</td><td><span class="badge bg-warning text-dark">Mới đặt</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
-                            <tr><td>#P003</td><td>Nguyễn Trung Hiếu</td><td>13/02/2025</td><td>220,000đ</td><td><span class="badge bg-success">Đã giao</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
-                            <tr><td>#P004</td><td>Bùi Nhật Hào</td><td>19/04/2025</td><td>180,000đ</td><td><span class="badge bg-danger">Hủy</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
-                            <tr><td>#P005</td><td>Trần Trung Thái</td><td>11/11/2025</td><td>500,000đ</td><td><span class="badge bg-info">Đã xử lý</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
-                            <tr><td>#P006</td><td>Nguyễn Khải Hoàn Ca</td><td>10/05/2025</td><td>120,000đ</td><td><span class="badge bg-warning text-dark">Mới đặt</span></td><td><a href="#" class="btn btn-primary btn-sm">Xem</a></td></tr>
-                            <tr><td>#P007</td><td>Trần Lê Gia Bảo</td><td>13/03/2025</td><td>85,000đ</td><td><span class="badge bg-success">Đã giao</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
-                            <tr><td>#P008</td><td>Đào Hữu Tài</td><td>01/01/2025</td><td>300,000đ</td><td><span class="badge bg-info">Đã xử lý</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
-                            <tr><td>#P009</td><td>Trịnh Trần Phương Tuấn</td><td>12/04/2022</td><td>45,000đ</td><td><span class="badge bg-danger">Hủy</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
-                            <tr><td>#P010</td><td>Nguyễn Thị Mai</td><td>08/01/2023</td><td>650,000đ</td><td><span class="badge bg-success">Đã giao</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
-                            <tr><td>#P011</td><td>Trần Nhựt Huy</td><td>12/01/2025</td><td>180,000đ</td><td><span class="badge bg-warning text-dark">Mới đặt</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
-                            <tr><td>#P012</td><td>Nguyễn Hoàng Phúc</td><td>13/07/2026</td><td>120,000đ</td><td><span class="badge bg-warning text-dark">Mới đặt</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
+                            <tr><td>#P001</td><td>Tô Thành Nhân</td><td>01/12/2025</td><td>350,000đ</td><td><span class="badge bg-warning text-dark status-badge-clickable">Mới đặt</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
+                            <tr><td>#P002</td><td>Huỳnh Nhật Quang</td><td>01/07/2025</td><td>180,000đ</td><td><span class="badge bg-warning text-dark status-badge-clickable">Mới đặt</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
+                            <tr><td>#P003</td><td>Nguyễn Trung Hiếu</td><td>13/02/2025</td><td>220,000đ</td><td><span class="badge bg-success status-badge-clickable">Đã giao</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
+                            <tr><td>#P004</td><td>Bùi Nhật Hào</td><td>19/04/2025</td><td>180,000đ</td><td><span class="badge bg-danger status-badge-clickable">Hủy</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
+                            <tr><td>#P005</td><td>Trần Trung Thái</td><td>11/11/2025</td><td>500,000đ</td><td><span class="badge bg-info status-badge-clickable">Đã xử lý</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
+                            <tr><td>#P006</td><td>Nguyễn Khải Hoàn Ca</td><td>10/05/2025</td><td>120,000đ</td><td><span class="badge bg-warning text-dark status-badge-clickable">Mới đặt</span></td><td><a href="#" class="btn btn-primary btn-sm">Xem</a></td></tr>
+                            <tr><td>#P007</td><td>Trần Lê Gia Bảo</td><td>13/03/2025</td><td>85,000đ</td><td><span class="badge bg-success status-badge-clickable">Đã giao</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
+                            <tr><td>#P008</td><td>Đào Hữu Tài</td><td>01/01/2025</td><td>300,000đ</td><td><span class="badge bg-info status-badge-clickable">Đã xử lý</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
+                            <tr><td>#P009</td><td>Trịnh Trần Phương Tuấn</td><td>12/04/2022</td><td>45,000đ</td><td><span class="badge bg-danger status-badge-clickable">Hủy</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
+                            <tr><td>#P010</td><td>Nguyễn Thị Mai</td><td>08/01/2023</td><td>650,000đ</td><td><span class="badge bg-success status-badge-clickable">Đã giao</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
+                            <tr><td>#P011</td><td>Trần Nhựt Huy</td><td>12/01/2025</td><td>180,000đ</td><td><span class="badge bg-warning text-dark status-badge-clickable">Mới đặt</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
+                            <tr><td>#P012</td><td>Nguyễn Hoàng Phúc</td><td>13/07/2026</td><td>120,000đ</td><td><span class="badge bg-warning text-dark status-badge-clickable">Mới đặt</span></td><td><a href="order_detail.html" class="btn btn-primary btn-sm">Xem</a></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -377,57 +389,57 @@ detailRow.innerHTML = `
             });
         });
     }
-    // ===============================================
-    // *** HÀM MỚI: BIẾN ĐỔI TRẠNG THÁI "MỚI ĐẶT" ***
-    // ===============================================
-    function initializeStatusButtons() {
-        // Dùng 'tableBody' mà bạn đã khai báo ở trên
-        tableBody.querySelectorAll('tr').forEach(row => {
-            if (row.classList.contains('detail-row')) return; // Bỏ qua hàng chi tiết
-
-            const statusCell = row.cells[4]; // Cột thứ 5 (Trạng thái)
-            if (!statusCell) return;
-            
-            // Chỉ tìm badge, nếu đã là nút rồi thì bỏ qua
-            const statusBadge = statusCell.querySelector('span.badge');
-            if (!statusBadge) return; 
-
-            const statusText = statusBadge.innerText.trim();
-
-            // 1. Nếu là "Mới đặt"
-            if (statusText === 'Mới đặt') {
-                // Tạo nút "Hủy đơn"
-                const cancelButton = document.createElement('button');
-                cancelButton.className = 'btn btn-danger btn-sm';
-                cancelButton.innerText = 'Hủy đơn';
-
-                // Thêm sự kiện bấm vào nút
-                cancelButton.addEventListener('click', function() {
-                    // Tạo badge "Hủy" mới
-                    const cancelledBadge = document.createElement('span');
-                    cancelledBadge.className = 'badge bg-danger';
-                    cancelledBadge.innerText = 'Hủy';
-
-                    // Thay thế nút bằng badge "Hủy"
-                    statusCell.innerHTML = '';
-                    statusCell.appendChild(cancelledBadge);
-                });
-
-                // Thay thế badge "Mới đặt" bằng nút
-                statusCell.innerHTML = '';
-                statusCell.appendChild(cancelButton);
-            }
-            
-            // 2. Nếu là "Hủy", "Đã xử lý", "Đã giao"
-            // thì code này không làm gì cả, chúng sẽ "giữ nguyên"
-            // đúng như logic bạn muốn.
-        });
-    }
+    
 
     // Gắn sự kiện cho các nút “Xem” khi trang tải lần đầu
     attachDetailEvent();
-    initializeStatusButtons();
+
+   // ========================================================
+    // [MỚI] LOGIC ĐỔI TRẠNG THÁI (CHỈ TỪ MỚI ĐẶT -> HỦY)
+    // ========================================================
+    
+    // XÓA BỎ mảng const STATUS_CYCLE = [...] cũ đi
+
+    // Dùng Event Delegation để lắng nghe click trên toàn bộ bảng
+    tableBody.addEventListener('click', function(e) {
+        
+        // 1. Kiểm tra xem thứ được bấm có phải là cái nhãn không
+        if (e.target.classList.contains('status-badge-clickable')) {
+            const badge = e.target;
+            const currentText = badge.innerText;
+
+            // 2. CHỈ THỰC HIỆN KHI TRẠNG THÁI LÀ "MỚI ĐẶT"
+            if (currentText === 'Mới đặt') {
+                
+                console.log("Phát hiện bấm nút MỚI ĐẶT. Đang chuyển sang HỦY...");
+
+                // 3. Định nghĩa trạng thái "Hủy"
+                const nextState = { text: 'Hủy', cssClasses: ['bg-danger'] };
+
+                // 4. Cập nhật nhãn (badge)
+                // Xóa class màu cũ
+                badge.classList.remove('bg-warning', 'text-dark');
+                
+                // Thêm class màu mới ('bg-danger' mặc định chữ trắng)
+                badge.classList.add(...nextState.cssClasses);
+                
+                // Đổi chữ
+                badge.innerText = nextState.text;
+
+                // Log lại
+                const orderId = badge.closest('tr').children[0].innerText;
+                console.log(`Đã đổi trạng thái đơn ${orderId} thành: ${nextState.text}`);
+                
+                // SAU NÀY: Bạn sẽ gọi API/fetch để lưu thay đổi này vào CSDL
+            }
+            
+            // 5. Nếu currentText là "Hủy", "Đã giao", "Đã xử lý" -> không làm gì cả.
+            // Code sẽ tự kết thúc mà không chạy vào if.
+        }
+    });
 });
+
+
 </script>
 
 
