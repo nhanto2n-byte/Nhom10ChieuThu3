@@ -3,132 +3,146 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đăng nhập Quản trị viên | Cake Admin</title>
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-image: url('img/hero/hero-1.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
-    .auth-container {
-      background-color: rgba(255, 255, 255, 0.92);
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-      width: 380px;
-      text-align: center;
-      backdrop-filter: blur(5px);
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
 
-    .icon {
-      font-size: 45px;
-      margin-bottom: 10px;
-      color: #ffb74d;
-    }
+/* --- NỀN --- */
+body {
+  background: url('img/hero/hero-1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-    h2 {
-      color: #5a3e36;
-      font-weight: bold;
-      margin-bottom: 25px;
-      font-size: 24px;
-    }
+/* --- KHUNG CHÍNH --- */
+.login-container {
+  background-color: rgba(255, 248, 240, 0.92);
+  border-radius: 25px;
+  box-shadow: 0 6px 25px rgba(107, 66, 38, 0.35);
+  width: 400px;
+  padding: 40px 35px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+  transition: transform 0.3s ease;
+}
 
-    .form-group {
-      margin-bottom: 18px;
-      text-align: left;
-    }
+.login-container:hover {
+  transform: translateY(-5px);
+}
 
-    .form-group label {
-      display: block;
-      margin-bottom: 6px;
-      color: #6a4f4b;
-      font-weight: bold;
-      font-size: 15px;
-    }
+.login-container h1 {
+  color: #4b2e05;
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-    .form-group input {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-sizing: border-box;
-      background-color: #fffaf0;
-      font-size: 15px;
-    }
+.login-container p {
+  font-size: 13px;
+  color: #6b4226;
+  margin-bottom: 25px;
+}
 
-    .submit-btn {
-      width: 100%;
-      padding: 14px;
-      background-color: #8b4513;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 17px;
-      font-weight: bold;
-      margin-top: 10px;
-      transition: background-color 0.3s;
-    }
+/* --- INPUT --- */
+.input-group {
+  width: 100%;
+  margin-bottom: 18px;
+  position: relative;
+}
 
-    .submit-btn:hover {
-      background-color: #a0522d;
-    }
+.input-group input {
+  width: 100%;
+  padding: 12px 15px 12px 40px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f4ede4;
+  color: #4b2e05;
+  outline: none;
+  font-size: 14px;
+}
 
-    .link {
-      display: block;
-      margin-top: 15px;
-      color: #8b4513;
-      text-decoration: none;
-      font-size: 14px;
-    }
+.input-group i {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  color: #8B4513;
+}
 
-    .link:hover {
-      text-decoration: underline;
-    }
+/* --- NÚT --- */
+button {
+  width: 100%;
+  background-color: #8B4513;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-    .footer-note {
-      font-size: 13px;
-      color: #7c6c63;
-      margin-top: 25px;
-    }
+button:hover {
+  background-color: #A0522D;
+}
+
+/* --- LIÊN KẾT --- */
+a {
+  color: #6b4226;
+  font-size: 12px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
   </style>
 </head>
+
 <body>
-  <div class="auth-container">
-    <span class="icon">🧁</span>
-    <h2>ĐĂNG NHẬP QUẢN TRỊ VIÊN</h2>
+  <div class="login-container">
+    <h1>Admin Login</h1>
+    <p>Đăng nhập để vào trang quản trị hệ thống</p>
 
-    <form id="admin-login" novalidate>
-      <div class="form-group">
-        <label for="username">Tên đăng nhập</label>
-        <input type="text" id="username" name="username" placeholder="Nhập tên quản trị viên" required>
-      </div>
+    <form id="adminLoginForm">
+  <div class="input-group">
+    <i class="fa-solid fa-user"></i>
+    <input type="text" placeholder="Tên đăng nhập">
+  </div>
+  <div class="input-group">
+    <i class="fa-solid fa-lock"></i>
+    <input type="password" placeholder="Mật khẩu">
+  </div>
 
-      <div class="form-group">
-        <label for="password">Mật khẩu</label>
-        <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
-      </div>
+  <button type="submit">Đăng nhập</button>
+</form>
 
-      <button type="submit" class="submit-btn">ĐĂNG NHẬP</button>
-      <a href="#" class="link">Quên mật khẩu?</a>
-    </form>
 
-    <p class="footer-note">© 2025 Cake Shop Admin Panel</p>
+    <a href="#">Quên mật khẩu?</a>
   </div>
 
   <script>
-    document.getElementById("admin-login").addEventListener("submit", function(event) {
-      event.preventDefault();
-      // Khi nhấn đăng nhập -> chuyển đến admin_home.html
-      window.location.href = "admin_home.html";
+    const adminLoginForm = document.getElementById('adminLoginForm');
+    adminLoginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Giả lập đăng nhập, bạn có thể thêm kiểm tra user/pass tại đây
+      window.location.href = 'admin_home.html';
     });
   </script>
 </body>
