@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lịch Sử Mua Hàng | BonSai</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap & Icons -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f8f9fa;
+      color: #222;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header__top {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .header__top__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header__logo img {
+      height: 55px;
+    }
+
+    .header__top__left ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header__top__left ul li {
+      display: inline-block;
+      position: relative;
+    }
+
+    .header__top__left ul li a {
+      color: #222;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Dropdown Menu */
+    .header__top__left ul li.has-dropdown {
+      position: relative;
+    }
+
+    .header__top__left ul li .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #333;
+      border-radius: 6px;
+      overflow: hidden;
+      min-width: 180px;
+    }
+
+    .header__top__left ul li.has-dropdown:hover .dropdown {
+      display: block;
+    }
+
+    .header__top__left ul li .dropdown li a {
+      display: block;
+      padding: 10px 15px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .header__top__left ul li .dropdown li a:hover {
+      background: #444;
+      color: #ffcc00;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #136a4a, #1d885d);
+      color: #fff;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-weight: 700;
+      font-size: 40px;
+      letter-spacing: 1px;
+    }
+
+    /* ===== TAB CONTROLS ===== */
+    .controls1 {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .controls1 label {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 8px 20px;
+      margin: 0 5px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .controls1 label:hover {
+      background-color: #136a4a;
+      color: #fff;
+      border-color: #136a4a;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    .page {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    #page11:checked ~ .book .page11,
+    #page22:checked ~ .book .page22,
+    #page33:checked ~ .book .page33,
+    #page44:checked ~ .book .page44,
+    #page55:checked ~ .book .page55 {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* ===== TABLE ===== */
+    table {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .table th {
+      background-color: #136a4a;
+      color: #fff;
+    }
+
+    .table td, .table th {
+      vertical-align: middle;
+    }
+
+    .badge {
+      padding: 6px 10px;
+      font-size: 0.9rem;
+      border-radius: 5px;
+    }
+
+    button.badge {
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button.badge:hover {
+      opacity: 0.8;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-section {
+      background-color: #222;
+      color: #bbb;
+      padding: 50px 0;
+      margin-top: 80px;
+      position: relative;
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .footer-logo span {
+      color: #ffcc00;
+    }
+
+    .custom-social li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .custom-social a {
+      color: #fff;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .custom-social a:hover {
+      color: #ffcc00;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__top">
+      <div class="container">
+        <div class="header__top__inner">
+          <div class="header__top__left">
+            <ul>
+              <li class="has-dropdown">
+                <a href="#">
+                  Xin chào <strong>Đào Hữu Tài</strong> <span class="arrow_carrot-down"></span>
+                </a>
+                <ul class="dropdown">
+                  <li><a href="./profile.html">My Profile</a></li>
+                  <li><a href="./register.html">Log out</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="header__logo">
+            <a href="./index.html"><img src="img/logo.png" alt="logo"></a>
+          </div>
+
+          <div class="header__top__right d-flex align-items-center gap-3">
+            <a href="./wishlist.html"><img src="img/icon/heart.png" alt=""></a>
+            <a href="./shoping-cart.html">
+              <img src="img/icon/cart.png" alt="">
+              <span class="ms-1 fw-bold">0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>LỊCH SỬ MUA HÀNG</h1>
+  </div>
+
+  <!-- HISTORY SECTION -->
+  <div class="container py-5">
+    <input type="radio" name="page" id="page11" checked />
+    <input type="radio" name="page" id="page22" />
+    <input type="radio" name="page" id="page33" />
+    <input type="radio" name="page" id="page44" />
+    <input type="radio" name="page" id="page55" />
+
+    <div class="controls1">
+      <label for="page11">Tất cả</label>
+      <label for="page22">Mới Đặt</label>
+      <label for="page33">Đã xử lý</label>
+      <label for="page44">Đã giao</label>
+      <label for="page55">Hủy</label>
+    </div>
+
+    <div class="book">
+      <!-- Trang 1 -->
+      <div class="page page11">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center align-middle bg-white">
+            <thead>
+              <tr>
+                <th>Mã đơn</th>
+                <th>Ngày đặt</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th>Chi tiết</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>#P001</td><td>12/12/2025</td><td>137.000đ</td><td><span class="badge bg-warning text-dark">Mới đặt</span></td><td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td></tr>
+              <tr><td>#P004</td><td>10/12/2025</td><td>136.000đ</td><td><span class="badge bg-success">Đã xử lý</span></td><td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td></tr>
+              <tr><td>#P006</td><td>10/05/2025</td><td>190.000đ</td><td><span class="badge bg-primary">Đã giao</span></td><td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td></tr>
+              <tr><td>#P003</td><td>11/12/2025</td><td>120.000đ</td><td><span class="badge bg-danger">Hủy</span></td><td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Các tab khác giữ nguyên logic tương tự -->
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-section text-center">
+    <div class="container">
+      <a href="#" class="footer-logo">BonSai<span>.</span></a>
+      <p class="my-3">Mang đến cho bạn trải nghiệm xanh tốt nhất!</p>
+      <ul class="custom-social list-unstyled">
+        <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+        <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+        <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+        <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

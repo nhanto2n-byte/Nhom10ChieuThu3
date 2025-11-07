@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Cake Template">
+    <meta name="keywords" content="Cake, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <style>
+        /* ==================================== */
+        /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */
+        /* ==================================== */
+
+        /* 1. Thiết lập vị trí tương đối cho mục cha */
+        .header__top__left ul li.has-dropdown {
+            position: relative; 
+        }
+
+        /* KHẮC PHỤC LỖI TÔ ĐEN TRÊN LIÊN KẾT CHA */
+        .header__top__left ul li.has-dropdown > a:focus,
+        .header__top__left ul li.has-dropdown > a:active {
+            /* Dùng !important để ghi đè CSS từ file style.css nếu cần */
+            outline: none !important; 
+            -webkit-tap-highlight-color: transparent; 
+            background-color: transparent !important;
+        }
+
+        /* 2. Thiết lập trạng thái mặc định (ẨN) cho dropdown */
+        .header__top__left ul li .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0; 
+            z-index: 100;
+
+            /* NỀN ĐẬM CHO CHỮ TRẮNG NỔI BẬT */
+            background-color: #333; /* Nền xám/đen đậm */
+            border: 1px solid #555;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            padding: 5px 0;
+            list-style: none; /* Loại bỏ dấu chấm */
+        }
+
+        /* 3. Hiển thị menu khi di chuột vào mục cha */
+        .header__top__left ul li.has-dropdown:hover > .dropdown {
+            display: block;
+        }
+
+        /* 4. Định kiểu cho các mục con trong menu */
+        .header__top__left ul li .dropdown li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            
+            /* MÀU CHỮ TRẮNG */
+            color: white; 
+            
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        /* Hiệu ứng di chuột (hover) cho các mục con */
+        .header__top__left ul li .dropdown li a:hover {
+            background-color: #555; /* Nền xám nhẹ khi hover */
+            color: #ffcc00; /* Màu nổi bật khi hover */
+        }
+        /* ======= Căn giữa & làm đẹp phần HERO ======= */
+.hero {
+  background: linear-gradient(135deg, #ed8208, #dd7608);
+  color: #fff;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ======= Làm đẹp và căn giữa các nút trạng thái ======= */
+.controls1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 40px 0 20px;
+}
+
+.controls1 label {
+  background: #fff;
+  border: 2px solid #136a4a;
+  color: #136a4a;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 8px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.controls1 label:hover {
+  background: #136a4a;
+  color: #fff;
+}
+
+input[type="radio"]:checked + label {
+  background: #136a4a;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(19, 106, 74, 0.3);
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__cart">
+            <div class="offcanvas__cart__links">
+                <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+                <a href="#"><img src="img/icon/heart.png" alt=""></a>
+            </div>
+            <div class="offcanvas__cart__item">
+                <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                <div class="cart__price">Cart: <span>0đ</span></div>
+            </div>
+        </div>
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header__top__inner">
+                            <div class="header__top__left">
+                                <ul>
+                                    <li class="has-dropdown">
+                                    <a href="./profile.html">
+                                            Xin chào <strong>Đào Hữu Tài</strong> 
+                                            <span class="arrow_carrot-down"></span> 
+                                    </a>
+                                        <ul class="dropdown">
+                                            <li><a href="./profile.html">My Profile</a></li> 
+                                            <li><a href="./register.html">Log out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header__logo">
+                                <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            </div>
+                            <div class="header__top__right">
+                                <div class="header__top__right__links">
+                                   
+                                    <a href="./wisslist.html"><img src="img/icon/heart.png" alt=""></a>
+                                </div>
+                                <div class="header__top__right__cart">
+                                    <a href="./shoping-cart.html"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                                    <div class="cart__price">Cart: <span>0đ</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="./index.html">Home</a></li>
+                            <li><a href="./shop.html">Shop</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./wisslist.html">Wishlist</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>LỊCH SỬ MUA HÀNG</h1>
+  </div>
+
+  <!-- HISTORY SECTION -->
+  <div class="container py-5">
+    <input type="radio" name="page" id="page11" checked />
+    <label for="page11"></label>
+    <input type="radio" name="page" id="page22" />
+    <label for="page22"></label>
+    <input type="radio" name="page" id="page33" />
+    <label for="page33"></label>
+    <input type="radio" name="page" id="page44" />
+    <label for="page44"></label>
+    <input type="radio" name="page" id="page55" />
+    <label for="page55"></label>
+
+    <div class="controls1">
+      <label for="page11">Tất cả</label>
+      <label for="page22">Mới Đặt</label>
+      <label for="page33">Đã xử lý</label>
+      <label for="page44">Đã giao</label>
+      <label for="page55">Hủy</label>
+    </div>
+
+    <div class="book">
+      <div class="page page11">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center bg-white">
+            <thead>
+              <tr>
+                <th>Mã đơn</th>
+                <th>Ngày đặt</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th>Chi tiết</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>#P001</td><td>12/12/2025</td><td>137.000đ</td><td><span class="badge bg-warning text-dark">Mới đặt</span></td><td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td></tr>
+              <tr><td>#P004</td><td>10/12/2025</td><td>136.000đ</td><td><span class="badge bg-success">Đã xử lý</span></td><td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td></tr>
+              <tr><td>#P006</td><td>10/05/2025</td><td>190.000đ</td><td><span class="badge bg-primary">Đã giao</span></td><td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td></tr>
+              <tr><td>#P003</td><td>11/12/2025</td><td>120.000đ</td><td><span class="badge bg-danger">Hủy</span></td><td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-section text-center">
+    <div class="container">
+      <a href="#" class="footer-logo">BonSai<span>.</span></a>
+      <p class="my-3">Mang đến cho bạn trải nghiệm xanh tốt nhất!</p>
+      <ul class="custom-social list-unstyled">
+        <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+        <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+        <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+        <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+!-- Search Begin -->
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch">+</div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
+</div>
+<!-- Search End -->
+
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.barfiller.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+
+</html>
