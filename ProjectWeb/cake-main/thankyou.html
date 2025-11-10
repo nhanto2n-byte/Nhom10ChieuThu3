@@ -138,6 +138,39 @@
         margin-bottom: 0.5rem;
       }
     }
+
+       /* === GHI ĐÈ CĂN GIỮA DROPDOWN === */
+.header__menu ul li .dropdown {
+    left: 50% !important;                  /* căn giữa theo chiều ngang */
+    transform: translateX(-50%) !important;/* dịch ngược lại cho giữa thật */
+    min-width: 170px !important;           /* thu hẹp lại */
+    width: fit-content !important;         /* tự co theo nội dung */
+}
+
+/* Đảm bảo chữ bên trong vẫn đẹp, không bị méo */
+.header__menu ul li .dropdown li a {
+    text-align: left !important;           /* căn chữ trái */
+    padding: 10px 35px !important;         /* tạo khoảng cách hợp lý */
+    white-space: nowrap !important;        /* tránh bị xuống dòng lung tung */
+}
+/* === GIỮ HIỆU ỨNG HOVER CŨ + BO GÓC === */
+.header__menu ul li .dropdown {
+    border-radius: 12px !important;   /* Bo góc mềm mại */
+    overflow: hidden !important;      /* Giữ cho nền bên trong bo theo */
+    border: 1px solid #444 !important;/* Viền nhẹ tách menu khỏi nền */
+    transition: all 0.3s ease;        /* Hiệu ứng mở mượt */
+}
+
+/* Hiệu ứng hover cũ quay lại */
+.header__menu ul li .dropdown li a {
+    transition: background-color 0.3s ease, color 0.3s ease; /* mượt mà khi hover */
+}
+
+.header__menu ul li .dropdown li a:hover {
+    background-color: #555 !important; /* nền xám đậm khi hover */
+    color: #ffcc00 !important;         /* chữ vàng nổi bật */
+    border-radius: 8px !important;     /* vẫn giữ bo nhẹ cho từng dòng */
+}
   </style>
 </head>
 
