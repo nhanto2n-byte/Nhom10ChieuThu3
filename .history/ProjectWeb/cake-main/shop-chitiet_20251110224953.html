@@ -7,7 +7,7 @@
     <meta name="keywords" content="Cake, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Wishlist</title>
+    <title>Shop Details</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
@@ -27,6 +27,50 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
         <style>
+            .product__details__option {
+  display: flex;
+  align-items: center;
+  gap: 15px;             /* khoảng cách giữa các nút và ô số lượng */
+  margin-top: 30px;      /* khoảng cách với phần mô tả */
+}
+
+.pro-qty input {
+  width: 50px;           /* chiều rộng ô nhập */
+  height: 40px;          /* chiều cao ô nhập */
+  text-align: center;    /* căn giữa số */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.primary-btn {
+  background-color: #0e0404;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  background-color: #0f0606;
+}
+
+.heart__btn {
+  font-size: 20px;
+  color: #070101;
+  border: 1px solid #070303;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.heart__btn:hover {
+  background-color: #f31010;
+  color: rgb(239, 17, 17);
+}
+
         /* ==================================== */
         /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */
         /* ==================================== */
@@ -132,10 +176,10 @@
         <div class="offcanvas__cart">
             <div class="offcanvas__cart__links">
                 <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                <a href="./wisslist.html"><img src="img/icon/heart.png" alt=""></a>
+                <a href="#"><img src="img/icon/heart.png" alt=""></a>
             </div>
             <div class="offcanvas__cart__item">
-                <a href="./shoping-cart.html"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
                 <div class="cart__price">Giỏ hàng: <span>0đ</span></div>
             </div>
         </div>
@@ -177,12 +221,11 @@
                             </div>
                             <div class="header__top__right">
                                 <div class="header__top__right__links">
-                                    
                                     <a href="./wisslist.html"><img src="img/icon/heart.png" alt=""></a>
                                 </div>
                                 <div class="header__top__right__cart">
                                     <a href="./shoping-cart.html"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                                    <div class="cart__price">Giỏ hàng: <span>200.000đ</span></div>
+                                    <div class="cart__price">Cart: <span>0đ</span></div>
                                 </div>
                             </div>
                         </div>
@@ -201,9 +244,9 @@
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     
-                                    <li><a href="./shoping-cart.html">Giỏ hàng</a></li>
-                                    <li><a href="./checkout.html">Thanh toán</a></li>
-                                    <li><a href="./wisslist.html">Yêu thích</a></li>
+                                   <li><a href="./shoping-cart.html">Giỏ hàng</a></li>
+                  <li><a href="./checkout.html">Thanh toán</a></li>
+                  <li><a href="./wisslist.html">Yêu thích</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -220,13 +263,14 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__text">
-                        <h2>Yêu Thích</h2>
+                        <h2>Chi Tiết Sản Phẩm</h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__links">
                         <a href="./index.html">Home</a>
-                        <span>Yêu Thích</span>
+                        <a href="./shop.html">Shop</a>
+                        <span>Chi Tiết Sản Phẩm</span>
                     </div>
                 </div>
             </div>
@@ -234,107 +278,116 @@
     </div>
     <!-- Breadcrumb End -->
 
-    <!-- Wishlist Section Begin -->
-    <section class="wishlist spad">
+    <!-- Shop Details Section Begin -->
+    <section class="product-details spad">
         <div class="container">
             <div class="row">
+                <div class="col-lg-6">
+                    <div class="product__details__img">
+                        <div class="product__details__big__img">
+                            <img class="big_img" src="img/shop/details/product-big-1.jpg" alt="">
+                        </div>
+                        <div class="product__details__thumb">
+                            <div class="pt__item active">
+                                <img data-imgbigurl="img/shop/details/product-big-2.jpg"
+                                src="img/shop/details/product-big-2.jpg" alt="">
+                            </div>
+                            <div class="pt__item">
+                                <img data-imgbigurl="img/shop/details/product-big-1.jpg"
+                                src="img/shop/details/product-big-1.jpg" alt="">
+                            </div>
+                            <div class="pt__item">
+                                <img data-imgbigurl="img/shop/details/product-big-4.jpg"
+                                src="img/shop/details/product-big-4.jpg" alt="">
+                            </div>
+                            <div class="pt__item">
+                                <img data-imgbigurl="img/shop/details/product-big-3.jpg"
+                                src="img/shop/details/product-big-3.jpg" alt="">
+                            </div>
+                            <div class="pt__item">
+                                <img data-imgbigurl="img/shop/details/product-big-5.jpg"
+                                src="img/shop/details/product-big-5.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+  <div class="product__details__text">
+    <div class="product__label">Cupcake</div>
+    <h4>SWEET AUTUMN LEAVES</h4>
+    <h5>Giá: 70.000đ</h5>
+    <ul>
+      <li>Mã Sản Phẩm: <span>SP001</span></li>
+      <li>Trọng Lượng: <span>200g/chiếc</span></li>
+      <li>Hương Vị: <span>Dâu</span></li>
+      <li>Thông Tin:
+        <span>Bánh dâu tây thơm ngon với lớp kem mịn và dâu tươi mọng, mang hương vị ngọt ngào của mùa hè.
+          Được làm từ nguyên liệu tươi chất lượng, đóng hộp sang trọng kèm thiệp chúc, là món quà hoàn hảo cho người thân yêu.
+        </span>
+      </li>
+    </ul>
+
+    <div class="product__details__option">
+      <div class="quantity">
+        <div class="pro-qty">
+          <input type="text" value="1">
+        </div>
+      </div>
+      <a href="./shoping-cart.html" class="primary-btn">Mua ngay</a>
+      <a href="./wisslist.html" class="heart__btn"><span class="icon_heart_alt"></span></a>
+    </div>
+  </div>
+</div>                      
+                    </div>
+                </div>
+            </div>
+            <div class="product__details__tab">
                 <div class="col-lg-12">
-                    <div class="wishlist__cart__table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Sản Phẩm</th>
-                                    <th>Đơn Giá</th>
-                                    <th>Tình trạng</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="img/shop/cart/cart-1.jpg" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>Vanilla Salted Caramel</h6>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">20.000đ</td>
-                                    <td class="cart__stock">Còn hàng</td>
-                                    <td class="cart__btn"><a href="./shoping-cart.html" class="primary-btn">Mua ngay</a></td>
-                                    <td class="cart__close">
-  <button onclick = "deleteProduct()"type="button" class="cart__close-btn">
-    <span class="icon_close"></span>
-  </button>
-</td>
-
-                                </tr>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="img/shop/cart/cart-2.jpg" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>German Chocolate</h6>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">30.000đ</td>
-                                    <td class="cart__stock">Còn hàng</td>
-                                    <td class="cart__btn"><a href="./shoping-cart.html" class="primary-btn">Mua ngay</a></td>
-                                    <td class="cart__close">
-  <button onclick = "deleteProduct()"type="button" class="cart__close-btn">
-    <span class="icon_close"></span>
-  </button>
-</td>
-
-                                </tr>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="img/shop/cart/cart-3.jpg" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>SWEET AUTUMN LEAVES</h6>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">55.000đ</td>
-                                    <td class="cart__stock">Còn hàng</td>
-                                    <td class="cart__btn"><a href="./shoping-cart.html" class="primary-btn">Mua ngay</a></td>
-                                    <td class="cart__close">
-  <button onclick = "deleteProduct()"type="button" class="cart__close-btn">
-    <span class="icon_close"></span>
-  </button>
-</td>
-
-                                </tr>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="img/shop/cart/cart-4.jpg" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>Gluten Free Mini Dozen</h6>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">36.000đ</td>
-                                    <td class="cart__stock">Còn hàng</td>
-                                    <td class="cart__btn"><a href="./shoping-cart.html" class="primary-btn">Mua ngay</a></td>
-                                    <td class="cart__close">
-  <button onclick = "deleteProduct()"type="button" class="cart__close-btn">
-    <span class="icon_close"></span>
-  </button>
-</td>
-
-                                </tr>
-                            </tbody>
-                        </table>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Mô tả</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Thông tin bổ sung</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Đánh giá(1)</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-8">
+                                    <p>Chiếc bánh dâu tây thơm ngon tuyệt hảo này là một món quà ngọt ngào chứa đầy những miếng dâu tây tươi mọng hấp dẫn. Được làm từ những nguyên liệu tươi ngon nhất, chỉ một miếng cắn cũng đủ khiến bạn như lạc vào mùa hè rực rỡ.
+Mỗi phần bánh được đóng gói trong hộp quà sang trọng, đi kèm thiệp chúc mừng mà bạn có thể tùy chỉnh lời nhắn trực tuyến – một món quà hoàn hảo dành tặng người thân yêu!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-8">
+                                    <p>Bánh Dâu Tây được làm thủ công từ những nguyên liệu tươi ngon nhất như dâu tây chín mọng, bột mì hảo hạng, bơ, đường, kem sữa và trứng gà. Bánh có đường kính khoảng 18 cm, phù hợp cho 6–8 phần ăn. Sản phẩm được bảo quản lạnh ở nhiệt độ từ 2–5°C và có hạn sử dụng trong 3 ngày kể từ ngày sản xuất. Mỗi chiếc bánh được đóng gói cẩn thận trong hộp quà sang trọng, đi kèm thiệp chúc mừng mà bạn có thể tùy chỉnh lời nhắn theo ý muốn. Đây là món quà lý tưởng cho các dịp như sinh nhật, lễ tình nhân, tiệc trà hay để gửi tặng người thân yêu.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-3" role="tabpanel">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-8">
+                                    <p>Bánh Dâu Tây tươi ngon, hòa quyện vị ngọt thanh và vị chua nhẹ tự nhiên của dâu tây mọng nước. Lớp vỏ giòn tan, phần nhân mềm mịn mang đến hương vị mùa hè trọn vẹn trong từng miếng bánh.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Wishlist Section End -->
+    <!-- Shop Details Section End -->
+
+   
 
     <!-- Footer Section Begin -->
     <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
@@ -356,8 +409,6 @@
                             <a href="#"><img src="img/footer-logo.png" alt=""></a>
                         </div>
                         <p>Cảm ơn các bạn rất nhiều.</p>
-                        <div class="footer__social">
-                        </div>
                     </div>
                 </div>
             </div>
@@ -387,7 +438,5 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/jquery.nicescroll.min.js"></script>
 <script src="js/main.js"></script>
-<script src="js/slider.js"></script>
 </body>
-
 </html>
