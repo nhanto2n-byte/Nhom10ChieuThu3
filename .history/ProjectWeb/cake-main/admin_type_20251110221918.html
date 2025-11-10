@@ -150,10 +150,6 @@
     transition: background 0.2s, color 0.2s;
     line-height: 1.4; /* giúp dòng chữ cân đối khi xuống dòng */
 }
-.d-flex.gap-4 {
-    gap: 20px; /* tăng khoảng cách giữa các nút */
-}
-
 
 /* Hover đẹp */
 .header__menu ul li .dropdown li a:hover {
@@ -239,15 +235,11 @@
                     <p>Cupcake Trà Xanh mềm xốp, thơm dịu hương trà.
 Phủ lớp kem ngọt nhẹ, béo ngậy.</p>
                     <div class="d-flex justify-content-center gap-4 mt-3">
-                       <button class="btn btn-warning btn-sm btn-action"
+                           <button class="btn btn-warning btn-sm btn-action"
         onclick="window.location.href='sualoaisp.html'">
     <i class="fa-solid fa-pen"></i> Sửa
 </button>
-
-                       <button class="btn btn-danger btn-sm btn-action btn-delete-card">
-    <i class="fa-solid fa-trash"></i> Xóa
-</button>
-
+                     
                     </div>
                 </div>
             </div>
@@ -266,10 +258,7 @@ Phủ lớp kem socola tan chảy trong miệng..</p>
         onclick="window.location.href='sualoaisp.html'">
     <i class="fa-solid fa-pen"></i> Sửa
 </button>
-                       <button class="btn btn-danger btn-sm btn-action btn-delete-card">
-    <i class="fa-solid fa-trash"></i> Xóa
-</button>
-
+                        <button class="btn btn-danger btn-sm btn-action"><i class="fa-solid fa-trash"></i> Xóa</button>
                     </div>
                 </div>
             </div>
@@ -289,10 +278,7 @@ Phủ kem hồng ngọt dịu.</p>
     <i class="fa-solid fa-pen"></i> Sửa
 </button>
 
-                       <button class="btn btn-danger btn-sm btn-action btn-delete-card">
-    <i class="fa-solid fa-trash"></i> Xóa
-</button>
-
+                        <button class="btn btn-danger btn-sm btn-action"><i class="fa-solid fa-trash"></i> Xóa</button>
                     </div>
                     
                 </div>
@@ -370,16 +356,115 @@ Phủ kem hồng ngọt dịu.</p>
         `;
         document.head.appendChild(style);
 
+        // ======================================================
+        // LOGIC CHÍNH ĐIỀU KHIỂN FORM VÀ BẢNG
+        // ======================================================
+        document.addEventListener("DOMContentLoaded", () => {
+            // --- LẤY TẤT CẢ CÁC PHẦN TỬ CẦN DÙNG ---
+            const btnShowAddFlavor = document.getElementById('btnShowAddFlavor');
+            const btnShowAddCake = document.getElementById('btnShowAddCake');
+            const btnCancelAddFlavor = document.getElementById('btnCancelAddFlavor');
+            const btnCancelAddCake = document.getElementById('btnCancelAddCake');
+            const btnCancelEdit = document.getElementById('btnCancel');
+            const addFlavorForm = document.getElementById('addFlavorForm');
+            const addCakeForm = document.getElementById('addCakeForm');
+            const editForm = document.getElementById('editForm');
+            const formAddFlavorElement = document.getElementById('formAddFlavor');
+            const formAddCakeElement = document.getElementById('formAddCake');
+            const formEditElement = document.getElementById('formEdit');
+            const tableBody = document.getElementById('bangDanhSachVi');
+            let editingRow = null;
 
-      document.addEventListener("DOMContentLoaded", () => {
-    const deleteButtons = document.querySelectorAll(".btn-delete-card");
+            // --- CHỨC NĂNG: HIỆN/ẨN CÁC FORM ---
+            if (btnShowAddFlavor) {
+                btnShowAddFlavor.addEventListener('click', () => {
+                    addFlavorForm.style.display = 'block';
+                    addCakeForm.style.display = 'none';
+                    editForm.style.display = 'none';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            if (btnShowAddCake) {
+                btnShowAddCake.addEventListener('click', () => {
+                    addCakeForm.style.display = 'block';
+                    addFlavorForm.style.display = 'none';
+                    editForm.style.display = 'none';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
 
-    deleteButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            showToast("Xóa thành công!", "success");
+            // --- CHỨC NĂNG: CÁC NÚT HỦY ---
+            if (btnCancelAddFlavor) btnCancelAddFlavor.addEventListener('click', () => { addFlavorForm.style.display = 'none'; });
+            if (btnCancelAddCake) btnCancelAddCake.addEventListener('click', () => { addCakeForm.style.display = 'none'; });
+            if (btnCancelEdit) btnCancelEdit.addEventListener('click', () => { editForm.style.display = 'none'; });
+
+            // --- CHỨC NĂNG: LƯU FORM "THÊM VỊ MỚI" (CHỈ ĐÓNG FORM) ---
+            if (formAddFlavorElement) {
+                formAddFlavorElement.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    addFlavorForm.style.display = 'none';
+                    formAddFlavorElement.reset();
+                    showToast("Đã đóng form thêm vị.");
+                });
+            }
+            
+            // --- CHỨC NĂNG: LƯU FORM "THÊM BÁNH" ---
+            if(formAddCakeElement) {
+                formAddCakeElement.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const tenBanh = document.getElementById('cakeNameInput').value.trim();
+                    const viBanh = document.getElementById('cakeFlavorInput').value.trim();
+                    if (!tenBanh || !viBanh) {
+                        showToast("Vui lòng nhập Tên bánh và Vị bánh!", "error");
+                        return;
+                    }
+                    const sanPhamBanhMoi = { ten: tenBanh, vi: viBanh };
+                    console.log("Sản phẩm bánh mới:", sanPhamBanhMoi);
+                    showToast(`Đã thêm bánh "${tenBanh}" thành công!`);
+                    addCakeForm.style.display = 'none';
+                    formAddCakeElement.reset();
+                });
+            }
+
+            // --- CHỨC NĂNG: LƯU FORM "SỬA VỊ" ---
+            if (formEditElement) {
+                formEditElement.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const newTenVi = document.getElementById('editTen').value.trim();
+                    if (!newTenVi) { showToast("Tên vị không được để trống!", "error"); return; }
+                    if (editingRow) {
+                        editingRow.children[1].textContent = newTenVi;
+                    }
+                    editForm.style.display = 'none';
+                    showToast("Cập nhật thành công!");
+                });
+            }
+            
+            // --- CHỨC NĂNG: CÁC NÚT SỬA/XÓA TRONG BẢNG (DÙNG EVENT DELEGATION) ---
+            tableBody.addEventListener('click', (event) => {
+                const target = event.target.closest('button');
+                if (!target) return;
+
+                if (target.classList.contains('btn-edit')) {
+                    editingRow = target.closest('tr');
+                    const maVi = editingRow.children[0].textContent.trim();
+                    const tenVi = editingRow.children[1].textContent.trim();
+                    document.getElementById('editMa').value = maVi;
+                    document.getElementById('editTen').value = tenVi;
+                    editForm.style.display = 'block';
+                    addFlavorForm.style.display = 'none';
+                    addCakeForm.style.display = 'none';
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                }
+
+                if (target.classList.contains('btn-delete')) {
+                    const rowToDelete = target.closest('tr');
+                    if (confirm('Bạn có chắc chắn muốn xóa vị này không?')) {                       
+                        showToast("Đã xóa vị thành công!", "error");
+                    }
+                }
+            });
         });
-    });
-});
     </script>
     <script src="js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

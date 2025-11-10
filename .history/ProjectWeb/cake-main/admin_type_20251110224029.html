@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Bánh Cupcake</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            background: url('img/hero/hero-1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Montserrat', sans-serif;
+            color: #222;
+        }
+
+        h2 {
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 30px;
+        }
+
+        .category-card {
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-top-left-radius: 0.25rem;
+            border-top-right-radius: 0.25rem;
+        }
+
+        .category-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .category-content h4 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-content p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .btn-action {
+            min-width: 80px;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .btn-action:active {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .d-flex.gap-4 {
+            gap: 20px;
+        }
+
+        /* TOAST */
+        .custom-toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(40, 167, 69, 0.95);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.4s ease;
+            z-index: 9999;
+        }
+
+        .custom-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .custom-toast.error {
+            background: rgba(220, 53, 69, 0.95);
+        }
+
+        .custom-toast i {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="header__top__inner d-flex justify-content-between align-items-center">
+                    <div class="header__top__left">
+                        <ul>
+                            <li class="has-dropdown">
+                                Xin chào <strong>Admin</strong>
+                                <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i>
+                                <ul class="dropdown">
+                                    <li><a href="./admin_login.html">Log out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header__logo">
+                        <a href="#"><img src="img/logo.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <nav class="header__menu mobile-menu">
+                <ul>
+                    <li><a href="./admin_home.html">Home</a></li>
+                    <li><a href="./admin_product.html">Quản Lý Đơn Hàng</a></li>
+                    <li><a href="./admin_member.html">Quản Lý Khách Hàng</a></li>
+                    <li class="active"><a href="#">Quản Lý Kho</a>
+                        <ul class="dropdown">
+                            <li><a href="./admin_category.html">Quản Lý Danh Mục Sản Phẩm</a></li>
+                            <li><a href="./admin_import.html">Quản Lý Nhập Sản Phẩm</a></li>
+                            <li><a href="./admin_selling.html">Quản Lý Giá Bán</a></li>
+                            <li><a href="./admin_quantity.html">Quản Lý Số Lượng Tồn</a></li>
+                            <li><a href="./admin_type.html">Quản Lý Loại Sản Phẩm</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Quản Lý Loại Sản Phẩm</h2>
+
+        <div class="row g-4">
+            <!-- Loại 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="category-card">
+                    <img src="img/hero/TRAXANH.jpg" class="category-img img-fluid" alt="">
+                    <div class="category-content">
+                        <h4>Cupcake Trà Xanh</h4>
+                        <p>Cupcake Trà Xanh mềm xốp, thơm dịu hương trà. Phủ lớp kem ngọt nhẹ, béo ngậy.</p>
+                        <div class="d-flex justify-content-center gap-4 mt-3">
+                            <button class="btn btn-warning btn-sm btn-action"
+                                onclick="window.location.href='sualoaisp.html'">
+                                <i class="fa-solid fa-pen"></i> Sửa
+                            </button>
+                            <button class="btn btn-danger btn-sm btn-action btn-delete-card">
+                                <i class="fa-solid fa-trash"></i> Xóa
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loại 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="category-card">
+                    <img src="img/hero/SOCOLA.jpg" class="category-img img-fluid" alt="">
+                    <div class="category-content">
+                        <h4>Cupcake Socola</h4>
+                        <p>Cupcake socola đậm vị cacao quyến rũ. Phủ lớp kem socola tan chảy trong miệng.</p>
+                        <div class="d-flex justify-content-center gap-4 mt-3">
+                            <button class="btn btn-warning btn-sm btn-action"
+                                onclick="window.location.href='sualoaisp.html'">
+                                <i class="fa-solid fa-pen"></i> Sửa
+                            </button>
+                            <button class="btn btn-danger btn-sm btn-action btn-delete-card">
+                                <i class="fa-solid fa-trash"></i> Xóa
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loại 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="category-card">
+                    <img src="img/hero/DÂU.jpg" class="category-img img-fluid" alt="">
+                    <div class="category-content">
+                        <h4>Cupcake Dâu</h4>
+                        <p>Cupcake dâu mềm xốp, thơm nhẹ hương dâu tươi. Phủ kem hồng ngọt dịu.</p>
+                        <div class="d-flex justify-content-center gap-4 mt-3">
+                            <button class="btn btn-warning btn-sm btn-action"
+                                onclick="window.location.href='sualoaisp.html'">
+                                <i class="fa-solid fa-pen"></i> Sửa
+                            </button>
+                            <button class="btn btn-danger btn-sm btn-action btn-delete-card">
+                                <i class="fa-solid fa-trash"></i> Xóa
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showToast(message, type = "success") {
+            const toast = document.createElement("div");
+            toast.className = `custom-toast ${type}`;
+            toast.innerHTML = `<i class="fa-solid ${type === "success" ? "fa-circle-check" : "fa-circle-exclamation"}"></i> <span>${message}</span>`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.classList.add("show"), 100);
+            setTimeout(() => {
+                toast.classList.remove("show");
+                setTimeout(() => toast.remove(), 500);
+            }, 3000);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const deleteButtons = document.querySelectorAll(".btn-delete-card");
+            deleteButtons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    showToast("Xóa thành công!", "success");
+                });
+            });
+        });
+    </script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
