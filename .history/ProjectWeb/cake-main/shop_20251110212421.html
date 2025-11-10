@@ -85,40 +85,6 @@
             background-color: #0e0e0e; /* Nền xám nhẹ khi hover */
             color: #e8bf18; /* Màu nổi bật khi hover */
         }
-
-    /* === GHI ĐÈ CĂN GIỮA DROPDOWN === */
-.header__menu ul li .dropdown {
-    left: 50% !important;                  /* căn giữa theo chiều ngang */
-    transform: translateX(-50%) !important;/* dịch ngược lại cho giữa thật */
-    min-width: 170px !important;           /* thu hẹp lại */
-    width: fit-content !important;         /* tự co theo nội dung */
-}
-
-/* Đảm bảo chữ bên trong vẫn đẹp, không bị méo */
-.header__menu ul li .dropdown li a {
-    text-align: left !important;           /* căn chữ trái */
-    padding: 10px 35px !important;         /* tạo khoảng cách hợp lý */
-    white-space: nowrap !important;        /* tránh bị xuống dòng lung tung */
-}
-/* === GIỮ HIỆU ỨNG HOVER CŨ + BO GÓC === */
-.header__menu ul li .dropdown {
-    border-radius: 12px !important;   /* Bo góc mềm mại */
-    overflow: hidden !important;      /* Giữ cho nền bên trong bo theo */
-    border: 1px solid #444 !important;/* Viền nhẹ tách menu khỏi nền */
-    transition: all 0.3s ease;        /* Hiệu ứng mở mượt */
-}
-
-/* Hiệu ứng hover cũ quay lại */
-.header__menu ul li .dropdown li a {
-    transition: background-color 0.3s ease, color 0.3s ease; /* mượt mà khi hover */
-}
-
-.header__menu ul li .dropdown li a:hover {
-    background-color: #555 !important; /* nền xám đậm khi hover */
-    color: #ffcc00 !important;         /* chữ vàng nổi bật */
-    border-radius: 8px !important;     /* vẫn giữ bo nhẹ cho từng dòng */
-}
-
     </style>
 </head>
 
@@ -202,9 +168,9 @@
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     
-                                   <li><a href="./shoping-cart.html">Giỏ hàng</a></li>
-                  <li><a href="./checkout.html">Thanh toán</a></li>
-                  <li><a href="./wisslist.html">Yêu thích</a></li>
+                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./wisslist.html">Wishlist</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -308,7 +274,7 @@
                 font-weight: bold;
                 font-size: 15px;
                 transition: 0.3s;
-            " onclick="window.location.href='shop-traxanh.html'">Trà Xanh</button>
+            " onclick="window.location.href='shop-vani.html'">Trà Xanh</button>
         </div>
     </div>
 </div>
@@ -342,7 +308,6 @@ button:hover {
     <div class="shop__option__right">
         <select onchange="if (this.value) window.location.href=this.value;">
             <option value="">Khoảng Giá</option>
-            <option value="giátype.html">Từ: 30k - 50k</option>
             <option value="giátype.html">Từ: 50k - 70k</option>
             <option value="giátype.html">Từ: 70k - 100k</option>
         </select>
@@ -363,7 +328,7 @@ button:hover {
                             <h6><a href="shop-chitiet.html">Dozen Cupcakes</a></h6>
                             <div class="product__item__price">70.000đ</div>
                             <div class="cart_add">
-                                <a href="./shoping-cart.html">Mua ngay</a>
+                                <a href="./shoping-cart.html">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -379,7 +344,7 @@ button:hover {
                             <h6><a href="shop-chitiet.html">Cookies and Cream</a></h6>
                             <div class="product__item__price">50.000đ</div>
                             <div class="cart_add">
-                                <a href="./shoping-cart.html">Mua ngay</a>
+                                <a href="./shoping-cart.html">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -395,7 +360,7 @@ button:hover {
                             <h6><a href="shop-chitiet.html">Gluten Free Mini Dozen</a></h6>
                             <div class="product__item__price">36.000đ</div>
                             <div class="cart_add">
-                                <a href="./shoping-cart.html">Mua ngay</a>
+                                <a href="./shoping-cart.html">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -411,7 +376,7 @@ button:hover {
                             <h6><a href="shop-chitiet.html">Cookie Dough</a></h6>
                             <div class="product__item__price">55.000đ</div>
                             <div class="cart_add">
-                                <a href="./shoping-cart.html">Mua ngay</a>
+                                <a href="./shoping-cart.html">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -427,7 +392,7 @@ button:hover {
                             <h6><a href="shop-chitiet.html">Vanilla Salted Caramel</a></h6>
                             <div class="product__item__price">20.000đ</div>
                             <div class="cart_add">
-                                <a href="./shoping-cart.html">Mua ngay</a>
+                                <a href="./shoping-cart.html">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -443,7 +408,7 @@ button:hover {
                             <h6><a href="shop-chitiet.html">German Chocolate</a></h6>
                             <div class="product__item__price">30.000đ</div>
                             <div class="cart_add">
-                                <a href="./shoping-cart.html">Mua ngay</a>
+                                <a href="./shoping-cart.html">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -459,7 +424,7 @@ button:hover {
                             <h6><a href="shop-chitiet.html">Dulce De Leche</a></h6>
                             <div class="product__item__price">37.000đ</div>
                             <div class="cart_add">
-                                <a href="./shoping-cart.html">Mua ngay</a>
+                                <a href="./shoping-cart.html">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -475,7 +440,7 @@ button:hover {
                             <h6><a href="shop-chitiet.html">Mississippi Mud</a></h6>
                             <div class="product__item__price">15.000đ</div>
                             <div class="cart_add">
-                                <a href="./shoping-cart.html">Mua ngay</a>
+                                <a href="./shoping-cart.html">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -491,7 +456,7 @@ button:hover {
                             <h6><a href="shop-chitiet.html">VEGAN/GLUTEN FREE</a></h6>
                             <div class="product__item__price">150.000đ</div>
                             <div class="cart_add">
-                                <a href="./shoping-cart.html">Mua ngay</a>
+                                <a href="./shoping-cart.html">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -507,7 +472,7 @@ button:hover {
                             <h6><a href="shop-chitiet.html">SWEET CELTICS</a></h6>
                             <div class="product__item__price">50.000đ</div>
                             <div class="cart_add">
-                                <a href="./shoping-cart.html">Mua ngay</a>
+                                <a href="./shoping-cart.html">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -523,7 +488,7 @@ button:hover {
                             <h6><a href="shop-chitiet.html">SWEET AUTUMN LEAVES</a></h6>
                             <div class="product__item__price">55.000đ</div>
                             <div class="cart_add">
-                                <a href="./shoping-cart.html">Mua ngay</a>
+                                <a href="./shoping-cart.html">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -539,7 +504,7 @@ button:hover {
                             <h6><a href="shop-chitiet.html">PALE YELLOW SWEET</a></h6>
                             <div class="product__item__price">70.000đ</div>
                             <div class="cart_add">
-                                <a href="./shoping-cart.html">Mua ngay</a>
+                                <a href="./shoping-cart.html">Add to cart</a>
                             </div>
                         </div>
                     </div>
