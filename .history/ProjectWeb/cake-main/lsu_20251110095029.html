@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <style>
-      
         /* ==================================== */
         /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */
         /* ==================================== */
@@ -142,12 +141,157 @@ input[type="radio"][name="page"] {
   display: none;
 }
 
+    </style>
+</head>
+
+<body>
+  <!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Cake Template">
+    <meta name="keywords" content="Cake, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lsu</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <style>
+        /* ==================================== */
+        /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */
+        /* ==================================== */
+
+        /* 1. Thiết lập vị trí tương đối cho mục cha */
+        .header__top__left ul li.has-dropdown {
+            position: relative; 
+        }
+
+        /* KHẮC PHỤC LỖI TÔ ĐEN TRÊN LIÊN KẾT CHA */
+        .header__top__left ul li.has-dropdown > a:focus,
+        .header__top__left ul li.has-dropdown > a:active {
+            /* Dùng !important để ghi đè CSS từ file style.css nếu cần */
+            outline: none !important; 
+            -webkit-tap-highlight-color: transparent; 
+            background-color: transparent !important;
+        }
+
+        /* 2. Thiết lập trạng thái mặc định (ẨN) cho dropdown */
+        .header__top__left ul li .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0; 
+            z-index: 100;
+
+            /* NỀN ĐẬM CHO CHỮ TRẮNG NỔI BẬT */
+            background-color: #c86808; /* Nền xám/đen đậm */
+            border: 1px solid #555;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            padding: 5px 0;
+            list-style: none; /* Loại bỏ dấu chấm */
+        }
+
+        /* 3. Hiển thị menu khi di chuột vào mục cha */
+        .header__top__left ul li.has-dropdown:hover > .dropdown {
+            display: block;
+        }
+
+        /* 4. Định kiểu cho các mục con trong menu */
+        .header__top__left ul li .dropdown li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            
+            /* MÀU CHỮ TRẮNG */
+            color: white; 
+            
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        /* Hiệu ứng di chuột (hover) cho các mục con */
+        .header__top__left ul li .dropdown li a:hover {
+            background-color: #d87511; /* Nền xám nhẹ khi hover */
+            color: #ffcc00; /* Màu nổi bật khi hover */
+        }
+        /* ======= Căn giữa & làm đẹp phần HERO ======= */
+.hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('img/hero/hero-1.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+
+/* ======= Làm đẹp và căn giữa các nút trạng thái ======= */
+.controls1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 40px 0 20px;
+}
+
+.controls1 label {
+  background: #fff;
+  border: 2px solid #000704;
+  color: #000403;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 8px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.controls1 label:hover {
+  background: #000805;
+  color: #efe9e9;
+}
+
+input[type="radio"]:checked + label {
+  background: #136a4a;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(19, 106, 74, 0.3);
+}
+/* Ẩn hoàn toàn các input radio */
+input[type="radio"][name="page"] {
+  display: none;
+}
 
     </style>
 </head>
 
 <body>
-  
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -219,7 +363,94 @@ input[type="radio"][name="page"] {
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li><a href="./index.html">Home</a></li>
-                              <li><a href="./shop.html">Shop</a></li>
+                            <li class="active"><a href="./shop.html">Shop</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    
+                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./wisslist.html">Wishlist</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        
+    </header>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__cart">
+            <div class="offcanvas__cart__links">
+                <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+                <a href="#"><img src="img/icon/heart.png" alt=""></a>
+            </div>
+            <div class="offcanvas__cart__item">
+                <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                <div class="cart__price">Cart: <span>0đ</span></div>
+            </div>
+        </div>
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header__top__inner">
+                            <div class="header__top__left">
+                                <ul>
+                                    <li class="has-dropdown">
+                                    <a href="./profile.html">
+                                            Xin chào <strong>Đào Hữu Tài</strong> 
+                                            <span class="arrow_carrot-down"></span> 
+                                    </a>
+                                        <ul class="dropdown">
+                                            <li><a href="./profile.html">My Profile</a></li> 
+                                            <li><a href="./register.html">Log out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header__logo">
+                                <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            </div>
+                            <div class="header__top__right">
+                                <div class="header__top__right__links">
+                                   
+                                    <a href="./wisslist.html"><img src="img/icon/heart.png" alt=""></a>
+                                </div>
+                                <div class="header__top__right__cart">
+                                    <a href="./shoping-cart.html"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                                    <div class="cart__price">Cart: <span>0đ</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            </div>
+        </div>
+         <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="./index.html">Home</a></li>
+                            <li class="active"><a href="./shop.html">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     
@@ -299,20 +530,6 @@ input[type="radio"][name="page"] {
     </table>
   </div>
 </div>
-
-
-<!-- Footer Section End -->
-
-<!-- Search Begin -->
-<div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
-    </div>
-</div>
-<!-- Search End -->
 
 <!-- Search End -->
  <script>

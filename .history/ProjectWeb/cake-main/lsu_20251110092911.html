@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch sử mua hàng</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f7f7f7;
+            color: #000;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('img/hero/hero-1.jpg') center/cover no-repeat;
+            text-align: center;
+            padding: 80px 0;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin: 0;
+            color: #fff !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        /* NÚT TRẠNG THÁI */
+        .controls1 {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 40px 0 20px;
+        }
+
+        .controls1 label {
+            background: #000;
+            border: 2px solid #000;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 25px;
+            padding: 8px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .controls1 label:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        input[type="radio"]:checked+label {
+            background: #333;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="radio"][name="page"] {
+            display: none;
+        }
+
+        /* BẢNG */
+        table {
+            color: #000 !important;
+        }
+
+        th {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        .badge {
+            color: #fff !important;
+        }
+
+        /* Tổng tiền và nút bên phải */
+        .order-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .total-box {
+            background: #fff;
+            padding: 15px 20px;
+            font-weight: 700;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .btn-back {
+            background: #000;
+            color: #fff;
+            border-radius: 8px;
+            padding: 10px 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            background: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Lịch sử mua hàng</h1>
+    </div>
+
+    <div class="container py-5">
+        <!-- NÚT TRẠNG THÁI -->
+        <input type="radio" name="page" id="page11" checked />
+        <label for="page11"></label>
+        <input type="radio" name="page" id="page22" />
+        <label for="page22"></label>
+        <input type="radio" name="page" id="page33" />
+        <label for="page33"></label>
+        <input type="radio" name="page" id="page44" />
+        <label for="page44"></label>
+        <input type="radio" name="page" id="page55" />
+        <label for="page55"></label>
+
+        <div class="controls1">
+            <label for="page11">Tất cả</label>
+            <label for="page22">Mới Đặt</label>
+            <label for="page33">Đã xử lý</label>
+            <label for="page44">Đã giao</label>
+            <label for="page55">Hủy</label>
+        </div>
+
+        <!-- BẢNG -->
+        <div class="book">
+            <div class="table-responsive">
+                <table class="table table-bordered text-center bg-white" id="ordersTable">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn</th>
+                            <th>Ngày đặt</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                            <th>Chi tiết</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="order-row moi-dat">
+                            <td>#P001</td>
+                            <td>12/12/2025</td>
+                            <td>137.000đ</td>
+                            <td><span class="badge bg-warning text-dark">Mới đặt</span></td>
+                            <td><button class="badge bg-dark" onclick="window.location.href='shop_history.html'">Chi tiết</button></td>
+                        </tr>
+                        <tr class="order-row da-xu-ly">
+                            <td>#P004</td>
+                            <td>10/12/2025</td>
+                            <td>136.000đ</td>
+                            <td><span class="badge bg-dark">Đã xử lý</span></td>
+                            <td><button class="badge bg-dark" onclick="window.location.href='shop_history.html'">Chi tiết</button></td>
+                        </tr>
+                        <tr class="order-row da-giao">
+                            <td>#P006</td>
+                            <td>10/05/2025</td>
+                            <td>190.000đ</td>
+                            <td><span class="badge bg-dark">Đã giao</span></td>
+                            <td><button class="badge bg-dark" onclick="window.location.href='shop_history.html'">Chi tiết</button></td>
+                        </tr>
+                        <tr class="order-row huy">
+                            <td>#P003</td>
+                            <td>11/12/2025</td>
+                            <td>120.000đ</td>
+                            <td><span class="badge bg-dark">Hủy</span></td>
+                            <td><button class="badge bg-dark" onclick="window.location.href='shop_history.html'">Chi tiết</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tổng tiền & Nút -->
+        <div class="order-footer">
+            <div class="total-box">Tổng tiền: 337.000đ</div>
+            <a href="history.html" class="btn-back">← Quay lại lịch sử</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttons = document.querySelectorAll('.controls1 label');
+            const rows = document.querySelectorAll('.order-row');
+
+            function filterOrders(status) {
+                rows.forEach(row => {
+                    if (status === 'all') {
+                        row.style.display = '';
+                    } else if (row.classList.contains(status)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const text = button.textContent.trim();
+                    switch (text) {
+                        case 'Tất cả': filterOrders('all'); break;
+                        case 'Mới Đặt': filterOrders('moi-dat'); break;
+                        case 'Đã xử lý': filterOrders('da-xu-ly'); break;
+                        case 'Đã giao': filterOrders('da-giao'); break;
+                        case 'Hủy': filterOrders('huy'); break;
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

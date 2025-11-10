@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi Tiết Sản Phẩm - Tre Cảnh</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <style>
+    /* ======== Toàn trang với ảnh nền ======== */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #222;
+      min-height: 100vh;
+      background-image: url('img/about-video.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    /* Overlay mờ giúp chữ nổi bật */
+    body::before {
+      content: '';
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: rgba(0,0,0,0.25);
+      z-index: -1;
+    }
+
+    /* Section trong suốt */
+    .untree_co-section,
+    .hero,
+    .footer-section {
+      background: rgba(255,255,255,0.05); /* nhẹ, vẫn thấy ảnh nền */
+      padding: 60px 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    /* Navbar giữ nguyên */
+    .custom-navbar {
+      padding: 1rem 0;
+      background-color: rgba(26,26,26,0.95);
+    }
+    .custom-navbar .navbar-brand {
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+    .custom-navbar .navbar-nav li a {
+      color: #fff;
+      font-weight: 600;
+      margin-right: 1rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      transition: 0.3s;
+    }
+    .custom-navbar .navbar-nav li a:hover {
+      color: #a8ff60;
+      text-shadow: 0 0 5px rgba(168,255,96,0.7);
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: transparent;
+      padding: 100px 20px;
+      color: #fff;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    /* Buttons */
+    .btn-outline-black {
+      border: 2px solid #000;
+      color: #000;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 6px;
+      transition: 0.3s;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+    .btn-outline-black:hover {
+      background-color: #000;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      text-decoration: none;
+    }
+
+    /* Thank You Section */
+    .thankyou-icon svg {
+      width: 80px;
+      height: 80px;
+      color: #a8ff60;
+    }
+    .untree_co-section h2 {
+      font-weight: 900;
+      color: #111;
+      text-shadow: 1px 1px 3px rgba(255,255,255,0.4);
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .untree_co-section p {
+      font-weight: 500;
+      color: #111;
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer-section {
+      background-color: rgba(26,26,26,0.95);
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .footer-section a {
+      color: #fff;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .footer-section a:hover {
+      color: #a8ff60;
+      text-shadow: 0 0 3px rgba(168,255,96,0.5);
+    }
+
+    /* Image Hover */
+    img.img-fluid {
+      transition: transform 0.3s;
+    }
+    img.img-fluid:hover {
+      transform: scale(1.05);
+    }
+
+    /* Responsive */
+    @media (max-width:768px) {
+      .hero h1 { font-size: 36px; }
+      .untree_co-section { padding: 40px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="custom-navbar navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">Tre Cảnh</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="./shop.html">Shop</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#">Pages</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./shoping-cart.html">Shoping Cart</a></li>
+              <li><a class="dropdown-item" href="./checkout.html">Check Out</a></li>
+              <li><a class="dropdown-item" href="./wisslist.html">Wishlist</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <h1>Góc xanh cho ngôi nhà của bạn</h1>
+      <p>“Trong mỗi bước đi cùng thiên nhiên, ta nhận được nhiều hơn những gì mình tìm kiếm.” - John Muir</p>
+      <a href="shop.html" class="btn btn-outline-black">Mua sắm</a>
+    </div>
+  </div>
+
+  <!-- Thank You Section -->
+  <div class="untree_co-section">
+    <span class="thankyou-icon mb-4">
+      <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M11.354 5.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+        <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+      </svg>
+    </span>
+    <h2>Cảm ơn bạn</h2>
+    <p>Đơn hàng của bạn đã được hoàn tất thành công.</p>
+    <p>
+      <a href="index.html" class="btn btn-outline-black">Quay về trang chủ</a>
+      <a href="orderdetail2.html" class="btn btn-outline-black">Xem lại đơn hàng</a>
+    </p>
+    <p>Đơn hàng của bạn sẽ được giao sớm nhất có thể.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-section">
+    <p>&copy; 2025 Tre Cảnh. All rights reserved.</p>
+  </div>
+
+</body>
+</html>

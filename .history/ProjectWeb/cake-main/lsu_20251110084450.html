@@ -1,120 +1,4 @@
 <!DOCTYPE html>
-<html lang="vi">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Chi tiết đơn hàng</title>
-    
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-
-    <style>
-      .total-area {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 15px; /* khoảng cách giữa 2 khối */
-}
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: #f7f7f7;
-            color: #000;
-        }
-
-        /* HERO */
-        .hero {
-            background: 
-                linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-                url('img/hero/hero-1.jpg') center/cover no-repeat;
-            text-align: center;
-            padding: 80px 0;
-            color: #fff;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            font-weight: 700;
-        }
-
-        /* BOX THÔNG TIN */
-        .order-info-box {
-            background: #fff;
-            border-radius: 12px;
-            padding: 25px 35px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            color: #000;
-        }
-
-        .info-block {
-            border-right: 1px solid #e0e0e0;
-        }
-
-        .info-block:last-child {
-            border-right: none;
-        }
-
-        .info-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #000;
-        }
-
-        .info-block p {
-            font-size: 16px;
-            margin: 6px 0;
-        }
-
-        /* Ảnh khách hàng */
-        .customer-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #000;   /* Đổi xanh → đen */
-            margin-bottom: 10px;
-        }
-
-        /* BẢNG SẢN PHẨM */
-        th {
-            background: #000 !important;   /* Đổi xanh → đen */
-            color: #fff !important;
-        }
-
-        /* Tổng tiền */
-        .total-box {
-            background: #fff;
-            padding: 20px;
-            font-weight: 700;
-            font-size: 20px;
-            border-radius: 12px;
-        }
-
-        /* Nút */
-        .btn-back {
-            background: #000 !important;   /* Đổi xanh → đen */
-            color: #fff;
-            border-radius: 8px;
-            padding: 10px 25px;
-            font-weight: 600;
-        }
-        .btn-back:hover {
-            background: #333 !important;
-            color: #fff;
-        }
-        
-    </style>
-</head>
-
-<body>
-  <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
@@ -123,7 +7,7 @@
     <meta name="keywords" content="Cake, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lsu</title>
+    <title>Home</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
@@ -233,8 +117,8 @@
 
 .controls1 label {
   background: #fff;
-  border: 2px solid #000704;
-  color: #000403;
+  border: 2px solid #136a4a;
+  color: #136a4a;
   font-weight: 600;
   border-radius: 25px;
   padding: 8px 25px;
@@ -243,8 +127,8 @@
 }
 
 .controls1 label:hover {
-  background: #000805;
-  color: #efe9e9;
+  background: #136a4a;
+  color: #fff;
 }
 
 input[type="radio"]:checked + label {
@@ -326,141 +210,111 @@ input[type="radio"][name="page"] {
                 <div class="canvas__open"><i class="fa fa-bars"></i></div>
             </div>
         </div>
-         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <nav class="header__menu mobile-menu">
-                        <ul>
-                            <li><a href="./index.html">Home</a></li>
-                            <li><a href="./shop.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./wisslist.html">Wishlist</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
         
     </header>
 
-    <!-- HERO -->
-    <div class="hero">
-        <h1>CHI TIẾT ĐƠN HÀNG</h1>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>LỊCH SỬ MUA HÀNG</h1>
+  </div>
+
+  <!-- HISTORY SECTION -->
+  <div class="container py-5">
+    <input type="radio" name="page" id="page11" checked />
+    <label for="page11"></label>
+    <input type="radio" name="page" id="page22" />
+    <label for="page22"></label>
+    <input type="radio" name="page" id="page33" />
+    <label for="page33"></label>
+    <input type="radio" name="page" id="page44" />
+    <label for="page44"></label>
+    <input type="radio" name="page" id="page55" />
+    <label for="page55"></label>
+
+    <div class="controls1">
+      <label for="page11">Tất cả</label>
+      <label for="page22">Mới Đặt</label>
+      <label for="page33">Đã xử lý</label>
+      <label for="page44">Đã giao</label>
+      <label for="page55">Hủy</label>
     </div>
 
-    <div class="container my-5">
-
-        <!-- THÔNG TIN -->
-        <div class="order-info-box mb-4">
-            <div class="row">
-
-                <!-- Cột trái -->
-                <div class="col-md-6 info-block">
-                    <div class="info-title">Thông tin khách hàng</div>
-
-                    <!-- Ảnh khách hàng -->
-                    <img src="img/avatar.jpg" class="customer-avatar">
-
-                    <p><strong>Họ tên:</strong> Đào Hữu Tài</p>
-                    <p><strong>SĐT:</strong> 0909 123 456</p>
-                    <p><strong>Email:</strong> abc@gmail.com</p>
-                    <p><strong>Địa chỉ:</strong> 123 Đường ABC, Quận 1, TP.HCM</p>
-                </div>
-
-                <!-- Cột phải -->
-                <div class="col-md-6 info-block">
-                    <div class="info-title">Mã đơn hàng</div>
-                    <p><strong>Mã đơn:</strong> #P001</p>
-                    <p><strong>Ngày đặt:</strong> 12/12/2025</p>
-                    <p><strong>Phương Thức Thanh toán:</strong> COD</p>
-                    <p><strong>Trạng thái:</strong> Mới đặt</p>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- BẢNG SẢN PHẨM -->
-        <div class="table-responsive mb-4">
-            <table class="table table-bordered text-center">
-                <thead>
-                    <tr>
-                        <th>Hình</th>
-                        <th>Sản phẩm</th>
-                        <th>Đơn giá</th>
-                        <th>Số lượng</th>
-                        <th>Tạm tính</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td><img src="img/shop/product-8.jpg" width="70"></td>
-                        <td>Gluten Free Mini Dozen</td>
-                        <td>60.000đ</td>
-                        <td>1</td>
-                        <td>60.000đ</td>
-                    </tr>
-
-                    <tr>
-                        <td><img src="img/shop/product-6.jpg" width="70"></td>
-                        <td>Sweet Autumn Leaves</td>
-                        <td>28.000đ</td>
-                        <td>1</td>
-                        <td>28.000đ</td>
-                    </tr>
-                     <tr>
-                        <td><img src="img/shop/product-3.jpg" width="70"></td>
-                        <td>Vanilla Salted Caramel</td>
-                        <td>57.000đ</td>
-                        <td>1</td>
-                        <td>57.000đ</td>
-                    </tr>
-                     <tr>
-                        <td><img src="img/shop/product-1.jpg" width="70"></td>
-                        <td>Gluten Free Mini Dozen</td>
-                        <td>30.000đ</td>
-                        <td>1</td>
-                        <td>30.000đ</td>
-                    </tr>
-                     <tr>
-                        <td><img src="img/shop/product-2.jpg" width="70"></td>
-                        <td>Sweet Celtics</td>
-                        <td>45.000đ</td>
-                        <td>1</td>
-                        <td>45.000đ</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-    <!-- KHU VỰC TỔNG TIỀN + NÚT QUAY LẠI -->
-<div class="total-area mb-4 d-flex justify-content-end align-items-center gap-3 flex-wrap">
-
-    <div class="total-box" style="background:#fff; padding:20px 25px; font-weight:700; font-size:20px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-        Tổng tiền: 337.000đ
-    </div>
-
-    <a href="lsu.html" class="btn btn-back" style="background:#000; color:#fff; padding:12px 30px; font-weight:600; border-radius:8px; text-decoration:none; box-shadow:0 4px 6px rgba(0,0,0,0.2); transition:0.3s;">
-        ← Quay lại lịch sử
-    </a>
-
+   <div class="book">
+  <div class="table-responsive">
+    <table class="table table-bordered text-center bg-white" id="ordersTable">
+      <thead>
+        <tr>
+          <th>Mã đơn</th>
+          <th>Ngày đặt</th>
+          <th>Tổng tiền</th>
+          <th>Trạng thái</th>
+          <th>Chi tiết</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="order-row moi-dat">
+          <td>#P001</td><td>12/12/2025</td><td>137.000đ</td>
+          <td><span class="badge bg-warning text-dark">Mới đặt</span></td>
+          <td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td>
+        </tr>
+        <tr class="order-row da-xu-ly">
+          <td>#P004</td><td>10/12/2025</td><td>136.000đ</td>
+          <td><span class="badge bg-success">Đã xử lý</span></td>
+          <td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td>
+        </tr>
+        <tr class="order-row da-giao">
+          <td>#P006</td><td>10/05/2025</td><td>190.000đ</td>
+          <td><span class="badge bg-primary">Đã giao</span></td>
+          <td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td>
+        </tr>
+        <tr class="order-row huy">
+          <td>#P003</td><td>11/12/2025</td><td>120.000đ</td>
+          <td><span class="badge bg-danger">Hủy</span></td>
+          <td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<style>
-.btn-back:hover {
-    background: #333 !important;
-    color: #fff;
-    text-decoration: none;
-    box-shadow: 0 6px 8px rgba(0,0,0,0.25);
-}
-</style>
 
+
+<!-- Search End -->
+ <script>
+  // Khi trang đã tải xong
+  document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.controls1 label');
+    const rows = document.querySelectorAll('.order-row');
+
+    // Hàm hiển thị theo trạng thái
+    function filterOrders(status) {
+      rows.forEach(row => {
+        if (status === 'all') {
+          row.style.display = ''; // Hiện tất cả
+        } else if (row.classList.contains(status)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // Gán sự kiện click cho từng nút
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const text = button.textContent.trim();
+        switch (text) {
+          case 'Tất cả': filterOrders('all'); break;
+          case 'Mới Đặt': filterOrders('moi-dat'); break;
+          case 'Đã xử lý': filterOrders('da-xu-ly'); break;
+          case 'Đã giao': filterOrders('da-giao'); break;
+          case 'Hủy': filterOrders('huy'); break;
+        }
+      });
+    });
+  });
+</script>
+ 
 
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
@@ -473,5 +327,5 @@ input[type="radio"][name="page"] {
 <script src="js/jquery.nicescroll.min.js"></script>
 <script src="js/main.js"></script>
 </body>
-</html>
 
+</html>

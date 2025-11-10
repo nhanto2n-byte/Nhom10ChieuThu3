@@ -7,7 +7,7 @@
     <meta name="keywords" content="Cake, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lsu</title>
+    <title>Home</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <style>
-      
         /* ==================================== */
         /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */
         /* ==================================== */
@@ -55,7 +54,7 @@
             z-index: 100;
 
             /* NỀN ĐẬM CHO CHỮ TRẮNG NỔI BẬT */
-            background-color: #c86808; /* Nền xám/đen đậm */
+            background-color: #333; /* Nền xám/đen đậm */
             border: 1px solid #555;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             min-width: 200px;
@@ -83,17 +82,15 @@
 
         /* Hiệu ứng di chuột (hover) cho các mục con */
         .header__top__left ul li .dropdown li a:hover {
-            background-color: #d87511; /* Nền xám nhẹ khi hover */
+            background-color: #555; /* Nền xám nhẹ khi hover */
             color: #ffcc00; /* Màu nổi bật khi hover */
         }
         /* ======= Căn giữa & làm đẹp phần HERO ======= */
 .hero {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('img/hero/hero-1.jpg') center/cover no-repeat;
+  background: linear-gradient(135deg, #ed8208, #dd7608);
   color: #fff;
   text-align: center;
-  padding: 80px 0;
+  padding: 60px 0;
 }
 
 .hero h1 {
@@ -102,10 +99,7 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin: 0;
-  color: #fff !important;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
-
 
 /* ======= Làm đẹp và căn giữa các nút trạng thái ======= */
 .controls1 {
@@ -118,8 +112,8 @@
 
 .controls1 label {
   background: #fff;
-  border: 2px solid #000704;
-  color: #000403;
+  border: 2px solid #136a4a;
+  color: #136a4a;
   font-weight: 600;
   border-radius: 25px;
   padding: 8px 25px;
@@ -128,8 +122,8 @@
 }
 
 .controls1 label:hover {
-  background: #000805;
-  color: #efe9e9;
+  background: #136a4a;
+  color: #fff;
 }
 
 input[type="radio"]:checked + label {
@@ -137,17 +131,11 @@ input[type="radio"]:checked + label {
   color: #fff;
   box-shadow: 0 0 10px rgba(19, 106, 74, 0.3);
 }
-/* Ẩn hoàn toàn các input radio */
-input[type="radio"][name="page"] {
-  display: none;
-}
-
 
     </style>
 </head>
 
 <body>
-  
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -213,28 +201,9 @@ input[type="radio"][name="page"] {
                 <div class="canvas__open"><i class="fa fa-bars"></i></div>
             </div>
         </div>
-         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <nav class="header__menu mobile-menu">
-                        <ul>
-                            <li><a href="./index.html">Home</a></li>
-                              <li><a href="./shop.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./wisslist.html">Wishlist</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
         
     </header>
+    <!-- Header Section End -->
 
   <!-- HERO -->
   <div class="hero">
@@ -278,44 +247,29 @@ input[type="radio"][name="page"] {
         <tr class="order-row moi-dat">
           <td>#P001</td><td>12/12/2025</td><td>137.000đ</td>
           <td><span class="badge bg-warning text-dark">Mới đặt</span></td>
-          <td><button class="badge bg-success" onclick="window.location.href='shop_history.html'">Chi tiết</button></td>
+          <td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td>
         </tr>
         <tr class="order-row da-xu-ly">
-          <td>#P002</td><td>10/12/2025</td><td>136.000đ</td>
+          <td>#P004</td><td>10/12/2025</td><td>136.000đ</td>
           <td><span class="badge bg-success">Đã xử lý</span></td>
-          <td><button class="badge bg-success" onclick="window.location.href='shop_history.html'">Chi tiết</button></td>
+          <td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td>
         </tr>
         <tr class="order-row da-giao">
-          <td>#P003</td><td>10/05/2025</td><td>190.000đ</td>
+          <td>#P006</td><td>10/05/2025</td><td>190.000đ</td>
           <td><span class="badge bg-primary">Đã giao</span></td>
-          <td><button class="badge bg-success" onclick="window.location.href='shop_history.html'">Chi tiết</button></td>
+          <td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td>
         </tr>
         <tr class="order-row huy">
-          <td>#P004</td><td>11/12/2025</td><td>120.000đ</td>
+          <td>#P003</td><td>11/12/2025</td><td>120.000đ</td>
           <td><span class="badge bg-danger">Hủy</span></td>
-          <td><button class="badge bg-success" onclick="window.location.href='shop_history.html'">Chi tiết</button></td>
+          <td><button class="badge bg-success" onclick="window.location.href='orderdetail.html'">Chi tiết</button></td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
 
-
-<!-- Footer Section End -->
-
-<!-- Search Begin -->
-<div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
-    </div>
-</div>
-<!-- Search End -->
-
-<!-- Search End -->
- <script>
+<script>
   // Khi trang đã tải xong
   document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.controls1 label');
@@ -349,7 +303,23 @@ input[type="radio"][name="page"] {
     });
   });
 </script>
- 
+
+
+  
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+!-- Search Begin -->
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch">+</div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
+</div>
+
+<!-- Search End -->
 
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
@@ -362,4 +332,5 @@ input[type="radio"][name="page"] {
 <script src="js/jquery.nicescroll.min.js"></script>
 <script src="js/main.js"></script>
 </body>
+
 </html>

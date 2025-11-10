@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Cake Template">
+  <meta name="keywords" content="Cake, unica, creative, html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đơn Hàng Của Bạn</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Css Styles -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+<!-- Css Styles --> <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> <link rel="stylesheet" href="css/flaticon.css" type="text/css"> <link rel="stylesheet" href="css/barfiller.css" type="text/css"> <link rel="stylesheet" href="css/magnific-popup.css" type="text/css"> <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"> <link rel="stylesheet" href="css/elegant-icons.css" type="text/css"> <link rel="stylesheet" href="css/nice-select.css" type="text/css"> <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css"> <link rel="stylesheet" href="css/slicknav.min.css" type="text/css"> <link rel="stylesheet" href="css/style.css" type="text/css"> <style> /* ==================================== */ /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */ /* ==================================== */ /* 1. Thiết lập vị trí tương đối cho mục cha */ .header__top__left ul li.has-dropdown { position: relative; } /* KHẮC PHỤC LỖI TÔ ĐEN TRÊN LIÊN KẾT CHA */ .header__top__left ul li.has-dropdown > a:focus, .header__top__left ul li.has-dropdown > a:active { /* Dùng !important để ghi đè CSS từ file style.css nếu cần */ outline: none !important; -webkit-tap-highlight-color: transparent; background-color: transparent !important; } /* 2. Thiết lập trạng thái mặc định (ẨN) cho dropdown */ .header__top__left ul li .dropdown { display: none; position: absolute; top: 100%; left: 0; z-index: 100; /* NỀN ĐẬM CHO CHỮ TRẮNG NỔI BẬT */ background-color: #333; /* Nền xám/đen đậm */ border: 1px solid #555; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); min-width: 200px; padding: 5px 0; list-style: none; /* Loại bỏ dấu chấm */ } /* 3. Hiển thị menu khi di chuột vào mục cha */ .header__top__left ul li.has-dropdown:hover > .dropdown { display: block; } /* 4. Định kiểu cho các mục con trong menu */ .header__top__left ul li .dropdown li a { display: block; padding: 10px 15px; text-decoration: none; /* MÀU CHỮ TRẮNG */ color: white; font-size: 16px; white-space: nowrap; } /* Hiệu ứng di chuột (hover) cho các mục con */ .header__top__left ul li .dropdown li a:hover { background-color: #555; /* Nền xám nhẹ khi hover */ color: #ffcc00; /* Màu nổi bật khi hover */ } </style>
+  <style>
+    .customer-info {
+      background-color: #f8f8f8;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .customer-info h5 {
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .customer-info p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .order-box {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .order-box h5 {
+      font-weight: 700;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .order-status {
+      font-weight: 600;
+      color: green;
+    }
+
+    .cart__total ul li {
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__top">
+      <div class="container">
+        <div class="header__top__inner d-flex justify-content-between align-items-center">
+          <div class="header__top__left">
+            <ul>
+              <li class="has-dropdown">
+                <a href="./profile.html">Xin chào <strong>Đào Hữu Tài</strong> <span class="arrow_carrot-down"></span></a>
+                <ul class="dropdown">
+                  <li><a href="./profile.html">My Profile</a></li>
+                  <li><a href="./register.html">Log out</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="header__logo">
+            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+          </div>
+          <div class="header__top__right">
+            <div class="header__top__right__cart">
+              <a href="./shoping-cart.html"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+              <div class="cart__price">Cart: <span>0đ</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-option">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="breadcrumb__text">
+            <h2>Đơn Hàng Của Bạn</h2>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="breadcrumb__links">
+            <a href="./index.html">Home</a>
+            <span>Đơn Hàng Của Bạn</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Customer Info -->
+  <div class="container">
+    <div class="customer-info">
+      <h5>Thông Tin Khách Hàng</h5>
+      <p><strong>Họ tên:</strong> Đào Hữu Tài</p>
+      <p><strong>Số điện thoại:</strong> 0333-580-320</p>
+      <p><strong>Địa chỉ giao hàng:</strong> 123 Nguyễn Trãi, Quận 5, TP. Hồ Chí Minh</p>
+      <p><strong>Email:</strong> taidaoxo@gmail.com</p>
+    </div>
+  </div>
+
+  <!-- Order Info -->
+  <section class="shopping-cart spad">
+    <div class="container">
+      <!-- Đơn hàng 1 -->
+<div class="order-box">
+  <h5>Mã đơn hàng: <span>#DH001</span></h5>
+  <p><strong>Ngày đặt hàng:</strong> 25/10/2025</p>
+  <p><strong>Trạng thái:</strong> <span class="order-status">Đã giao hàng</span></p>
+  <p><strong>Phương thức thanh toán:</strong> Thanh toán khi nhận hàng (COD)</p>
+
+  <div class="shopping__cart__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Sản Phẩm</th>
+          <th>Số Lượng</th>
+          <th>Giá</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="product__cart__item">
+            <div class="product__cart__item__pic">
+              <img src="img/shop/cart/cart-1.jpg" alt="">
+            </div>
+            <div class="product__cart__item__text">
+              <h6>PALE YELLOW SWEET</h6>
+            </div>
+          </td>
+          <td>1</td>
+          <td>70.000đ</td>
+        </tr>
+        <tr>
+          <td class="product__cart__item">
+            <div class="product__cart__item__pic">
+              <img src="img/shop/cart/cart-2.jpg" alt="">
+            </div>
+            <div class="product__cart__item__text">
+              <h6>MISSISSIPPI MUD</h6>
+            </div>
+          </td>
+          <td>1</td>
+          <td>15.000đ</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cart__total mt-3">
+    <ul>
+      <li>Phí VAT <span>5.000đ</span></li>
+      <li>Tổng tiền <span>90.000đ</span></li>
+    </ul>
+    <a href="#" class="primary-btn">Đã thanh toán</a>
+  </div>
+</div>
+
+<!-- Đơn hàng 2 -->
+<div class="order-box">
+  <h5>Mã đơn hàng: <span>#DH002</span></h5>
+  <p><strong>Ngày đặt hàng:</strong> 01/11/2025</p>
+  <p><strong>Trạng thái:</strong> <span class="order-status" style="color: orange;">Đang giao hàng</span></p>
+  <p><strong>Phương thức thanh toán:</strong> Ví Momo</p>
+
+  <div class="shopping__cart__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Sản Phẩm</th>
+          <th>Số Lượng</th>
+          <th>Giá</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="product__cart__item">
+            <div class="product__cart__item__pic">
+              <img src="img/shop/cart/cart-3.jpg" alt="">
+            </div>
+            <div class="product__cart__item__text">
+              <h6>COOKIES AND CREAM</h6>
+            </div>
+          </td>
+          <td>2</td>
+          <td>100.000đ</td>
+        </tr>
+        <tr>
+          <td class="product__cart__item">
+            <div class="product__cart__item__pic">
+              <img src="img/shop/cart/cart-4.jpg" alt="">
+            </div>
+            <div class="product__cart__item__text">
+              <h6>SWEET CELTICS</h6>
+            </div>
+          </td>
+          <td>1</td>
+          <td>50.000đ</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cart__total mt-3">
+    <ul>
+      <li>Phí VAT <span>10.000đ</span></li>
+      <li>Tổng tiền <span>160.000đ</span></li>
+    </ul>
+    <a href="#" class="primary-btn">Đã thanh toán</a>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="footer__widget">
+            <h6>WORKING HOURS</h6>
+            <ul>
+              <li>Monday - Friday: 08:00 am – 08:30 pm</li>
+              <li>Saturday: 10:00 am – 16:30 pm</li>
+              <li>Sunday: 10:00 am – 16:30 pm</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="footer__about">
+            <div class="footer__logo">
+              <a href="#"><img src="img/footer-logo.png" alt=""></a>
+            </div>
+            <p>Cảm ơn quý khách đã tin tưởng và ủng hộ cửa hàng!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Js Plugins -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

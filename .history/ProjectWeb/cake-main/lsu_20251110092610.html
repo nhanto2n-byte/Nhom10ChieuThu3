@@ -6,30 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết đơn hàng</title>
 
-    <!-- Fonts -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <style>
-      .total-area {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 15px; /* khoảng cách giữa 2 khối */
-}
-
         body {
             font-family: 'Montserrat', sans-serif;
             background: #f7f7f7;
-            color: #000;
         }
 
-        /* HERO */
+        /* === HERO === */
         .hero {
             background: 
-                linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
                 url('img/hero/hero-1.jpg') center/cover no-repeat;
             text-align: center;
             padding: 80px 0;
@@ -38,20 +31,22 @@
 
         .hero h1 {
             font-size: 42px;
+            letter-spacing: 2px;
             font-weight: 700;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+            margin: 0;
         }
 
-        /* BOX THÔNG TIN */
+        /* === BOX THÔNG TIN === */
         .order-info-box {
             background: #fff;
             border-radius: 12px;
             padding: 25px 35px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            color: #000;
         }
 
         .info-block {
-            border-right: 1px solid #e0e0e0;
+            border-right: 1px solid #eaeaea;
         }
 
         .info-block:last-child {
@@ -62,49 +57,53 @@
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 15px;
-            color: #000;
+            color: #136a4a;
         }
 
         .info-block p {
-            font-size: 16px;
             margin: 6px 0;
+            font-size: 16px;
         }
 
-        /* Ảnh khách hàng */
-        .customer-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #000;   /* Đổi xanh → đen */
-            margin-bottom: 10px;
+        .info-block p strong {
+            color: #136a4a;
         }
 
-        /* BẢNG SẢN PHẨM */
+        /* === BẢNG SẢN PHẨM === */
+        .table-box {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
         th {
-            background: #000 !important;   /* Đổi xanh → đen */
-            color: #fff !important;
+            background: #136a4a;
+            color: #fff;
+            font-weight: 600;
         }
 
-        /* Tổng tiền */
         .total-box {
             background: #fff;
             padding: 20px;
-            font-weight: 700;
-            font-size: 20px;
             border-radius: 12px;
+            text-align: right;
+            font-size: 20px;
+            font-weight: 700;
+            color: #136a4a;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
-        /* Nút */
+        /* Nút quay lại */
         .btn-back {
-            background: #000 !important;   /* Đổi xanh → đen */
+            background: #136a4a;
             color: #fff;
             border-radius: 8px;
             padding: 10px 25px;
             font-weight: 600;
         }
         .btn-back:hover {
-            background: #333 !important;
+            opacity: 0.9;
             color: #fff;
         }
     </style>
@@ -119,19 +118,15 @@
 
     <div class="container my-5">
 
-        <!-- THÔNG TIN -->
+        <!-- === THÔNG TIN ĐƠN HÀNG - KHÁCH HÀNG === -->
         <div class="order-info-box mb-4">
             <div class="row">
 
                 <!-- Cột trái -->
                 <div class="col-md-6 info-block">
                     <div class="info-title">Thông tin khách hàng</div>
-
-                    <!-- Ảnh khách hàng -->
-                    <img src="img/avatar.jpg" class="customer-avatar">
-
                     <p><strong>Họ tên:</strong> Đào Hữu Tài</p>
-                    <p><strong>SĐT:</strong> 0909 123 456</p>
+                    <p><strong>Số điện thoại:</strong> 0909 123 456</p>
                     <p><strong>Email:</strong> abc@gmail.com</p>
                     <p><strong>Địa chỉ:</strong> 123 Đường ABC, Quận 1, TP.HCM</p>
                 </div>
@@ -141,15 +136,15 @@
                     <div class="info-title">Mã đơn hàng</div>
                     <p><strong>Mã đơn:</strong> #P001</p>
                     <p><strong>Ngày đặt:</strong> 12/12/2025</p>
-                    <p><strong>Phương Thức Thanh toán:</strong> COD</p>
                     <p><strong>Trạng thái:</strong> Mới đặt</p>
+                    <p><strong>Phương thức thanh toán:</strong> COD</p>
                 </div>
 
             </div>
         </div>
 
-        <!-- BẢNG SẢN PHẨM -->
-        <div class="table-responsive mb-4">
+        <!-- === BẢNG SẢN PHẨM === -->
+        <div class="table-box mb-4">
             <table class="table table-bordered text-center">
                 <thead>
                     <tr>
@@ -163,57 +158,34 @@
 
                 <tbody>
                     <tr>
-                        <td><img src="img/shop/product-8.jpg" width="70"></td>
-                        <td>Gluten Free Mini Dozen</td>
-                        <td>60.000đ</td>
+                        <td><img src="img/cake-1.jpg" width="70"></td>
+                        <td>Bánh kem dâu</td>
+                        <td>80.000đ</td>
                         <td>1</td>
-                        <td>60.000đ</td>
+                        <td>80.000đ</td>
                     </tr>
 
                     <tr>
-                        <td><img src="img/shop/product-6.jpg" width="70"></td>
-                        <td>Sweet Autumn Leaves</td>
-                        <td>28.000đ</td>
-                        <td>1</td>
-                        <td>28.000đ</td>
-                    </tr>
-                     <tr>
-                        <td><img src="img/shop/product-3.jpg" width="70"></td>
-                        <td>Vanilla Salted Caramel</td>
+                        <td><img src="img/cake-2.jpg" width="70"></td>
+                        <td>Bánh Tiramisu</td>
                         <td>57.000đ</td>
                         <td>1</td>
                         <td>57.000đ</td>
-                    </tr>
-                     <tr>
-                        <td><img src="img/shop/product-1.jpg" width="70"></td>
-                        <td>Gluten Free Mini Dozen</td>
-                        <td>30.000đ</td>
-                        <td>1</td>
-                        <td>30.000đ</td>
-                    </tr>
-                     <tr>
-                        <td><img src="img/shop/product-2.jpg" width="70"></td>
-                        <td>Sweet Celtics</td>
-                        <td>45.000đ</td>
-                        <td>1</td>
-                        <td>45.000đ</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-       <!-- KHU VỰC TỔNG TIỀN + NÚT QUAY LẠI -->
-<div class="total-area mb-4 d-flex justify-content-end align-items-center gap-3">
-    
-    <div class="total-box">
-        Tổng tiền: 337.000đ
+        <!-- === TỔNG TIỀN === -->
+        <div class="total-box mb-4">
+            Tổng tiền: 137.000đ
+        </div>
+
+        <!-- Nút quay lại -->
+        <a href="history.html" class="btn btn-back">← Quay lại lịch sử</a>
+
     </div>
-
-    <a href="history.html" class="btn btn-back">← Quay lại lịch sử</a>
-
-</div>
 
 </body>
 
 </html>
-
