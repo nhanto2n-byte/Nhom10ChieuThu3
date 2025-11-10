@@ -103,7 +103,7 @@
             </div>
             <div class="offcanvas__cart__item">
                 <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                <div class="cart__price">Giỏ hàng: <span>0đ</span></div>
+                <div class="cart__price">Cart: <span>0đ</span></div>
             </div>
         </div>
         <div class="offcanvas__logo">
@@ -149,7 +149,7 @@
                                 </div>
                                 <div class="header__top__right__cart">
                                     <a href="./shoping-cart.html"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                                    <div class="cart__price">Cart: <span>0đ</span></div>
+                                    <div class="cart__price">Giỏ hàng: <span>0đ</span></div>
                                 </div>
                             </div>
                         </div>
@@ -179,25 +179,6 @@
             </div>
         </div>
     </header>
-     <!-- Breadcrumb Begin -->
-    <div class="breadcrumb-option">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="breadcrumb__text">
-                        <h2>VANI</h2>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="breadcrumb__links">
-                        <a href="./shop.html">Shop</a>
-                        <span>VANI</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb End -->
     <!-- Header Section End -->
 
     <!-- Breadcrumb Begin -->
@@ -206,7 +187,7 @@
 <div class="breadcrumb-option" 
      style="
         padding: 50px 0; 
-        background-image: url('#'); 
+        background-image: url('img/hero/hero-1.jpg'); 
         background-size: cover; 
         background-position: center; 
         background-repeat: no-repeat;
@@ -222,6 +203,14 @@
 
     <div class="container" style="position: relative; z-index: 2;">
         <div class="row align-items-center">
+
+            <!-- Tiêu đề bên trái -->
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="breadcrumb__text">
+                    <h2 style="font-weight: 700; color: #333;">Shop</h2>
+                </div>
+            </div>
+
             <!-- Liên kết breadcrumb bên phải -->
             <div class="col-lg-6 col-md-6 col-sm-12 text-right">
                 <div class="breadcrumb__links">
@@ -231,7 +220,64 @@
             </div>
         </div>
 
-       
+        <!-- Hàng nút chọn loại sản phẩm -->
+        <div style="
+            display: flex; 
+            flex-wrap: wrap;
+            gap: 12px; 
+            justify-content: center; 
+            margin-top: 25px;
+        ">
+            <button style="
+                padding: 10px 25px;
+                background-color: #ff6b6b;
+                color: white;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 15px;
+                transition: 0.3s;
+            " onclick="window.location.href='shop.html'">ALL</button>
+
+            <button style="
+                padding: 10px 25px;
+                background-color: #f29b9e;
+                color: white;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 15px;
+                transition: 0.3s;
+            " onclick="window.location.href='shop-dau.html'">Dâu</button>
+
+            <button style="
+                padding: 10px 25px;
+                background-color: #08030e;
+                color: white;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 15px;
+                transition: 0.3s;
+            " onclick="window.location.href='shop-socola.html'">Socola</button>
+
+            <button style="
+                padding: 10px 25px;
+                background-color: #a48b48;
+                color: white;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 15px;
+                transition: 0.3s;
+            " onclick="window.location.href='shop-traxanh.html'">Trà Xanh</button>
+        </div>
+    </div>
+</div>
 <!-- Breadcrumb End -->
 
 <!-- Hiệu ứng hover -->
@@ -241,6 +287,9 @@ button:hover {
     opacity: 0.9;
 }
 </style>
+
+
+
     <!-- Shop Section Begin -->
     <section class="shop spad">
         <div class="container">
@@ -259,7 +308,6 @@ button:hover {
     <div class="shop__option__right">
         <select onchange="if (this.value) window.location.href=this.value;">
             <option value="">Khoảng Giá</option>
-            <option value="giátype.html">Từ: 30k - 50k</option>
             <option value="giátype.html">Từ: 50k - 70k</option>
             <option value="giátype.html">Từ: 70k - 100k</option>
         </select>
@@ -335,22 +383,66 @@ button:hover {
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="product__item">
-                      
+                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-5.jpg">
+                            <div class="product__label">
+                                <span>Cupcake</span>
+                            </div>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="shop-chitiet.html">Vanilla Salted Caramel</a></h6>
+                            <div class="product__item__price">20.000đ</div>
+                            <div class="cart_add">
+                                <a href="./shoping-cart.html">Add to cart</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="product__item">
-                       
+                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-6.jpg">
+                            <div class="product__label">
+                                <span>Cupcake</span>
+                            </div>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="shop-chitiet.html">German Chocolate</a></h6>
+                            <div class="product__item__price">30.000đ</div>
+                            <div class="cart_add">
+                                <a href="./shoping-cart.html">Add to cart</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="product__item">
-                        
+                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-7.jpg">
+                            <div class="product__label">
+                                <span>Cupcake</span>
+                            </div>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="shop-chitiet.html">Dulce De Leche</a></h6>
+                            <div class="product__item__price">37.000đ</div>
+                            <div class="cart_add">
+                                <a href="./shoping-cart.html">Add to cart</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="product__item">
-                       
+                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-8.jpg">
+                            <div class="product__label">
+                                <span>Cupcake</span>
+                            </div>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="shop-chitiet.html">Mississippi Mud</a></h6>
+                            <div class="product__item__price">15.000đ</div>
+                            <div class="cart_add">
+                                <a href="./shoping-cart.html">Add to cart</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
@@ -418,7 +510,23 @@ button:hover {
                     </div>
                 </div>
             </div>
-           
+            <div class="shop__last__option">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="shop__pagination">
+                            <a href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#"><span class="arrow_carrot-right"></span></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="shop__last__text">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <!-- Shop Section End -->
@@ -473,4 +581,5 @@ button:hover {
 <script src="js/jquery.nicescroll.min.js"></script>
 <script src="js/main.js"></script>
 </body>
+
 </html>
