@@ -94,7 +94,48 @@
     transform: translateX(0) !important;  /* xoá lệch mặc định */
     margin-left: 0 !important;
 }
-        
+        <style>
+  /* Canh phải dropdown so với mục cha */
+  .header__menu ul li { position: relative; }
+
+  .header__menu ul li > .dropdown {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;        /* canh mép phải */
+    left: auto !important;      /* bỏ canh trái */
+    transform: none !important; /* xoá lệch mặc định (nếu có) */
+    margin: 0 !important;
+    display: none;
+    min-width: 220px;           /* rộng tối thiểu, không tràn */
+    width: max-content;         /* vừa nội dung */
+    background: #333;
+    border: 1px solid #555;
+    box-shadow: 0 8px 18px rgba(0,0,0,.18);
+    padding: 6px 0;
+    z-index: 1000;
+    box-sizing: border-box;
+  }
+
+  /* Hiện dropdown khi hover */
+  .header__menu ul li:hover > .dropdown { display: block; }
+
+  /* Mục con trong dropdown */
+  .header__menu ul li > .dropdown li a {
+    display: block;
+    padding: 10px 16px;
+    color: #fff !important;
+    text-decoration: none;
+    white-space: nowrap;        /* không xuống dòng gây lệch lề phải */
+  }
+  .header__menu ul li > .dropdown li a:hover {
+    background: #555;
+    color: #ffcc00 !important;
+  }
+
+  /* (Tuỳ chọn) Giữ menu chính gọn gàng */
+  .header__menu > ul { display: flex; gap: 24px; align-items: center; }
+</style>
+
     </style>
     
     

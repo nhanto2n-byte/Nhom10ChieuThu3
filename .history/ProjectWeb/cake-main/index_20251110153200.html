@@ -96,8 +96,22 @@
 }
         
     </style>
-    
-    
+    <style>
+/* Ép menu cha có position để căn */
+.header__menu ul li {
+    position: relative !important;
+}
+
+/* Ghi đè hoàn toàn CSS default của Ogani */
+.header__menu ul li .dropdown {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;               /* Canh thẳng theo mục Pages */
+    transform: translateX(0) !important; 
+    margin: 0 !important;
+}
+</style>
+
 </head>
 
 <body>
