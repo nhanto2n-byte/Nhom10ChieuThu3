@@ -328,9 +328,30 @@
             const notificationArea = document.getElementById('notification-area');
             const mainPageURL = './admin_category.html'; 
 
+            const dataString = sessionStorage.getItem('editItemData');
+
+    if (dataString) {
+        // 2. Chuyển chuỗi JSON về lại đối tượng
+        const itemData = JSON.parse(dataString);
+
+        // 3. Tìm các trường trong form và điền dữ liệu vào
+        document.querySelector('#addTypeForm img').src = itemData.anh;
+        document.getElementById('loaiTen').value = itemData.ten;
+        document.getElementById('loaiMoTa').value = itemData.mota;
+        
+        // Cập nhật tên file ảnh cho đẹp
+        const fileName = itemData.anh.split('/').pop(); // Lấy tên file (ví dụ: TRAXANH.jpg)
+        document.querySelector('.file-name-display').textContent = fileName;
+
+        // 4. Xóa dữ liệu khỏi sessionStorage để tránh dùng nhầm lần sau
+        sessionStorage.removeItem('editItemData');
+    }
+
             // Custom File Input JS
             const loaiAnhInput = document.getElementById('loaiAnh');
             const fileNameDisplay = document.querySelector('.file-name-display');
+
+
 
             if (loaiAnhInput && fileNameDisplay) {
                 loaiAnhInput.addEventListener('change', function() {
