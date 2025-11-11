@@ -265,11 +265,21 @@
         <input type="file" id="loaiAnh" name="loaiAnh" accept="image/*" style="opacity: 0; position: absolute; z-index: -1; width: 1px; height: 1px;">
     </div>
 </div>
+       
+          <div class="mb-3">
+                    <label for="loaiTen" class="form-label fw-bold">Mã sản phẩm</label>
+                    <input type="text" class="form-control" id="loaiten" name="loaiten" placeholder="Nhập tên loại sản phẩm">
+                </div>
 
         <div class="mb-3">
           <label for="tenDM" class="form-label fw-bold">Tên sản phẩm</label>
           <input type="text" class="form-control" id="tenDM" name="tenDM" placeholder="Loại để phòng">
         </div>
+
+        <div class="mb-3">
+                    <label for="loaiTen" class="form-label fw-bold">Vị bánh</label>
+                    <input type="text" class="form-control" id="viBanh" name="viBanh" placeholder="Nhập hương vị">
+                </div>
 
         <div class="mb-3">
           <label for="moTa" class="form-label fw-bold">Mô tả sản phẩm</label>
@@ -305,11 +315,11 @@
 
         // === TẠO DỮ LIỆU GIẢ (MOCK DATA) ===
         const mockProductData = {
-            "C001": { ten: "Dozen Cupcakes", hinh: "img/shop/product-1.jpg", moTa: "Bộ 12 chiếc cupcake đa dạng hương vị, mềm mịn và ngọt ngào.", vi: "Hỗn hợp" },
-            "C002": { ten: "Gluten Free Mini Dozen", hinh: "img/shop/product-3.jpg", moTa: "12 chiếc mini cupcake không gluten, thơm ngon tự nhiên.", vi: "Dâu" },
-            "C003": { ten: "Cookie Dough", hinh: "img/shop/product-4.jpg", moTa: "Cupcake hương cookie dough béo ngậy, phủ kem vani mịn.", vi: "Hỗn hợp" },
-            "C011": { ten: "Vanilla Salted Caramel", hinh: "img/shop/product-5.jpg", moTa: "Bánh vani mềm mịn hòa quyện cùng lớp caramel muối mặn ngọt.", vi: "Hỗn hợp" },
-            "C012": { ten: "German Chocolate", hinh: "img/shop/product-6.jpg", moTa: "Cupcake chocolate đậm đà kết hợp nhân dừa và hạt óc chó.", vi: "Socola" }
+            "C001": { Id: "C001", ten: "Dozen Cupcakes", hinh: "img/shop/product-1.jpg",vi: "Hỗn hợp", moTa: "Bộ 12 chiếc cupcake đa dạng hương vị, mềm mịn và ngọt ngào.", vi: "Hỗn hợp" },
+            "C002": { Id: "C002", ten: "Gluten Free Mini Dozen", hinh: "img/shop/product-3.jpg",vi: "Dâu", moTa: "12 chiếc mini cupcake không gluten, thơm ngon tự nhiên.", vi: "Dâu" },
+            "C003": { Id: "C003", ten: "Cookie Dough", hinh: "img/shop/product-4.jpg",vi: "Hỗn hợp", moTa: "Cupcake hương cookie dough béo ngậy, phủ kem vani mịn.", vi: "Hỗn hợp" },
+            "C011": { Id: "C011", ten: "Vanilla Salted Caramel", hinh: "img/shop/product-5.jpg",vi: "Hỗn hợp", moTa: "Bánh vani mềm mịn hòa quyện cùng lớp caramel muối mặn ngọt.", vi: "Hỗn hợp" },
+            "C012": { Id: "C012", ten: "German Chocolate", hinh: "img/shop/product-6.jpg",vi: "Socola", moTa: "Cupcake chocolate đậm đà kết hợp nhân dừa và hạt óc chó.", vi: "Socola" }
         };
 
         // 1. Tải dữ liệu khi trang được mở
@@ -330,9 +340,9 @@
             }
             
             // Điền dữ liệu vào form
-          //  editForm.querySelector('[name="maDM"]').value = productId;
+            editForm.querySelector('[name="loaiten"]').value = product.Id;
             editForm.querySelector('[name="tenDM"]').value = product.ten;
-           // editForm.querySelector('[name="viBanh"]').value = product.vi;
+            editForm.querySelector('[name="viBanh"]').value = product.vi;
             editForm.querySelector('[name="moTa"]').value = product.moTa;
             
             // === TẢI ẢNH GỐC VÀ TÊN FILE KHI LOAD TRANG ===
