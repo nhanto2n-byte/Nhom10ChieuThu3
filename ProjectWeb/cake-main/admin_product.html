@@ -338,8 +338,10 @@
             </div>
 
         </div>
+
     
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/jquery.barfiller.js"></script>
@@ -351,177 +353,50 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const tableBody = document.querySelector('#orderTableBody');
-    const orderContent = document.getElementById('orderContent');
-    const searchButton = document.getElementById('searchButton');
+    const tableBody = document.querySelector('#orderTableBody');
+    const orderContent = document.getElementById('orderContent');
+    const searchButton = document.getElementById('searchButton');
 
-    // Lưu lại toàn bộ dữ liệu ban đầu
-    const allOrderRows = Array.from(tableBody.querySelectorAll('tr')).map(row => row.outerHTML);
+    // [ĐÃ XÓA] Hằng số STATUS_CYCLE
 
-    // Tạo hiệu ứng loading (xoay tròn)
-    const loadingSpinner = document.createElement('div');
-    loadingSpinner.innerHTML = `
-        <div class="text-center my-4">
-            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
-                <span class="visually-hidden">Đang tải...</span>
-            </div>
-            <p class="mt-2 fw-bold text-primary">Đang tra cứu dữ liệu...</p>
-        </div>
-    `;
-    loadingSpinner.style.display = 'none';
-    orderContent.insertAdjacentElement('beforebegin', loadingSpinner);
+    // Lưu lại toàn bộ dữ liệu ban đầu
+    const allOrderRows = Array.from(tableBody.querySelectorAll('tr')).map(row => row.outerHTML);
 
-    // Sự kiện tra cứu
-    searchButton.addEventListener('click', function() {
-        orderContent.style.display = 'none';
-        loadingSpinner.style.display = 'block';
+    // Tạo hiệu ứng loading (xoay tròn)
+    const loadingSpinner = document.createElement('div');
+    loadingSpinner.innerHTML = `
+        <div class="text-center my-4">
+            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                <span class="visually-hidden">Đang tải...</span>
+            </div>
+            <p class="mt-2 fw-bold text-primary">Đang tra cứu dữ liệu...</p>
+        </div>
+    `;
+    loadingSpinner.style.display = 'none';
+    orderContent.insertAdjacentElement('beforebegin', loadingSpinner);
 
-        // Giả lập tra cứu trong 1.5 giây
-        setTimeout(() => {
-            // Phục hồi bảng dữ liệu gốc
-            tableBody.innerHTML = allOrderRows.join('');
-            
-            // Gắn lại sự kiện "Xem chi tiết"
-            attachDetailEvent();
+    // Sự kiện tra cứu
+    searchButton.addEventListener('click', function() {
+        orderContent.style.display = 'none';
+        loadingSpinner.style.display = 'block';
 
-            // Hiện lại bảng
-            loadingSpinner.style.display = 'none';
-            orderContent.style.display = 'block';
-        }, 1500);
-    });
+        // Giả lập tra cứu trong 1.5 giây
+        setTimeout(() => {
+            // Phục hồi bảng dữ liệu gốc
+            tableBody.innerHTML = allOrderRows.join('');
+            
+            // [ĐÃ XÓA] Không cần gắn lại sự kiện "Xem chi tiết" nữa
+            
+            // Hiện lại bảng
+            loadingSpinner.style.display = 'none';
+            orderContent.style.display = 'block';
+        }, 1500);
+    });
 
-    // Hàm gắn sự kiện cho nút "Xem"
-    function attachDetailEvent() {
-        tableBody.querySelectorAll('.btn-primary').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const currentRow = this.closest('tr');
+    // [ĐÃ XÓA] Toàn bộ hàm "attachDetailEvent"
 
-                // Nếu đã mở chi tiết rồi -> ẩn đi
-                const nextRow = currentRow.nextElementSibling;
-                if (nextRow && nextRow.classList.contains('detail-row')) {
-                    nextRow.remove();
-                    return;
-                }
-
-                // Xóa chi tiết đang mở (nếu có)
-                document.querySelectorAll('.detail-row').forEach(r => r.remove());
-
-                const orderId = currentRow.children[0].innerText;
-                const customer = currentRow.children[1].innerText;
-
-                const detailRow = document.createElement('tr');
-                detailRow.classList.add('detail-row');
-                // ... (code tạo detailRow) ...
-
-detailRow.innerHTML = `
-    <td colspan="6" class="bg-light text-start">
-        <div class="p-3">
-            <h6><i class="fa-solid fa-receipt"></i> Chi tiết ${orderId}</h6>
-            <p><strong>Khách hàng:</strong> ${customer}</p>
-            <table class="table table-sm table-bordered mt-3 align-middle">
-                <thead class="table-secondary">
-                    <tr>
-                        <th>Sản phẩm</th>
-                        <th>Số lượng</th>
-                        <th>Giá</th>
-                        <th>Thành tiền</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="img/shop/product-1.jpg" width="50" height="50" class="me-2 rounded">
-                                <span>Dozen Cupcakes</span>
-                            </div>
-                        </td>
-                        <td>2</td><td>50,000đ</td><td>100,000đ</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="img/shop/product-2.jpg" width="50" height="50" class="me-2 rounded">
-                                <span>Gluten Free Mini Dozen</span>
-                            </div>
-                        </td>
-                        <td>1</td><td>80,000đ</td><td>80,000đ</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="img/shop/product-3.jpg" width="50" height="50" class="me-2 rounded">
-                                <span>Cookie Dough</span>
-                            </div>
-                        </td>
-                        <td>2</td><td>85,000đ</td><td>170,000đ</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="text-end"><strong>Tổng cộng:</strong> 350,000đ</p>
-        </div>
-    </td>
-`;
-
-// ... (code chèn detailRow) ...
-                currentRow.insertAdjacentElement('afterend', detailRow);
-            });
-        });
-    }
-    
-
-    // Gắn sự kiện cho các nút “Xem” khi trang tải lần đầu
-    attachDetailEvent();
-
-   // ========================================================
-    // [MỚI] LOGIC ĐỔI TRẠNG THÁI (CHỈ TỪ MỚI ĐẶT -> HỦY)
-    // ========================================================
-    
-    // XÓA BỎ mảng const STATUS_CYCLE = [...] cũ đi
-
-    // Dùng Event Delegation để lắng nghe click trên toàn bộ bảng
-    tableBody.addEventListener('click', function(e) {
-        
-        // 1. Kiểm tra xem thứ được bấm có phải là cái nhãn không
-        if (e.target.classList.contains('status-badge-clickable')) {
-            const badge = e.target;
-            const currentText = badge.innerText;
-
-            // 2. CHỈ THỰC HIỆN KHI TRẠNG THÁI LÀ "MỚI ĐẶT"
-            if (currentText === 'Mới đặt') {
-                
-                console.log("Phát hiện bấm nút MỚI ĐẶT. Đang chuyển sang HỦY...");
-
-                // 3. Định nghĩa trạng thái "Hủy"
-                const nextState = { text: 'Hủy', cssClasses: ['bg-danger'] };
-
-                // 4. Cập nhật nhãn (badge)
-                // Xóa class màu cũ
-                badge.classList.remove('bg-warning', 'text-dark');
-                
-                // Thêm class màu mới ('bg-danger' mặc định chữ trắng)
-                badge.classList.add(...nextState.cssClasses);
-                
-                // Đổi chữ
-                badge.innerText = nextState.text;
-
-                // Log lại
-                const orderId = badge.closest('tr').children[0].innerText;
-                console.log(`Đã đổi trạng thái đơn ${orderId} thành: ${nextState.text}`);
-                
-                // SAU NÀY: Bạn sẽ gọi API/fetch để lưu thay đổi này vào CSDL
-            }
-            
-            // 5. Nếu currentText là "Hủy", "Đã giao", "Đã xử lý" -> không làm gì cả.
-            // Code sẽ tự kết thúc mà không chạy vào if.
-        }
-    });
+    // [ĐÃ XÓA] Toàn bộ "LOGIC ĐỔI TRẠNG THÁI"
 });
-
-
 </script>
-
-
-
 </body>
 </html>
