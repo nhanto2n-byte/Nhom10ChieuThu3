@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Tiêu đề trang mới -->
-    
+    <title>Thêm Sản Phẩm Mới</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -26,7 +27,9 @@
         h2 { font-weight: 700; margin-bottom: 30px; color: #222; }
         .card {
             border: none; border-radius: 12px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px; padding: 25px; background-color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 20px; padding: 25px;  
+            background-color: rgba(255, 255, 255, 0.95);
+
         }
         .table th { background-color: #f1f3f9; }
         .header__top__left ul li.has-dropdown { position: relative; cursor: pointer; }
@@ -124,84 +127,6 @@
     visibility: visible;
     transform: translate(-50%, 0);
 }
-/* CSS cho ảnh preview */
-#addTypeForm img {
-    width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    transition: transform 0.3s;
-}
-#addTypeForm img:hover {
-    transform: scale(1.05);
-}
-
-/* CSS cho file input */
-.input-group-text {
-    cursor: pointer;
-    border-radius: 0.375rem 0 0 0.375rem;
-    transition: background 0.3s;
-}
-.input-group-text:hover {
-    background-color: #5a6268;
-}
-.file-name-display {
-    flex: 1;
-    padding: 0.375rem 0.75rem;
-    border-left: none;
-    border-radius: 0 0.375rem 0.375rem 0;
-    background-color: #e9ecef;
-    font-size: 0.9rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-/* CSS cho input text và textarea */
-#addTypeForm input[type="text"], 
-#addTypeForm textarea {
-    border-radius: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ced4da;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-#addTypeForm input[type="text"]:focus, 
-#addTypeForm textarea:focus {
-    border-color: #ffc107;
-    box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
-    outline: none;
-}
-
-/* CSS cho nút Hoàn Thành */
-.btn-action {
-    min-width: 140px;
-    font-weight: 600;
-    border-radius: 0.5rem;
-    transition: transform 0.2s, background 0.3s;
-}
-.btn-action:hover {
-    transform: translateY(-2px);
-    background-color: #e0a800;
-}
-
-/* CSS cho thông báo */
-#notification-area .alert {
-    border-radius: 0.5rem;
-    font-weight: 500;
-    padding: 0.75rem 1rem;
-    font-size: 0.95rem;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    animation: fadeIn 0.5s ease;
-}
-
-/* Hiệu ứng fade-in */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-5px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
 
     </style>
 </head>
@@ -259,20 +184,19 @@
 
         <div class="card" style="max-width: 550px; margin: 0 auto; background-color: #ffffff; padding: 25px;"> 
             
-            <h5 class="text-center mb-4" style="color: #222; font-weight: 700; font-size: 1.5rem;">Sửa loại sản phẩm</h5>
+            <h5 class="text-center mb-4" style="color: #222; font-weight: 700; font-size: 1.5rem;">Thêm loại sản phẩm</h5>
 
             <div id="notification-area" style="padding: 0; margin-top: 0; margin-bottom: 15px;"></div>
 
             <form id="addTypeForm">
                 <div class="mb-3">
-                   <img src="img/hero/TRAXANH.jpg" alt= "Ảnh" />
-
+                    <label for="loaiAnh" class="form-label fw-bold">Ảnh</label>
                     <div class="input-group">
-                        <label class="input-group-text" for="ẢNH" style="background-color: #6c757d; color: white; border-color: #6c757d; cursor: pointer;">
+                        <label class="input-group-text" for="loaiAnh" style="background-color: #6c757d; color: white; border-color: #6c757d; cursor: pointer;">
                             <i class="fa-solid fa-cloud-arrow-up me-2"></i>Chọn tệp
                         </label>
                         <input type="file" class="form-control" id="loaiAnh" name="loaiAnh" style="opacity: 0; position: absolute; z-index: -1;">
-                        <span class="form-control file-name-display" style="background-color: #e9ecef; border-left: none;">Chọn ảnh khác</span>
+                        <span class="form-control file-name-display" style="background-color: #e9ecef; border-left: none;">Không có tệp nào được chọn</span>
                     </div>
                 </div>
 
@@ -282,37 +206,17 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="loaiMoTa" class="form-label fw-bold">Mô tả loại sản phẩm</label>
+                    <label for="loaiMoTa" class="form-label fw-bold">Mô tả sản phẩm</label>
                     <textarea class="form-control" id="loaiMoTa" name="loaiMoTa" rows="4" placeholder="Nhập mô tả chi tiết"></textarea>
                 </div>
 
-
-<div class="d-flex justify-content-between mt-4">
-    <button type="button" class="btn btn-warning btn-sm btn-action" id="completeButton">
-        <i class="fa-solid fa-pen"></i> Hoàn Thành
-    </button>
-</div>
-
-<script>
-    const completeBtn = document.getElementById('completeButton');
-    const notificationArea = document.getElementById('notification-area');
-
-    completeBtn.addEventListener('click', function() {
-        // Hiển thị thông báo
-        notificationArea.innerHTML = `
-            <div class="alert alert-success text-center" role="alert">
-                Đã sửa thành công!
-            </div>
-        `;
-
-        // Chờ 2 giây rồi chuyển trang
-        setTimeout(function() {
-            window.location.href = 'admin_type.html'; // đổi thành trang quản lý sản phẩm của bạn
-        }, 2000);
-    });
-</script>
-
-
+                <div class="d-flex justify-content-between mt-4">
+                    <button type="button" class="btn btn-warning" id="cancelButton" style="font-weight: 600; background-color: #ffc107; border-color: #ffc107;">Quay lại</button>
+                    <button type="submit" class="btn btn-dark" id="addButton" style="font-weight: 600; background-color: #212529; border-color: #212529;">Thêm</button>
+                </div>
+            </form>
+        </div>
+    </div>
     
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -328,30 +232,9 @@
             const notificationArea = document.getElementById('notification-area');
             const mainPageURL = './admin_category.html'; 
 
-            const dataString = sessionStorage.getItem('editItemData');
-
-    if (dataString) {
-        // 2. Chuyển chuỗi JSON về lại đối tượng
-        const itemData = JSON.parse(dataString);
-
-        // 3. Tìm các trường trong form và điền dữ liệu vào
-        document.querySelector('#addTypeForm img').src = itemData.anh;
-        document.getElementById('loaiTen').value = itemData.ten;
-        document.getElementById('loaiMoTa').value = itemData.mota;
-        
-        // Cập nhật tên file ảnh cho đẹp
-        const fileName = itemData.anh.split('/').pop(); // Lấy tên file (ví dụ: TRAXANH.jpg)
-        document.querySelector('.file-name-display').textContent = fileName;
-
-        // 4. Xóa dữ liệu khỏi sessionStorage để tránh dùng nhầm lần sau
-        sessionStorage.removeItem('editItemData');
-    }
-
             // Custom File Input JS
             const loaiAnhInput = document.getElementById('loaiAnh');
             const fileNameDisplay = document.querySelector('.file-name-display');
-
-
 
             if (loaiAnhInput && fileNameDisplay) {
                 loaiAnhInput.addEventListener('change', function() {

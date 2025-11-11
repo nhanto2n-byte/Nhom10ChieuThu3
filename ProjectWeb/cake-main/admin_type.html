@@ -227,7 +227,11 @@
     </header>
   <div class="container py-5">
     <h2 class="text-center mb-4">Quản Lý Loại Sản Phẩm</h2>
-
+    <div class="text-end mb-4">
+    <a href="themloaisp.html" class="btn btn-success btn-lg shadow-sm">
+        <i class="fa-solid fa-plus"></i> Thêm Loại Sản Phẩm
+    </a>
+</div>
     <div class="row g-4">
 
         <!-- Loại 1 -->
@@ -240,7 +244,11 @@
 Phủ lớp kem ngọt nhẹ, béo ngậy.</p>
                     <div class="d-flex justify-content-center gap-4 mt-3">
                        <button class="btn btn-warning btn-sm btn-action"
-        onclick="window.location.href='sualoaisp.html'">
+        onclick="editItem(
+        'Cupcake Trà Xanh', 
+        'Cupcake Trà Xanh mềm xốp, thơm dịu hương trà.\nPhủ lớp kem ngọt nhẹ, béo ngậy.', 
+        'img/hero/TRAXANH.jpg'
+    )">
     <i class="fa-solid fa-pen"></i> Sửa
 </button>
 
@@ -263,7 +271,11 @@ Phủ lớp kem ngọt nhẹ, béo ngậy.</p>
 Phủ lớp kem socola tan chảy trong miệng..</p>
                     <div class="d-flex justify-content-center gap-4 mt-3">
                            <button class="btn btn-warning btn-sm btn-action"
-        onclick="window.location.href='sualoaisp.html'">
+        onclick="editItem(
+        'Cupcake Socola', 
+        'Cupcake socola đậm vị cacao quyến rũ.\nPhủ lớp kem socola tan chảy trong miệng..', 
+        'img/hero/SOCOLA.jpg'
+    )">
     <i class="fa-solid fa-pen"></i> Sửa
 </button>
                        <button class="btn btn-danger btn-sm btn-action btn-delete-card">
@@ -285,7 +297,11 @@ Phủ lớp kem socola tan chảy trong miệng..</p>
 Phủ kem hồng ngọt dịu.</p>
                     <div class="d-flex justify-content-center gap-4 mt-3">
                        <button class="btn btn-warning btn-sm btn-action"
-        onclick="window.location.href='sualoaisp.html'">
+        onclick="editItem(
+        'Cupcake Dâu', 
+        'Cupcake dâu mềm xốp, thơm nhẹ hương dâu tươi.\nPhủ kem hồng ngọt dịu.', 
+        'img/hero/DÂU.jpg'
+    )">
     <i class="fa-solid fa-pen"></i> Sửa
 </button>
 
@@ -342,6 +358,21 @@ Phủ kem hồng ngọt dịu.</p>
 
 
     <script>
+
+        function editItem(ten, mota, anh) {
+    // 1. Tạo một đối tượng chứa dữ liệu
+    const itemData = {
+        ten: ten,
+        mota: mota,
+        anh: anh
+    };
+
+    // 2. Lưu đối tượng này vào sessionStorage (dưới dạng chuỗi JSON)
+    sessionStorage.setItem('editItemData', JSON.stringify(itemData));
+
+    // 3. Chuyển hướng đến trang sửa
+    window.location.href = 'sualoaisp.html';
+}
         // ===== BẮT ĐẦU JAVASCRIPT HOÀN CHỈNH =====
 
         // Hàm showToast và CSS của bạn, không thay đổi.
