@@ -82,10 +82,11 @@
 
         /* Hiệu ứng di chuột (hover) cho các mục con */
         .header__top__left ul li .dropdown li a:hover {
-            background-color: #0e0e0e; /* Nền xám nhẹ khi hover */
-            color: #e8bf18; /* Màu nổi bật khi hover */
+            background-color: #555; /* Nền xám nhẹ khi hover */
+            color: #ffcc00; /* Màu nổi bật khi hover */
         }
-           /* === GHI ĐÈ CĂN GIỮA DROPDOWN === */
+
+    /* === GHI ĐÈ CĂN GIỮA DROPDOWN === */
 .header__menu ul li .dropdown {
     left: 50% !important;                  /* căn giữa theo chiều ngang */
     transform: translateX(-50%) !important;/* dịch ngược lại cho giữa thật */
@@ -203,7 +204,6 @@
                                     <li><a href="./shoping-cart.html">Giỏ hàng</a></li>
                   <li><a href="./checkout.html">Thanh toán</a></li>
                   <li><a href="./wisslist.html">Yêu thích</a></li>
-                  <li><a href="./lsu.html">Lịch Sử Mua</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -212,71 +212,30 @@
             </div>
         </div>
     </header>
-     <!-- Breadcrumb Begin -->
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__text">
-                        <h2>DÂU</h2>
+                        <h2>Kết Quả Theo Giá </h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__links">
+                        <a href="./index.html">Home</a>
                         <a href="./shop.html">Shop</a>
-                        <span>Dâu</span>
+                        <span>Kết Quả Theo Giá</span>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
     <!-- Breadcrumb End -->
-    <!-- Header Section End -->
 
-    <!-- Breadcrumb Begin -->
-    <!-- Breadcrumb Begin -->
-<!-- Breadcrumb Begin -->
-<div class="breadcrumb-option" 
-     style="
-        padding: 50px 0; 
-        background-image: url('#'); 
-        background-size: cover; 
-        background-position: center; 
-        background-repeat: no-repeat;
-        position: relative;
-    ">
-
-    <!-- lớp phủ mờ nhẹ -->
-    <div style="
-        position: absolute;
-        inset: 0;
-        background: rgba(255, 255, 255, 0.35); /* giảm mờ từ 0.7 xuống 0.35 */
-    "></div>
-
-    <div class="container" style="position: relative; z-index: 2;">
-        <div class="row align-items-center">
-
-           
-
-            <!-- Liên kết breadcrumb bên phải -->
-            <div class="col-lg-6 col-md-6 col-sm-12 text-right">
-                <div class="breadcrumb__links">
-            
-
-                </div>
-            </div>
-        </div>
-
-       
-<!-- Breadcrumb End -->
-
-<!-- Hiệu ứng hover -->
-<style>
-button:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-}
-</style>
     <!-- Shop Section Begin -->
     <section class="shop spad">
         <div class="container">
@@ -285,23 +244,12 @@ button:hover {
                     <div class="col-lg-7 col-md-7">
                         <div class="shop__option__search">
                             <form action="shoptimkiem.html">
-                              
-                                <input type="text" placeholder="Search">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
+                               
+
+                               <input type="text" value="Có 8 Sản Phẩm Phù Hợp" disabled style="font-weight:bold;">
+
                         </div>
                     </div>
-                   <div class="col-lg-5 col-md-5">
-    <div class="shop__option__right">
-        <select onchange="if (this.value) window.location.href=this.value;">
-            <option value="">Khoảng Giá</option>
-            <option value="giátype.html">Từ: 30k - 50k</option>
-            <option value="giátype.html">Từ: 50k - 70k</option>
-            <option value="giátype.html">Từ: 70k - 100k</option>
-        </select>
-    </div>
-</div>
-
                 </div>
             </div>
             <div class="row">
@@ -434,11 +382,8 @@ button:hover {
                     </div>
                 </div>
                 
-                
-                
-           
-        </div>
-         <div class="shop__last__option">
+               
+             <div class="shop__last__option">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="shop__pagination">
@@ -455,6 +400,7 @@ button:hover {
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <!-- Shop Section End -->
 
@@ -508,4 +454,5 @@ button:hover {
 <script src="js/jquery.nicescroll.min.js"></script>
 <script src="js/main.js"></script>
 </body>
+
 </html>
