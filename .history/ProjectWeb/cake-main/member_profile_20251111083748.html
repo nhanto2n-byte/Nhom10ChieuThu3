@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chi tiết Khách hàng</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+  <div class="relative w-full min-h-screen">
+
+    <!-- Ảnh nền -->
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      style="background-image: url('img/hero/hero-1.jpg');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <!-- Khung nội dung -->
+    <div class="relative z-10 p-4 md:p-8 flex justify-center items-center min-h-screen">
+      <div class="w-full max-w-6xl bg-white/30 backdrop-blur-md rounded-xl shadow-2xl p-6 md:p-10 relative">
+
+        <!-- Nút quay lại -->
+        <a href="admin_member.html"
+          class="absolute top-5 left-6 text-indigo-700 font-semibold hover:text-indigo-900 flex items-center transition duration-200 group">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-1 group-hover:-translate-x-1 transition duration-200"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Quay lại danh sách
+        </a>
+
+        <!-- Tiêu đề -->
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-6 text-center pt-8">
+          Chi tiết Khách hàng
+        </h1>
+
+        <!-- Ảnh đại diện -->
+        <div class="flex flex-col items-center mb-10 pb-6 border-b border-gray-200">
+          <div class="relative w-32 h-32 rounded-full overflow-hidden border-4 border-indigo-600 shadow-xl">
+            <img src="img/avatar.jpg" alt="Ảnh đại diện" class="w-full h-full object-cover">
+          </div>
+          <div class="mt-4 text-center">
+            <h3 id="profile-name" class="text-3xl font-bold text-gray-800">Đào Hữu Tài</h3>
+            <span class="text-sm text-indigo-600 font-medium">Mã KH: <span id="profile-id">#KH003</span></span>
+          </div>
+        </div>
+
+        <!-- Thông tin khách hàng (2 bảng ngang) -->
+        <section class="mb-10 p-6 rounded-xl bg-white/50 shadow-inner">
+          <h2 class="text-xl font-semibold text-gray-700 mb-5 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-3 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Thông tin khách hàng
+          </h2>
+
+          <div class="flex flex-col md:flex-row gap-6">
+            <!-- Bảng trái (readonly) -->
+            <div class="flex-1 grid grid-cols-1 gap-4 bg-gray-50 p-4 rounded-lg shadow-inner">
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Họ và Tên</label>
+                <input type="text" value="Đào Hữu Tài" readonly
+                  class="mt-1 w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" value="taidh@gmail.com" readonly
+                  class="mt-1 w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Số điện thoại</label>
+                <input type="text" value="0333580320" readonly
+                  class="mt-1 w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Địa chỉ</label>
+                <textarea rows="3" readonly
+                  class="mt-1 w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg resize-none">Đường số 19, Phú Mỹ, Quận 7, TP.HCM</textarea>
+              </div>
+            </div>
+
+            <!-- Bảng phải (có thể chỉnh sửa hoặc readonly) -->
+            <div class="flex-1 grid grid-cols-1 gap-4 bg-white p-4 rounded-lg shadow-inner">
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Hạng thành viên</label>
+                <input type="text" readonly value="Chiến Tướng (Gold)"
+                  class="mt-1 w-full px-4 py-2 border border-yellow-400 bg-yellow-50 rounded-lg text-yellow-800 font-semibold" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Trạng thái tài khoản</label>
+                <input type="text" readonly value="Hoạt động"
+                  class="mt-1 w-full px-4 py-2 border border-green-400 bg-green-50 rounded-lg text-green-700 font-semibold" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Số đơn hàng đã đặt</label>
+                <input type="text" readonly value="48 đơn"
+                  class="mt-1 w-full px-4 py-2 border border-gray-300 bg-gray-50 rounded-lg" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Tổng chi tiêu</label>
+                <input type="text" readonly value="125,500,000 VNĐ"
+                  class="mt-1 w-full px-4 py-2 border border-gray-300 bg-gray-50 rounded-lg" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Điểm tích lũy</label>
+                <input type="text" readonly value="2,450 điểm"
+                  class="mt-1 w-full px-4 py-2 border border-gray-300 bg-gray-50 rounded-lg" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Số lần hủy đơn</label>
+                <input type="text" readonly value="2 lần"
+                  class="mt-1 w-full px-4 py-2 border border-gray-300 bg-gray-50 rounded-lg" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Đăng nhập gần nhất</label>
+                <input type="text" readonly value="03/11/2025 - 22:43"
+                  class="mt-1 w-full px-4 py-2 border border-gray-300 bg-gray-50 rounded-lg" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Ghi chú nội bộ</label>
+                <textarea rows="3" placeholder="Ví dụ: Khách hàng thân thiết..."
+                  class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 resize-none"></textarea>
+              </div>
+
+              <!-- Nút lưu/hủy -->
+              <div class="flex gap-4 pt-4">
+                <button type="button" id="save-btn"
+                  class="w-full sm:w-auto px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg shadow-md hover:bg-emerald-700 transition duration-150 ease-in-out">
+                  💾 Lưu thay đổi
+                </button>
+                <a href="admin_member.html"
+                  class="w-full sm:w-auto px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition duration-150 ease-in-out">
+                  Hủy
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Giả lập lưu thông tin
+    document.getElementById('save-btn').addEventListener('click', () => {
+      alert('✅ Thông tin khách hàng đã được cập nhật thành công!');
+    });
+  </script>
+</body>
+</html>
