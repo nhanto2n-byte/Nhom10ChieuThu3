@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Đơn Hàng Đã Đặt</title>
+    
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+      .total-area {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px; /* khoảng cách giữa 2 khối */
+}
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f7f7f7;
+            color: #000;
+        }
+
+        /* HERO */
+        .hero {
+            background: 
+                linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                url('img/hero/hero-1.jpg') center/cover no-repeat;
+            text-align: center;
+            padding: 80px 0;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+        }
+
+        /* BOX THÔNG TIN */
+        .order-info-box {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            color: #000;
+        }
+
+        .info-block {
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .info-block:last-child {
+            border-right: none;
+        }
+
+        .info-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .info-block p {
+            font-size: 16px;
+            margin: 6px 0;
+        }
+
+        /* Ảnh khách hàng */
+        .customer-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #000;   /* Đổi xanh → đen */
+            margin-bottom: 10px;
+        }
+
+        /* BẢNG SẢN PHẨM */
+        th {
+            background: #000 !important;   /* Đổi xanh → đen */
+            color: #fff !important;
+        }
+
+        /* Tổng tiền */
+        .total-box {
+            background: #fff;
+            padding: 20px;
+            font-weight: 700;
+            font-size: 20px;
+            border-radius: 12px;
+        }
+
+        /* Nút */
+        .btn-back {
+            background: #000 !important;   /* Đổi xanh → đen */
+            color: #fff;
+            border-radius: 8px;
+            padding: 10px 25px;
+            font-weight: 600;
+        }
+        .btn-back:hover {
+            background: #333 !important;
+            color: #fff;
+        }
+        
+    </style>
+</head>
+
+<body>
+  <!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Cake Template">
+    <meta name="keywords" content="Cake, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lsu</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <style>
+        /* ==================================== */
+        /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */
+        /* ==================================== */
+
+        /* 1. Thiết lập vị trí tương đối cho mục cha */
+        .header__top__left ul li.has-dropdown {
+            position: relative; 
+        }
+
+        /* KHẮC PHỤC LỖI TÔ ĐEN TRÊN LIÊN KẾT CHA */
+        .header__top__left ul li.has-dropdown > a:focus,
+        .header__top__left ul li.has-dropdown > a:active {
+            /* Dùng !important để ghi đè CSS từ file style.css nếu cần */
+            outline: none !important; 
+            -webkit-tap-highlight-color: transparent; 
+            background-color: transparent !important;
+        }
+
+        /* 2. Thiết lập trạng thái mặc định (ẨN) cho dropdown */
+        .header__top__left ul li .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0; 
+            z-index: 100;
+
+            /* NỀN ĐẬM CHO CHỮ TRẮNG NỔI BẬT */
+            background-color: #c86808; /* Nền xám/đen đậm */
+            border: 1px solid #555;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            padding: 5px 0;
+            list-style: none; /* Loại bỏ dấu chấm */
+        }
+
+        /* 3. Hiển thị menu khi di chuột vào mục cha */
+        .header__top__left ul li.has-dropdown:hover > .dropdown {
+            display: block;
+        }
+
+        /* 4. Định kiểu cho các mục con trong menu */
+        .header__top__left ul li .dropdown li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            
+            /* MÀU CHỮ TRẮNG */
+            color: white; 
+            
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        /* Hiệu ứng di chuột (hover) cho các mục con */
+        .header__top__left ul li .dropdown li a:hover {
+            background-color: #d87511; /* Nền xám nhẹ khi hover */
+            color: #ffcc00; /* Màu nổi bật khi hover */
+        }
+        /* ======= Căn giữa & làm đẹp phần HERO ======= */
+.hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('img/hero/hero-1.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+
+/* ======= Làm đẹp và căn giữa các nút trạng thái ======= */
+.controls1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 40px 0 20px;
+}
+
+.controls1 label {
+  background: #fff;
+  border: 2px solid #000704;
+  color: #000403;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 8px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.controls1 label:hover {
+  background: #000805;
+  color: #efe9e9;
+}
+
+input[type="radio"]:checked + label {
+  background: #136a4a;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(19, 106, 74, 0.3);
+}
+/* Ẩn hoàn toàn các input radio */
+input[type="radio"][name="page"] {
+  display: none;
+}
+   /* === GHI ĐÈ CĂN GIỮA DROPDOWN === */
+.header__menu ul li .dropdown {
+    left: 50% !important;                  /* căn giữa theo chiều ngang */
+    transform: translateX(-50%) !important;/* dịch ngược lại cho giữa thật */
+    min-width: 170px !important;           /* thu hẹp lại */
+    width: fit-content !important;         /* tự co theo nội dung */
+}
+
+/* Đảm bảo chữ bên trong vẫn đẹp, không bị méo */
+.header__menu ul li .dropdown li a {
+    text-align: left !important;           /* căn chữ trái */
+    padding: 10px 35px !important;         /* tạo khoảng cách hợp lý */
+    white-space: nowrap !important;        /* tránh bị xuống dòng lung tung */
+}
+/* === GIỮ HIỆU ỨNG HOVER CŨ + BO GÓC === */
+.header__menu ul li .dropdown {
+    border-radius: 12px !important;   /* Bo góc mềm mại */
+    overflow: hidden !important;      /* Giữ cho nền bên trong bo theo */
+    border: 1px solid #444 !important;/* Viền nhẹ tách menu khỏi nền */
+    transition: all 0.3s ease;        /* Hiệu ứng mở mượt */
+}
+
+/* Hiệu ứng hover cũ quay lại */
+.header__menu ul li .dropdown li a {
+    transition: background-color 0.3s ease, color 0.3s ease; /* mượt mà khi hover */
+}
+
+.header__menu ul li .dropdown li a:hover {
+    background-color: #555 !important; /* nền xám đậm khi hover */
+    color: #ffcc00 !important;         /* chữ vàng nổi bật */
+    border-radius: 8px !important;     /* vẫn giữ bo nhẹ cho từng dòng */
+}
+    </style>
+</head>
+
+<body>
+   
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Chi Tiết Phiếu Nhập</h1>
+    </div>
+
+    <div class="container my-5">
+
+        <!-- THÔNG TIN -->
+        <div class="order-info-box mb-4">
+            <div class="row">
+
+               
+                <!-- Cột phải -->
+                <div class="col-md-6 info-block">
+                    <div class="info-title">Thông Tin</div>
+                       <p><strong>Mã Phiếu Nhập :</strong> #P001</p>
+                    <p><strong>Nhà Cung Cấp:</strong> CakeHous</p>
+                    <p><strong>Ngày Nhập:</strong> 10/10/2025</p>
+                    <p><strong>Người Sử Lý:</strong> Tô Thành Nhân </p>
+                    <p><strong>Ghi Chú:</strong> Đơn Đầu Tiên Trong Tháng 10 </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BẢNG SẢN PHẨM -->
+        <div class="table-responsive mb-4">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Ảnh Sản Phẩm </th>
+                        <th>Sản phẩm</th>
+                        <th>Giá/Cái</th>
+                        <th>Số lượng</th>
+                        <th>Tạm tính</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><img src="img/shop/product-8.jpg" width="70"></td>
+                        <td>Gluten Free Mini Dozen</td>
+                        <td>60.000đ</td>
+                        <td>100</td>
+                        <td>60.000.000đ</td>
+                    </tr>
+
+                    <tr>
+                        <td><img src="img/shop/product-6.jpg" width="70"></td>
+                        <td>Sweet Autumn Leaves</td>
+                        <td>28.000đ</td>
+                        <td>100</td>
+                        <td>28.000.000đ</td>
+                    </tr>
+                     <tr>
+                        <td><img src="img/shop/product-3.jpg" width="70"></td>
+                        <td>Vanilla Salted Caramel</td>
+                        <td>57.000đ</td>
+                        <td>100</td>
+                        <td>57.000.00đ</td>
+                    </tr>
+                     <tr>
+                        <td><img src="img/shop/product-1.jpg" width="70"></td>
+                        <td>Gluten Free Mini Dozen</td>
+                        <td>30.000đ</td>
+                        <td>100</td>
+                        <td>30.000.000đ</td>
+                    </tr>
+                     <tr>
+                        <td><img src="img/shop/product-2.jpg" width="70"></td>
+                        <td>Sweet Celtics</td>
+                        <td>45.000đ</td>
+                        <td>100</td>
+                        <td>45.000.000đ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    <!-- KHU VỰC TỔNG TIỀN + NÚT QUAY LẠI -->
+<div class="total-area mb-4 d-flex justify-content-end align-items-center gap-3 flex-wrap">
+
+    <div class="total-box" style="background:#fff; padding:20px 25px; font-weight:700; font-size:20px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        Tổng tiền: 337.000.000đ
+    </div>
+
+    <a href="shop.html" class="btn btn-back" style="background:#000; color:#fff; padding:12px 30px; font-weight:600; border-radius:8px; text-decoration:none; box-shadow:0 4px 6px rgba(0,0,0,0.2); transition:0.3s;">
+        ← Quay Lại
+    </a>
+
+</div>
+
+<style>
+.btn-back:hover {
+    background: #333 !important;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 6px 8px rgba(0,0,0,0.25);
+}
+</style>
+
+
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.barfiller.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+

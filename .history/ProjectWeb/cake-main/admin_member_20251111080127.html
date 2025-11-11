@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Khách hàng</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+        /* ==================================== */
+        /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */
+        /* ==================================== */
+
+        /* 1. Thiết lập vị trí tương đối cho mục cha */
+        .header__top__left ul li.has-dropdown {
+            position: relative; 
+        }
+
+        /* KHẮC PHỤC LỖI TÔ ĐEN TRÊN LIÊN KẾT CHA */
+        .header__top__left ul li.has-dropdown > a:focus,
+        .header__top__left ul li.has-dropdown > a:active {
+            /* Dùng !important để ghi đè CSS từ file style.css nếu cần */
+            outline: none !important; 
+            -webkit-tap-highlight-color: transparent; 
+            background-color: transparent !important;
+        }
+
+        /* 2. Thiết lập trạng thái mặc định (ẨN) cho dropdown */
+        .header__top__left ul li .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0; 
+            z-index: 100;
+
+            /* NỀN ĐẬM CHO CHỮ TRẮNG NỔI BẬT */
+            background-color: #333; /* Nền xám/đen đậm */
+            border: 1px solid #555;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            padding: 5px 0;
+            list-style: none; /* Loại bỏ dấu chấm */
+        }
+
+        /* 3. Hiển thị menu khi di chuột vào mục cha */
+        .header__top__left ul li.has-dropdown:hover > .dropdown {
+            display: block;
+        }
+
+        /* 4. Định kiểu cho các mục con trong menu */
+        .header__top__left ul li .dropdown li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            
+            /* MÀU CHỮ TRẮNG */
+            color: white; 
+            
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        /* Hiệu ứng di chuột (hover) cho các mục con */
+        .header__top__left ul li .dropdown li a:hover {
+            background-color: #555; /* Nền xám nhẹ khi hover */
+            color: #ffcc00; /* Màu nổi bật khi hover */
+        }
+
+        /* Căn giữa toàn bộ menu chính */
+.header__menu ul {
+    display: flex;
+    justify-content: center; /* căn giữa menu */
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Mỗi mục trong menu chính */
+.header__menu ul li {
+    position: relative;
+}
+
+/* Dropdown menu (đen, chữ trắng, tự giãn kích thước) */
+.header__menu ul li .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.95);
+    border: 1px solid #444;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    z-index: 100;
+    padding: 5px 0;
+
+    /* Cho phép chữ xuống dòng, mở rộng nếu cần */
+    white-space: normal; /* cho phép xuống dòng */
+    width: auto;         /* tự mở rộng theo nội dung */
+    min-width: 230px;    /* kích thước tối thiểu */
+    max-width: 300px;    /* tránh quá rộng */
+    word-wrap: break-word; /* ngắt dòng nếu chữ dài liền */
+}
+
+/* Hiện dropdown khi hover */
+.header__menu ul li:hover > .dropdown {
+    display: block;
+}
+
+/* Các item trong dropdown */
+.header__menu ul li .dropdown li {
+    display: block;
+}
+
+/* Liên kết trong dropdown */
+.header__menu ul li .dropdown li a {
+    display: block;
+    padding: 10px 18px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+    line-height: 1.4; /* giúp dòng chữ cân đối khi xuống dòng */
+}
+
+/* Hover đẹp */
+.header__menu ul li .dropdown li a:hover {
+    background-color: #333;
+    color: #ffcc00;
+}
+
+/* Hiệu ứng trượt mở */
+.header__menu ul li .dropdown {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 10px);
+    transition: all 0.25s ease;
+}
+.header__menu ul li:hover > .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+    </style>
+    <style>
+     body {
+    background: url('img/hero/hero-1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
+  }
+
+  h2 {
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #222;
+  }
+
+  .card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.9); /* 💡 nền trắng mờ để đọc rõ trên ảnh */
+  }
+
+  .table th {
+    background-color: #f1f3f9;
+  }
+
+  input[name="page"] {
+    display: none;
+  }
+
+  #page1Content,
+  #page2Content {
+    display: none;
+    animation: fade 0.4s ease;
+  }
+
+  #page1:checked~.book #page1Content {
+    display: block;
+  }
+
+  #page2:checked~.book #page2Content {
+    display: block;
+  }
+
+  .controls {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .controls label {
+    display: inline-block;
+    background-color: #e9ecef;
+    border-radius: 20px;
+    padding: 6px 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+  }
+
+  #page1:checked~.controls label[for="page1"],
+  #page2:checked~.controls label[for="page2"] {
+    background-color: #0d6efd;
+    color: white;
+  }
+
+  @keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .btn-add {
+    margin-bottom: 20px;
+  }
+    </style>
+</head>
+
+<body>
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header__top__inner">
+                            <div class="header__top__left">
+                                <ul>
+                                    <li class="has-dropdown">
+                                            Xin chào <strong>Admin</strong> 
+                                            <span class="arrow_carrot-down"></span> 
+                                        </a>
+                                        <ul class="dropdown">
+                                             
+                                            <li><a href="./admin_login.html">Log out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header__logo">
+                                <a href="./#.html"><img src="img/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="./admin_home.html">Home</a></li>
+                            <li><a href="./admin_product.html">Quản Lý Đơn Hàng</a></li>
+                            <li class="active"><a href="./admin_member.html">Quản Lý Khách Hàng</a></li>
+                            <li><a href="#">Quản Lý Kho</a>
+                                <ul class="dropdown">
+                                    <li><a href="./admin_category.html">Quản Lý Danh Mục Sản Phẩm</a></li>
+                                    <li><a href="./admin_import.html">Quản Lý Nhập Sản Phẩm</a></li>
+                                    <li><a href="./admin_selling.html">Quản Lý Giá Bán</a></li>
+                                    <li><a href="./admin_quantity.html">Quản Lý Số Lượng Tồn</a></li>
+                                    <li><a href="./admin_type.html">Quản Lý Loại Sản Phẩm</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container py-5">
+        <h2 class="text-center">Quản lý Khách hàng</h2>
+
+        <div class="card">
+             <div class="input-group">
+                <input type="text" class="form-control" placeholder="Tìm kiếm khách hàng (tên, email, SĐT)...">
+                <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i> Tìm kiếm</button>
+            </div>
+        </div>
+
+        <div class="card bg-white">
+            <h5><i class="fa-solid fa-users"></i> Danh sách khách hàng</h5>
+            <div class="table-responsive mt-3">
+                <table class="table table-bordered text-center align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Mã KH</th>
+                            <th>Họ và Tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+  <tr>
+    <td>#KH001</td>
+    <td>Trần Nhựt Huy</td>
+    <td>huytn@gmail.com</td>
+    <td>0901234567</td>
+    <td>123 Nguyễn Văn Cừ, Q.5, TP.HCM</td>
+    <td><span class="badge bg-success">Hoạt động</span></td>
+    <td class="action-buttons">
+      <button class="btn btn-info btn-sm btn-view">
+        <i class="fa-solid fa-eye"></i> Chi tiết
+      </button>
+      <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#resetPasswordModal">
+        
+      </button>
+      <button class="btn btn-danger btn-sm btn-lock">
+        <i class="fa-solid fa-lock"></i> Khóa
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>#KH002</td>
+    <td>Nguyễn Hoàng Phúc</td>
+    <td>phucnh@gmail.com</td>
+    <td>0987654321</td>
+    <td>456 Lê Lợi, Q.1, TP.HCM</td>
+    <td><span class="badge bg-danger">Đã khóa</span></td>
+    <td class="action-buttons">
+      <button class="btn btn-info btn-sm btn-view">
+        <i class="fa-solid fa-eye"></i> Chi tiết
+      </button>
+     
+      </button>
+      <button class="btn btn-success btn-sm btn-unlock">
+        <i class="fa-solid fa-unlock"></i> Mở khóa
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>#KH003</td>
+    <td>Đào Hữu Tài</td>
+    <td>taidh@gmail.com</td>
+    <td>0333580320</td>
+    <td>Đường số 19, Q.7, TP.HCM</td>
+    <td><span class="badge bg-success">Hoạt động</span></td>
+    <td class="action-buttons">
+      <button class="btn btn-info btn-sm btn-view">
+        <i class="fa-solid fa-eye"></i> Chi tiết
+      </button>
+    
+       
+      </button>
+      <button class="btn btn-danger btn-sm btn-lock">
+        <i class="fa-solid fa-lock"></i> Khóa
+      </button>
+    </td>
+  </tr>
+</tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="resetPasswordModal" tabindex="-1" aria-labelledby="resetPasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h5 class="modal-title" id="resetPasswordModalLabel"><i class="fa-solid fa-triangle-exclamation"></i> Xác nhận Reset Mật khẩu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Bạn có chắc chắn muốn reset mật khẩu cho khách hàng này không? Mật khẩu mới sẽ được gửi đến email của họ.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-warning">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.barfiller.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.btn-lock, .btn-unlock');
+  if (!btn) return; // nếu không nhấn vào 2 nút này thì bỏ qua
+
+  const row = btn.closest('tr');
+  const badge = row.querySelector('.badge');
+
+  if (btn.classList.contains('btn-lock')) {
+    // Khi đang là nút "Khóa" → đổi sang "Mở khóa"
+    badge.classList.replace('bg-success', 'bg-danger');
+    badge.textContent = 'Đã khóa';
+    btn.innerHTML = '<i class="fa-solid fa-unlock"></i> Mở khóa';
+    btn.classList.replace('btn-danger', 'btn-success');
+    btn.classList.replace('btn-lock', 'btn-unlock');
+  } else {
+    // Khi đang là nút "Mở khóa" → đổi sang "Khóa"
+    badge.classList.replace('bg-danger', 'bg-success');
+    badge.textContent = 'Hoạt động';
+    btn.innerHTML = '<i class="fa-solid fa-lock"></i> Khóa';
+    btn.classList.replace('btn-success', 'btn-danger');
+    btn.classList.replace('btn-unlock', 'btn-lock');
+  }
+});
+
+// ✅ Xử lý khi ấn “Đồng ý” trong modal reset mật khẩu
+document.querySelector('#resetPasswordModal .btn-warning').addEventListener('click', function() {
+  // Ẩn modal
+  const modal = bootstrap.Modal.getInstance(document.getElementById('resetPasswordModal'));
+  modal.hide();
+
+  // Hiển thị thông báo
+  setTimeout(() => {
+    alert('✅ Mật khẩu đã được reset thành công và gửi đến email của khách hàng!');
+  }, 300);
+});
+</script>
+<script>
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.btn-view');
+  if (!btn) return;
+
+  // Khi click "Chi tiết" → chuyển trang
+  window.location.href = 'member_profile.html';
+});
+</script>
+
+
+</body>
+</html>

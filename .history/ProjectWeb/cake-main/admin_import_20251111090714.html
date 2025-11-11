@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Nhập Sản phẩm</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+      body {
+        background: url('img/hero/hero-1.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Montserrat', sans-serif;
+        color: #222;
+      }
+
+      h2 {
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: #222;
+      }
+
+      .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 25px;
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+
+      .table th {
+        background-color: #f1f3f9;
+      }
+    </style>
+      <style>
+        /* ==================================== */
+        /* CẤU TRÚC MENU THẢ XUỐNG (DROPDOWN) */
+        /* ==================================== */
+
+        /* 1. Thiết lập vị trí tương đối cho mục cha */
+        .header__top__left ul li.has-dropdown {
+            position: relative; 
+        }
+
+        /* KHẮC PHỤC LỖI TÔ ĐEN TRÊN LIÊN KẾT CHA */
+        .header__top__left ul li.has-dropdown > a:focus,
+        .header__top__left ul li.has-dropdown > a:active {
+            /* Dùng !important để ghi đè CSS từ file style.css nếu cần */
+            outline: none !important; 
+            -webkit-tap-highlight-color: transparent; 
+            background-color: transparent !important;
+        }
+
+        /* 2. Thiết lập trạng thái mặc định (ẨN) cho dropdown */
+        .header__top__left ul li .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0; 
+            z-index: 100;
+
+            /* NỀN ĐẬM CHO CHỮ TRẮNG NỔI BẬT */
+            background-color: #333; /* Nền xám/đen đậm */
+            border: 1px solid #555;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            padding: 5px 0;
+            list-style: none; /* Loại bỏ dấu chấm */
+        }
+
+        /* 3. Hiển thị menu khi di chuột vào mục cha */
+        .header__top__left ul li.has-dropdown:hover > .dropdown {
+            display: block;
+        }
+
+        /* 4. Định kiểu cho các mục con trong menu */
+        .header__top__left ul li .dropdown li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            
+            /* MÀU CHỮ TRẮNG */
+            color: white; 
+            
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        /* Hiệu ứng di chuột (hover) cho các mục con */
+        .header__top__left ul li .dropdown li a:hover {
+            background-color: #555; /* Nền xám nhẹ khi hover */
+            color: #ffcc00; /* Màu nổi bật khi hover */
+        }
+
+        /* Căn giữa toàn bộ menu chính */
+.header__menu ul {
+    display: flex;
+    justify-content: center; /* căn giữa menu */
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Mỗi mục trong menu chính */
+.header__menu ul li {
+    position: relative;
+}
+
+/* Dropdown menu (đen, chữ trắng, tự giãn kích thước) */
+.header__menu ul li .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.95);
+    border: 1px solid #444;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    z-index: 100;
+    padding: 5px 0;
+
+    /* Cho phép chữ xuống dòng, mở rộng nếu cần */
+    white-space: normal; /* cho phép xuống dòng */
+    width: auto;         /* tự mở rộng theo nội dung */
+    min-width: 230px;    /* kích thước tối thiểu */
+    max-width: 300px;    /* tránh quá rộng */
+    word-wrap: break-word; /* ngắt dòng nếu chữ dài liền */
+}
+
+/* Hiện dropdown khi hover */
+.header__menu ul li:hover > .dropdown {
+    display: block;
+}
+
+/* Các item trong dropdown */
+.header__menu ul li .dropdown li {
+    display: block;
+}
+
+/* Liên kết trong dropdown */
+.header__menu ul li .dropdown li a {
+    display: block;
+    padding: 10px 18px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+    line-height: 1.4; /* giúp dòng chữ cân đối khi xuống dòng */
+}
+
+/* Hover đẹp */
+.header__menu ul li .dropdown li a:hover {
+    background-color: #333;
+    color: #ffcc00;
+}
+
+/* Hiệu ứng trượt mở */
+.header__menu ul li .dropdown {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 10px);
+    transition: all 0.25s ease;
+}
+.header__menu ul li:hover > .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+
+        </style>
+    
+    </style>
+</head>
+
+<body>
+    <div id="preloder"><div class="loader"></div></div>
+    <header class="header">
+        <div class="header__top"><div class="container"><div class="row"><div class="col-lg-12"><div class="header__top__inner"><div class="header__top__left"><ul><li class="has-dropdown">Xin chào <strong>Admin</strong><span class="arrow_carrot-down"></span></a><ul class="dropdown"><li><a href="./admin_login.html">Log out</a></li></ul></li></ul></div><div class="header__logo"><a href="./#.html"><img src="img/logo.png" alt=""></a></div></div></div></div><div class="canvas__open"><i class="fa fa-bars"></i></div></div></div>
+        <div class="container"><div class="row"><div class="col-lg-12"><nav class="header__menu mobile-menu"><ul>
+            <li><a href="./admin_home.html">Home</a></li>
+            <li><a href="./admin_product.html">Quản Lý Đơn Hàng</a></li><li><a href="./admin_member.html">Quản Lý Khách Hàng</a></li><li class="active"><a href="#">Quản Lý Kho</a><ul class="dropdown"><li><a href="./admin_category.html">Quản Lý Danh Mục</a></li><li><a href="./admin_import.html">Quản Lý Nhập Sản Phẩm</a></li><li><a href="./admin_selling.html">Quản Lý Giá Bán</a></li><li><a href="./admin_quantity.html">Quản Lý Số Lượng Tồn</a></li><li><a href="./admin_type.html">Quản Lý Loại Sản Phẩm</a></li></ul></li></ul></nav></div></div></div>
+    </header>
+
+    <div class="container py-5">
+        <h2 class="text-center">Quản Lý Nhập Sản Phẩm</h2>
+
+        <div class="card">
+            <div class="row g-3 justify-content-between align-items-center">
+                <div class="col-md-6"><div class="input-group"><input type="text" class="form-control" placeholder="Tìm theo mã phiếu nhập..."><button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button></div></div>
+                <div class="col-md-4 text-end"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal"><i class="fa-solid fa-plus"></i> Thêm Phiếu Nhập Mới</button></div>
+            </div>
+        </div>
+
+        <div class="card bg-white">
+            <h5><i class="fa-solid fa-clipboard-list"></i> Danh mục phiếu nhập hàng</h5>
+            <div class="table-responsive mt-3">
+                <table class="table table-bordered text-center align-middle">
+                    <thead class="table-light">
+                        <tr><th>Mã Phiếu</th><th>Ngày Nhập</th><th>Nhà Cung Cấp</th><th>Tổng Tiền</th><th>Thao Tác</th></th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#PN001</td><td>20/10/2025</td><td>CakeHome</td><td>100,000,000đ</span></td>
+                            <td class="action-buttons"><button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fa-solid fa-eye"></i> Xem</button></td>
+                        </tr>
+                        <tr>
+                            <td>#PN002</td><td>25/10/2025</td><td>CakePrimeum</td><td>50,000,000,000 đ</span></td>
+                             <td class="action-buttons"><button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fa-solid fa-eye"></i> Xem</button></td>
+                               
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fa-solid fa-plus"></i> Thêm Phiếu Nhập Mới</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label"><strong>Ngày nhập</strong></label>
+                                <input type="date" class="form-control">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6><strong>Chi tiết sản phẩm nhập</strong></h6>
+                            <button type="button" class="btn btn-success btn-sm" id="addProductBtn">
+                                <i class="fa-solid fa-plus"></i> Thêm Sản Phẩm
+                            </button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered align-middle" id="addProductTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Sản phẩm</th>
+                                        <th style="width: 15%;">Số lượng</th>
+                                        <th style="width: 20%;">Giá nhập (VNĐ)</th>
+                                        <th style="width: 20%;">Thành tiền</th>
+                                        <th style="width: 10%;" class="text-center">Xóa</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="addProductTableBody">
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4" class="text-end"><strong>Tổng cộng:</strong></td>
+                                        <td id="totalAmount" class="fw-bold"><strong>0 đ</strong></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Lưu Nháp</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hoàn Thành Phiếu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title"><i class="fa-solid fa-pen-to-square"></i> Chỉnh Sửa Phiếu Nhập #PN002</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row mb-3"><div class="col-md-4"><label class="form-label"><strong>Ngày nhập</strong></label><input type="date" class="form-control" value="2025-10-25"></div></div><hr>
+                        <h6><strong>Chi tiết sản phẩm nhập</strong></h6>
+                        <div class="table-responsive mt-3"><table class="table table-bordered align-middle"><thead class="table-light"><tr><th>Sản phẩm</th><th style="width: 15%;">Số lượng</th><th style="width: 20%;">Giá nhập</th><th style="width: 20%;">Thành tiền</th><th style="width: 10%;" class="text-center">Xóa</th></tr></thead><tbody><tr><td>Dozen Cupcakes</td><td><input type="number" class="form-control" value="5"></td><td><input type="number" class="form-control" value="140000"></td><td>700,000 đ</td><td class="text-center"><button class="btn btn-outline-danger btn-sm"><i class="fa-solid fa-trash"></i></button></td></tr><tr><td>Cookies And Cream</td><td><input type="number" class="form-control" value="2"></td><td><input type="number" class="form-control" value="250000"></td><td>500,000 đ</td><td class="text-center"><button class="btn btn-outline-danger btn-sm"><i class="fa-solid fa-trash"></i></button></td></tr></tbody><tfoot><tr><td colspan="3" class="text-end"><strong>Tổng cộng:</strong></td><td colspan="2"><strong>1,200,000 đ</strong></td></tr></tfoot></table></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Lưu Thay Đổi</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hoàn Thành</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="viewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"><i class="fa-solid fa-eye"></i> Xem Chi Tiết Phiếu Nhập #PN001</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><form><fieldset disabled><div class="row mb-3"><div class="col-md-4"><label class="form-label"><strong>Ngày nhập</strong></label><input type="date" class="form-control" value="2025-10-20"></div></div><hr><h6><strong>Chi tiết sản phẩm đã nhập</strong></h6><div class="table-responsive mt-3"><table class="table table-bordered align-middle"><thead class="table-light"><tr><th>Sản phẩm</th><th>Số lượng</th><th>Giá nhập</th><th>Thành tiền</th></tr></thead><tbody><tr><td>Dozen Cupcakes</td><td>20</td><td>150,000 đ</td><td>3,000,000 đ</td></tr><tr><td>German Chocolate</td><td>10</td><td>250,000 đ</td><td>2,500,000 đ</td></tr></tbody><tfoot><tr><td colspan="3" class="text-end"><strong>Tổng cộng:</strong></td><td><strong>5,500,000 đ</strong></td></tr></tfoot></table></div></fieldset></form></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button></div></div></div>
+    </div>
+    
+ 
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.barfiller.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/slider.js"></script>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/slider.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    // DỮ LIỆU SẢN PHẨM MẪU
+    const productList = [
+        { id: 1, name: 'Dozen Cupcakes' },
+        { id: 2, name: 'Cookies And Cream' },
+        { id: 3, name: 'German Chocolate' },
+        { id: 4, name: 'Red Velvet' },
+        { id: 5, name: 'Birthday Cake' },
+        { id: 6, name: 'Vanilla' }
+    ];
+
+    const addModal = document.getElementById('addModal');
+    const addProductBtn = document.getElementById('addProductBtn');
+    const tableBody = document.getElementById('addProductTableBody');
+    const totalAmountCell = document.getElementById('totalAmount');
+
+    function formatCurrency(number) {
+        return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number);
+    }
+    
+    // HÀM TẠO HÀNG MỚI (Vẫn dùng hàm này)
+    function addNewProductRow() {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>
+                <div class="position-relative">
+                    <input type="text" class="form-control product-name-input" placeholder="Nhập tên sản phẩm...">
+                    <div class="suggestions-container"></div>
+                </div>
+            </td>
+            <td><input type="number" class="form-control product-quantity" value="1" min="1"></td>
+            <td><input type="number" class="form-control product-price" placeholder="0" min="0"></td>
+            <td class="product-subtotal">0 đ</td>
+            <td class="text-center">
+                <button type="button" class="btn btn-outline-danger btn-sm delete-row-btn"><i class="fa-solid fa-trash"></i></button>
+            </td>
+        `;
+        tableBody.appendChild(newRow);
+        updateTotals();
+    }
+
+    // HÀM CẬP NHẬT TỔNG TIỀN
+    function updateTotals() {
+        let total = 0;
+        const rows = tableBody.querySelectorAll('tr');
+        rows.forEach(row => {
+            const quantity = parseInt(row.querySelector('.product-quantity').value) || 0;
+            const price = parseFloat(row.querySelector('.product-price').value) || 0;
+            const subtotal = quantity * price;
+            row.querySelector('.product-subtotal').textContent = formatCurrency(subtotal);
+            total += subtotal;
+        });
+        totalAmountCell.textContent = formatCurrency(total);
+    }
+    
+    // LOGIC XỬ LÝ GỢI Ý
+    tableBody.addEventListener('input', function(event) {
+        if (event.target.classList.contains('product-name-input')) {
+            const input = event.target;
+            const query = input.value.toLowerCase();
+            const suggestionsContainer = input.nextElementSibling;
+            suggestionsContainer.innerHTML = '';
+            if (query.length > 0) {
+                const filteredProducts = productList.filter(product => 
+                    product.name.toLowerCase().includes(query)
+                );
+                if (filteredProducts.length > 0) {
+                    filteredProducts.forEach(product => {
+                        const item = document.createElement('div');
+                        item.classList.add('suggestion-item');
+                        item.textContent = product.name;
+                        suggestionsContainer.appendChild(item);
+                    });
+                    suggestionsContainer.style.display = 'block';
+                } else {
+                    suggestionsContainer.style.display = 'none';
+                }
+            } else {
+                suggestionsContainer.style.display = 'none';
+            }
+        }
+    });
+
+    // LOGIC XỬ LÝ CLICK
+    tableBody.addEventListener('click', function(event) {
+        // Khi click vào một gợi ý
+        if (event.target.classList.contains('suggestion-item')) {
+            const suggestionText = event.target.textContent;
+            const inputWrapper = event.target.closest('.position-relative');
+            const inputField = inputWrapper.querySelector('.product-name-input');
+            inputField.value = suggestionText;
+            inputWrapper.querySelector('.suggestions-container').style.display = 'none';
+        }
+        // Khi click vào nút xóa hàng
+        if (event.target.closest('.delete-row-btn')) {
+            event.target.closest('tr').remove();
+            updateTotals();
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.position-relative')) {
+            document.querySelectorAll('.suggestions-container').forEach(container => {
+                container.style.display = 'none';
+            });
+        }
+    });
+
+    // SỰ KIỆN KHI MỞ MODAL
+    addModal.addEventListener('shown.bs.modal', function () {
+        // Nếu bảng trống, tự động thêm hàng đầu tiên
+        if (tableBody.children.length === 0) {
+            addNewProductRow();
+        }
+    });
+    
+    addProductBtn.addEventListener('click', addNewProductRow);
+});
+</script>
+</body>
+</html>
