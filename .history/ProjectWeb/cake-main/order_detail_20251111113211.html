@@ -78,13 +78,13 @@
 <body>
 
 <div class="container py-5">
-  <div class="order-header">Chi Tiết Đơn Hàng</div>
+  <div class="order-header">Chi tiết đơn hàng P001</div>
 
   <div class="row g-4">
     <!-- Sản phẩm trong đơn -->
     <div class="col-md-7">
       <div class="order-card">
-        <h4>Sản Phẩm Trong Đơn</h4>
+        <h4>Sản phẩm trong đơn</h4>
         <table class="table table-bordered table-striped">
           <thead class="table-primary">
             <tr>
@@ -97,7 +97,7 @@
           <tbody>
             <tr>
               <td class="product-name">
-                <img src="img/shop/product-3.jpg" alt="Dozen Cupcakes">
+                <img src="img/products/dozen_cupcakes.jpg" alt="Dozen Cupcakes">
                 Dozen Cupcakes
               </td>
               <td>2</td>
@@ -106,7 +106,7 @@
             </tr>
             <tr>
               <td class="product-name">
-                <img src="img/shop/product-11.jpg" alt="Socola Cupcake">
+                <img src="img/products/socola_cupcake.jpg" alt="Socola Cupcake">
                 Socola Cupcake
               </td>
               <td>1</td>
@@ -115,7 +115,7 @@
             </tr>
             <tr>
               <td class="product-name">
-                <img src="img/shop/product-1.jpg" alt="Cookie Dough">
+                <img src="img/products/cookie_dough.jpg" alt="Cookie Dough">
                 Cookie Dough
               </td>
               <td>1</td>
@@ -135,11 +135,14 @@
           </tbody>
         </table>
 
-        <h4>Trạng Thái</h4>
+        <h4>Trạng thái đơn hàng</h4>
         <select class="form-select mb-3">
           <option selected>Mới đặt</option>
-        
+          <option>Đã xử lý</option>
+          <option>Đã giao</option>
+          <option>Hủy</option>
         </select>
+
         <div class="buttons-in-column">
           <a href="admin_product.html" class="btn btn-dark me-2"><i class="fas fa-arrow-left me-1"></i> Quay lại</a>
           <button type="button" class="btn btn-success" onclick="confirmSave()"><i class="fas fa-save me-1"></i> Lưu thay đổi</button>
@@ -150,7 +153,7 @@
     <!-- Thông tin giao hàng -->
     <div class="col-md-5">
       <div class="order-card">
-        <h4>Thông Tin Giao Hàng</h4>
+        <h4>Thông tin giao hàng</h4>
         <p><strong>Họ tên:</strong> Tô Thành Nhân</p>
         <p><strong>Email:</strong> nhanto2n@gmail.com</p>
         <p><strong>SĐT:</strong> 0869880043</p>
@@ -160,7 +163,7 @@
 
         <hr>
         <h4>Ghi chú</h4>
-        <textarea class="form-control" rows="7" placeholder="Ghi chú để thông báo đến khách hàng..."></textarea>
+        <textarea class="form-control" rows="5" placeholder="Ghi chú để thông báo đến khách hàng..."></textarea>
       </div>
     </div>
   </div>

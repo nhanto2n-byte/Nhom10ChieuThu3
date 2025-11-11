@@ -281,7 +281,66 @@
                 });
             }
         });
-        
+        <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addForm = document.getElementById('addTypeForm');
+        const cancelButton = document.getElementById('cancelButton');
+        const addButton = document.getElementById('addButton');
+        const notificationArea = document.getElementById('notification-area');
+        const mainPageURL = './admin_type.html'; // Đổi sang admin_type.html
+
+        // Custom File Input
+        const loaiAnhInput = document.getElementById('loaiAnh');
+        const fileNameDisplay = document.querySelector('.file-name-display');
+
+        if (loaiAnhInput && fileNameDisplay) {
+            loaiAnhInput.addEventListener('change', function() {
+                if (this.files && this.files.length > 0) {
+                    fileNameDisplay.textContent = this.files[0].name;
+                } else {
+                    fileNameDisplay.textContent = 'Không có tệp nào được chọn';
+                }
+            });
+        }
+
+        // Nút Quay lại
+        if (cancelButton) {
+            cancelButton.addEventListener('click', function() {
+                window.location.href = mainPageURL;
+            });
+        }
+
+        // Nút Thêm
+        if (addForm) {
+            addForm.addEventListener('submit', function(e) {
+                e.preventDefault(); 
+                const tenLoai = addForm.querySelector('[name="loaiTen"]').value || "Loại mới"; 
+
+                // Thông báo thành công
+                if (notificationArea) {
+                    notificationArea.innerHTML = `
+                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <i class="fa-solid fa-check-circle me-2"></i>
+                            <div>
+                                <strong>Thành công!</strong> Bạn đã thêm loại "${tenLoai}" thành công.
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    alert(`Thêm "${tenLoai}" thành công!`);
+                }
+
+                addButton.disabled = true;
+                cancelButton.disabled = true;
+
+                setTimeout(function() {
+                    window.location.href = mainPageURL; // Chuyển sang admin_type.html
+                }, 2000); 
+            });
+        }
+    });
+</script>
+
     </script>
 </body>
 </html>
